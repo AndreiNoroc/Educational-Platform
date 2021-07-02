@@ -3,6 +3,10 @@ var connections = 0;
 var happines = 0;
 var money = 0;
 
+let valueElements = new Map();
+
+var listElements = ["barsprog", "initdiv", "initbutt", "exitbutt", "barsprog", "div0", "div0vh1", "div0vh2", "div0vh3", 
+"div1", "div1vh1", "div2", "div2vh1", "div3", "div3vh1", "gp1", "gp2", "gp3"];
 
 function choosefirstgame(clck) {
 	document.getElementById("initdiv").style.display = 'inline-block';
@@ -73,69 +77,43 @@ function startgame() {
 	document.getElementById("happ").innerHTML = "Happines: " + happines + "%";
 	document.getElementById("mon").innerHTML = "Money: " + money + "$";
 
-	document.getElementById("div1").style.display = 'inline-block';
+	document.getElementById("div0").style.display = 'inline-block';
 
 
 	if (focus >= 25) {
-		document.getElementById("div1hv1").style.display = 'inline-block';
+		document.getElementById("div0vh1").style.display = 'inline-block';
 	} else if (21 < focus && focus < 25) {
-		document.getElementById("div1hv2").style.display = 'inline-block';
+		document.getElementById("div0vh2").style.display = 'inline-block';
 	} else {
-		document.getElementById("div1hv3").style.display = 'inline-block';
+		document.getElementById("div0vh3").style.display = 'inline-block';
 	}
 
 	document.getElementById("gp1").style.display = 'inline-block';
 
+	valueElements.set("gp1", [0, 0, 0, 0, "div0", ["div0vh1", "div0vh2", "div0vh3"], ["gp1"], "div1", ["div1vh1"], ["gp2", "gp3"]]);
+	valueElements.set("gp2", [5, 4, -4, -100, "div1", ["div1vh1"], ["gp2", "gp3"], "div2", ["div2vh1"], []]);
+	valueElements.set("gp3", [1, -5, 3, 100, "div1", ["div1vh1"], ["gp2", "gp3"], "div3", ["div3vh1"], []]);
 }
 
 function exitgame() {
-	document.getElementById("barsprog").style.display = 'none';
-
-	document.getElementById("initdiv").style.display = 'none';
-
-	document.getElementById("div1").style.display = 'none';
-	document.getElementById("div1hv1").style.display = 'none';
-	document.getElementById("div1hv2").style.display = 'none';
-	document.getElementById("div1hv3").style.display = 'none';
-
-	document.getElementById("div2").style.display = 'none';
-	document.getElementById("div2hv1").style.display = 'none';
-
-	document.getElementById("div3").style.display = 'none';
-	document.getElementById("div3hv1").style.display = 'none';
-
-	document.getElementById("div4").style.display = 'none';
-	document.getElementById("div4hv1").style.display = 'none';
-
-	document.getElementById("initbutt").style.display = 'none';
-	document.getElementById("gp1").style.display = 'none';
-	document.getElementById("gp2").style.display = 'none';
-	document.getElementById("gp3").style.display = 'none';
-	document.getElementById("exitbutt").style.display = 'none';
+	for (var i = 0 ; i < listElements.length ; i++) {
+		document.getElementById(listElements[i]).style.display = 'none';		
+	}
 
 	focus = connections = happines = money = 0;
 
 	document.getElementById("startfgame").disabled = false;
 }
 
-function fg1() {
-	document.getElementById("div1").style.display = 'none';
-	document.getElementById("div1hv1").style.display = 'none';
-	document.getElementById("div1hv2").style.display = 'none';
-	document.getElementById("div1hv3").style.display = 'none';
-	document.getElementById("gp1").style.display = 'none';
+function exposeElements(clickedId) {
+	var elemVals = valueElements.get(clickedId);
 
-	document.getElementById("div2").style.display = 'inline-block';
-	document.getElementById("div2hv1").style.display = 'inline-block';
+	console.log(elemVals);
 
-	document.getElementById("gp2").style.display = 'inline-block';
-	document.getElementById("gp3").style.display = 'inline-block';
-}
-
-function fg2() {
-	connections += 5;
-	happines += 4;
-	focus -= 4;
+	connections += elemVals[0];
+	happines += elemVals[1];
+	focus += elemVals[2];
+	money += elemVals[3];
 
 	document.getElementById("focus").innerHTML = "Focus: " + focus + "%";
 	document.getElementById("connec").innerHTML = "Connections: " + connections + "%";
@@ -146,37 +124,23 @@ function fg2() {
 	document.getElementById("connec").style.width = connections + "%";
 	document.getElementById("happ").style.width = happines + "%";
 
-	document.getElementById("div2").style.display = 'none';
-	document.getElementById("div2hv1").style.display = 'none';
-	document.getElementById("gp2").style.display = 'none';
-	document.getElementById("gp3").style.display = 'none';
+	document.getElementById(elemVals[4]).style.display = 'none';
 
+	for (var i = 0 ; i < elemVals[5].length ; i++) {
+		document.getElementById(elemVals[5][i]).style.display = 'none';		
+	}
 
-	document.getElementById("div3").style.display = 'inline-block';
-	document.getElementById("div3hv1").style.display = 'inline-block';
-}
+	for (var i = 0 ; i < elemVals[6].length ; i++) {
+		document.getElementById(elemVals[6][i]).style.display = 'none';		
+	}
 
-function fg3() {
-	connections += 1;
-	happines -= 5;
-	focus += 3;
-	money += 100;
+	document.getElementById(elemVals[7]).style.display = 'none';
 
-	document.getElementById("focus").innerHTML = "Focus: " + focus + "%";
-	document.getElementById("connec").innerHTML = "Connections: " + connections + "%";
-	document.getElementById("happ").innerHTML = "Happines: " + happines + "%";
-	document.getElementById("mon").innerHTML = "Money: " + money + "$";
+	for (var i = 0 ; i < elemVals[8].length ; i++) {
+		document.getElementById(elemVals[8][i]).style.display = 'inline-block';		
+	}
 
-	document.getElementById("focus").style.width = focus + "%";
-	document.getElementById("connec").style.width = connections + "%";
-	document.getElementById("happ").style.width = happines + "%";
-
-	document.getElementById("div2").style.display = 'none';
-	document.getElementById("div2hv1").style.display = 'none';
-	document.getElementById("gp2").style.display = 'none';
-	document.getElementById("gp3").style.display = 'none';
-
-
-	document.getElementById("div4").style.display = 'inline-block';
-	document.getElementById("div4hv1").style.display = 'inline-block';
+	for (var i = 0 ; i < elemVals[9].length ; i++) {
+		document.getElementById(elemVals[9][i]).style.display = 'inline-block';		
+	}	
 }
