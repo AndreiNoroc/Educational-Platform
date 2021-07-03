@@ -5,8 +5,8 @@ var money = 0;
 
 let valueElements = new Map();
 
-var listElements = ["barsprog", "initdiv", "initbutt", "exitbutt", "barsprog", "div0", "div0vh1", "div0vh2", "div0vh3", 
-"div1", "div1vh1", "div2", "div2vh1", "div3", "div3vh1", "gp1", "gp2", "gp3"];
+var listElements = ["barsprog", "initdiv", "initbutt", "exitbutt", "div0vh1", "div0vh2", "div0vh3", 
+"div1vh1", "div2vh1", "div3vh1", "gp1", "gp2", "gp3"];
 
 function choosefirstgame(clck) {
 	document.getElementById("initdiv").style.display = 'inline-block';
@@ -77,9 +77,6 @@ function startgame() {
 	document.getElementById("happ").innerHTML = "Happines: " + happines + "%";
 	document.getElementById("mon").innerHTML = "Money: " + money + "$";
 
-	document.getElementById("div0").style.display = 'inline-block';
-
-
 	if (focus >= 25) {
 		document.getElementById("div0vh1").style.display = 'inline-block';
 	} else if (21 < focus && focus < 25) {
@@ -90,9 +87,9 @@ function startgame() {
 
 	document.getElementById("gp1").style.display = 'inline-block';
 
-	valueElements.set("gp1", [0, 0, 0, 0, "div0", ["div0vh1", "div0vh2", "div0vh3"], ["gp1"], "div1", ["div1vh1"], ["gp2", "gp3"]]);
-	valueElements.set("gp2", [5, 4, -4, -100, "div1", ["div1vh1"], ["gp2", "gp3"], "div2", ["div2vh1"], []]);
-	valueElements.set("gp3", [1, -5, 3, 100, "div1", ["div1vh1"], ["gp2", "gp3"], "div3", ["div3vh1"], []]);
+	valueElements.set("gp1", [0, 0, 0, 0, ["div0vh1", "div0vh2", "div0vh3"], ["gp1"], ["div1vh1"], ["gp2", "gp3"]]);
+	valueElements.set("gp2", [5, 4, -4, -100, ["div1vh1"], ["gp2", "gp3"], ["div2vh1"], []]);
+	valueElements.set("gp3", [1, -5, 3, 100, ["div1vh1"], ["gp2", "gp3"], ["div3vh1"], []]);
 }
 
 function exitgame() {
@@ -108,8 +105,6 @@ function exitgame() {
 function exposeElements(clickedId) {
 	var elemVals = valueElements.get(clickedId);
 
-	console.log(elemVals);
-
 	connections += elemVals[0];
 	happines += elemVals[1];
 	focus += elemVals[2];
@@ -124,23 +119,19 @@ function exposeElements(clickedId) {
 	document.getElementById("connec").style.width = connections + "%";
 	document.getElementById("happ").style.width = happines + "%";
 
-	document.getElementById(elemVals[4]).style.display = 'none';
+	for (var i = 0 ; i < elemVals[4].length ; i++) {
+		document.getElementById(elemVals[4][i]).style.display = 'none';		
+	}
 
 	for (var i = 0 ; i < elemVals[5].length ; i++) {
 		document.getElementById(elemVals[5][i]).style.display = 'none';		
 	}
 
 	for (var i = 0 ; i < elemVals[6].length ; i++) {
-		document.getElementById(elemVals[6][i]).style.display = 'none';		
+		document.getElementById(elemVals[6][i]).style.display = 'inline-block';		
 	}
 
-	document.getElementById(elemVals[7]).style.display = 'none';
-
-	for (var i = 0 ; i < elemVals[8].length ; i++) {
-		document.getElementById(elemVals[8][i]).style.display = 'inline-block';		
-	}
-
-	for (var i = 0 ; i < elemVals[9].length ; i++) {
-		document.getElementById(elemVals[9][i]).style.display = 'inline-block';		
+	for (var i = 0 ; i < elemVals[7].length ; i++) {
+		document.getElementById(elemVals[7][i]).style.display = 'inline-block';		
 	}	
 }
