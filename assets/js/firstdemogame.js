@@ -1,3 +1,5 @@
+var gameInProgress = false;
+
 var focus = 0;
 var connections = 0;
 var happines = 0;
@@ -8,15 +10,26 @@ let valueElements = new Map();
 var listElements = ["barsprog", "initdiv", "initbutt", "exitbutt", "div0vh1", "div0vh2", "div0vh3", 
 "div1vh1", "div2vh1", "div3vh1", "gp1", "gp2", "gp3"];
 
-function choosefirstgame(clck) {
-	document.getElementById("initdiv").style.display = 'inline-block';
-	document.getElementById("initbutt").style.display = 'inline-block';
-	document.getElementById("exitbutt").style.display = 'inline-block';
+function choosefirstgame() {
+	if (gameInProgress == false) {
+		gameInProgress = true;
 
-	document.getElementById('gpa').selectedIndex;
-	document.getElementById('act').selectedIndex;
+		document.getElementById("introwindow").style.display = 'none';
+		document.getElementById("introtext").style.display = 'none';
+		document.getElementById("tabletext").style.display = 'none';
 
-	document.getElementById("startfgame").disabled = true;
+		document.getElementById("firstgame").style.display = 'inline-block';
+		document.getElementById("initdiv").style.display = 'inline-block';
+		document.getElementById("initbutt").style.display = 'inline-block';
+		document.getElementById("exitbutt").style.display = 'inline-block';
+
+		document.getElementById('gpa').selectedIndex;
+		document.getElementById('act').selectedIndex;
+
+		document.getElementById("startfgame").disabled = true;
+	} else {
+		alert("Another game is already in progress!");
+	}
 }
 
 function startgame() {
@@ -92,14 +105,21 @@ function startgame() {
 	valueElements.set("gp3", [1, -5, 3, 100, ["div1vh1"], ["gp2", "gp3"], ["div3vh1"], []]);
 }
 
-function exitgame() {
+function exitfirstgame() {
+	gameInProgress = false;
+
 	for (var i = 0 ; i < listElements.length ; i++) {
 		document.getElementById(listElements[i]).style.display = 'none';		
 	}
 
 	focus = connections = happines = money = 0;
 
+	document.getElementById("firstgame").style.display = 'none';
 	document.getElementById("startfgame").disabled = false;
+
+	document.getElementById("introwindow").style.display = 'inline-block';
+	document.getElementById("tabletext").style.display = 'table';
+	document.getElementById("introtext").style.display = 'table-cell';
 }
 
 function exposeElements(clickedId) {
@@ -134,4 +154,44 @@ function exposeElements(clickedId) {
 	for (var i = 0 ; i < elemVals[7].length ; i++) {
 		document.getElementById(elemVals[7][i]).style.display = 'inline-block';		
 	}	
+}
+
+function choosesecondgame() {
+	if (gameInProgress == false) {
+		gameInProgress = true;
+
+		document.getElementById("introwindow").style.display = 'none';
+		document.getElementById("introtext").style.display = 'none';
+		document.getElementById("tabletext").style.display = 'none';
+
+		document.getElementById("explainsecgame").style.display = 'inline-block';
+		document.getElementById("secondgame").style.display = 'inline-block';
+		document.getElementById("initbuttsecond").style.display = 'inline-block';
+		document.getElementById("exitbuttsecgame").style.display = 'inline-block';
+
+		document.getElementById("startsgame").disabled = true;
+	} else {
+		alert("Another game is already in progress!");
+	}
+}
+
+function startsecondgame() {
+	document.getElementById("explainsecgame").style.display = 'none';
+	document.getElementById("initbuttsecond").style.display = 'none';
+
+	document.getElementById("citypuzzle").style.display = 'inline-block';
+}
+
+function exitsecondgame() {
+	gameInProgress = false;
+
+	document.getElementById("citypuzzle").style.display = 'none';
+	document.getElementById("secondgame").style.display = 'none';
+	document.getElementById("startsgame").disabled = false;
+
+	document.getElementById("exitbuttsecgame").style.display = 'none';
+
+	document.getElementById("introwindow").style.display = 'inline-block';
+	document.getElementById("tabletext").style.display = 'table';
+	document.getElementById("introtext").style.display = 'table-cell';
 }

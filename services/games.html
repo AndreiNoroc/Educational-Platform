@@ -79,7 +79,7 @@
               <div class="d-flex align-items-center h-100">
                 <div class="text-center w-100">
                   <a href="#chosengame">
-                  <button id="startfgame" type="button" class="btn btn-dark btn-lg" onclick="choosefirstgame()">First demo game</button>
+                    <button id="startfgame" type="button" class="btn btn-dark btn-lg" onclick="choosefirstgame()">First demo game</button>
                   </a>
                 </div>
               </div>
@@ -88,7 +88,9 @@
           <div class="h-10 w-100 d-inline-block my-3">
             <div class="d-flex align-items-center h-100">
               <div class="text-center w-100">
-                <button type="button" class="btn btn-dark btn-lg" onclick="">Second demo game</button>
+                <a href="#chosengame">
+                  <button id="startsgame" type="button" class="btn btn-dark btn-lg" onclick="choosesecondgame()">Second demo game</button>
+                </a>
               </div>
             </div>
           </div>
@@ -180,8 +182,21 @@
     </div>
   </section>
 
-  <section id="chosengame" style="height: 900px; color:black">
-    <div class="container container-fluid d-flex align-items-center border border-3 border-dark w-75 my-5" style="height: 80%;">
+<!--d-flex align-items-center-->
+
+  <section id="chosengame" class="d-flex align-items-center" style="height: 900px; color: black">
+    <div id="introwindow" class="container container-fluid border border-3 border-dark w-75 my-5" style="height: 80%; display: inline-block;">
+      <table id="tabletext" class="w-100 h-100">
+        <tbody>
+          <tr>
+            <td id="introtext" style="text-align: center;"> Choose a game from above and you will can play it here!
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="firstgame" class="container container-fluid border border-3 border-dark w-75 my-5" style="height: 80%; display: none;">
 
       <div class="col justify-content-start w-100 h-100">
 
@@ -207,7 +222,6 @@
           <div id="initdiv" class='w-75 h-100 rounded bg-success' style="position: absolute; display: none;">
             <div class="d-flex align-items-center w-100 h-100">
               <div class="d-flex justify-content-around w-100 h-25">
-
                 <div class="col-4 h-100 w-25">
                   <h4 class="text-white">GPA:</h4>
                   <select id="gpa" class="form-control">
@@ -219,7 +233,6 @@
                     <option>0-1</option>
                   </select>
                 </div>
-
                 <div class="col-4 h-100 w-25">
                   <h4 class="text-white">Activities:</h4>
                   <select id="act" class="form-control">
@@ -229,9 +242,7 @@
                     <option>Few</option>
                   </select>
                 </div>
-
               </div>
-
             </div>
           </div>
 
@@ -257,19 +268,37 @@
         </div>
 
         <div class="d-flex justify-content-around d-inline-block w-100 h-10 mt-3" style="position: relative;">
-          <button id="initbutt" type="button" class="btn btn-success btn-lg" onclick="startgame()" style="display: none;">Start</button>
+          <button id="initbutt" type="button" class="btn btn-success btn-md mx-2" onclick="startgame()" style="display: none;">Start</button>
 
-          <button id="gp1" type="button" class="btn btn-dark btn-lg" onclick="exposeElements(this.id)" style="display: none;">SA INCEPEM!</button>
+          <button id="gp1" type="button" class="btn btn-dark btn-md" onclick="exposeElements(this.id)" style="display: none;">SA INCEPEM!</button>
 
-          <button id="gp2" type="button" class="btn btn-dark btn-lg" onclick="exposeElements(this.id)" style="display: none;">SA PETRECEM BAG PULA!</button>
+          <button id="gp2" type="button" class="btn btn-dark btn-md" onclick="exposeElements(this.id)" style="display: none;">SA PETRECEM BAG PULA!</button>
 
-          <button id="gp3" type="button" class="btn btn-dark btn-lg" onclick="exposeElements(this.id)" style="display: none;">MERGEM LA MUNCA ECONOMISIM!</button>
+          <button id="gp3" type="button" class="btn btn-dark btn-sm" onclick="exposeElements(this.id)" style="display: none;">MERGEM LA MUNCA ECONOMISIM!</button>
 
-          <button id="exitbutt" type="button" class="btn btn-success btn-lg" onclick="exitgame()" style="display: none;">Exit</button>
+          <a href="#buttons">
+            <button id="exitbutt" type="button" class="btn btn-success btn-lg" onclick="exitfirstgame()" style="display: none;">Exit</button>
+          </a>
         </div>
+      </div>
+    </div>
 
+    <div id="secondgame" class="container container-fluid border border-3 border-dark w-75 my-5" style="height: 80%; display: none;">
+      <div class="d-flex align-items-center justify-content-center w-75 h-100">
+        <h3 id="explainsecgame" style="padding: 10px; display: none;" class="border border-3 border-dark"> The way a city is placed can influence his economy. You should position buildings as correct as possible.
+        </h3>
+
+        <div id="citypuzzle" class="w-100 h-100 bg-danger" style="display: none;">
+        </div>
       </div>
 
+      <div class="d-flex justify-content-around d-inline-block w-100 h-10 mt-3" style="position: relative;">
+        <a href="#buttons">
+          <button id="initbuttsecond" type="button" class="btn btn-success btn-md mx-2" onclick="startsecondgame()" style="display: none;">Start</button>
+
+          <button id="exitbuttsecgame" type="button" class="btn btn-success btn-lg" onclick="exitsecondgame()" style="display: none;">Exit</button>
+        </a>
+      </div>
     </div>
   </section>
 
