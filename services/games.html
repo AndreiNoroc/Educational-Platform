@@ -72,7 +72,7 @@
           <div class="h-10 w-100 d-inline-block my-3">
               <div class="d-flex align-items-center h-100">
                 <div class="text-center w-100">
-                  <a href="#chosengame">
+                  <a href="#firstgame">
                     <button id="startfgame" type="button" class="btn btn-dark btn-lg" onclick="choosefirstgame()">First demo game</button>
                   </a>
                 </div>
@@ -241,16 +241,16 @@
           </div>
 
           <div class="d-flex align-items-center justify-content-center w-75 h-100">
-            <h3 id="div0vh1" style="padding: 10px; display: none;" class="border border-3 border-dark"> Bine ai venit la facultate !!! Trebuie sa inveti sa te descurci financiar pentru a avea un lifestyle santos si a putea face performanta !!! Felicitari pentru rezultate, insa nu uita ca acestea trebuie mentinute !!!
+            <p id="div0vh1" style="padding: 10px; display: none;" class="card-body border border-3 border-dark my-2"> Bine ai venit la facultate !!! Trebuie sa inveti sa te descurci financiar pentru a avea un lifestyle santos si a putea face performanta !!! Felicitari pentru rezultate, insa nu uita ca acestea trebuie mentinute !!!
+            </p>
+
+            <h3 id="div0vh2" style="padding: 10px; display: none;" class="card-body border border-3 border-dark"> Bine ai venit la facultate !!! Trebuie sa inveti sa te descurci financiar pentru a avea un lifestyle santos si a putea face performanta !!! Rezultatele sunt bune, insa intotdeauna este loc pentru mai bine !!!
             </h3>
 
-            <h3 id="div0vh2" style="padding: 10px; display: none;" class="border border-3 border-dark"> Bine ai venit la facultate !!! Trebuie sa inveti sa te descurci financiar pentru a avea un lifestyle santos si a putea face performanta !!! Rezultatele sunt bune, insa intotdeauna este loc pentru mai bine !!!
+            <h3 id="div0vh3" style="padding: 10px; display: none;" class="card-body border border-3 border-dark"> Bine ai venit la facultate !!! Trebuie sa inveti sa te descurci financiar pentru a avea un lifestyle santos si a putea face performanta !!! Chiar daca rezultatele nu arata prea bine tu poti sa le faci sa arate !!!
             </h3>
 
-            <h3 id="div0vh3" style="padding: 10px; display: none;" class="border border-3 border-dark"> Bine ai venit la facultate !!! Trebuie sa inveti sa te descurci financiar pentru a avea un lifestyle santos si a putea face performanta !!! Chiar daca rezultatele nu arata prea bine tu poti sa le faci sa arate !!!
-            </h3>
-
-            <h3 id="div1vh1" style="padding: 10px; display: none;" class="border border-3 border-dark"> In primul weekend colegii te invita la o petrecere. In acelasi timp un amic iti ofera sansa de a castiga 100RON daca il ajuti sa se mute in noua camera.
+            <h3 id="div1vh1" style="padding: 10px; display: none;" class="card-body border border-3 border-dark"> In primul weekend colegii te invita la o petrecere. In acelasi timp un amic iti ofera sansa de a castiga 100RON daca il ajuti sa se mute in noua camera.
             </h3>
 
             <h3 id="div2vh1" style="padding: 10px; display: none;" class="border border-3 border-dark"> PETRECI SI MORI DE FOAME!
@@ -261,7 +261,9 @@
           </div>
         </div>
 
+        <!--
         <div class="d-flex justify-content-around d-inline-block w-100 h-10 mt-3" style="position: relative;">
+
           <button id="initbutt" type="button" class="btn btn-success btn-md mx-2" onclick="startgame()" style="display: none;">Start</button>
 
           <button id="gp1" type="button" class="btn btn-dark btn-md" onclick="exposeElements(this.id)" style="display: none;">SA INCEPEM!</button>
@@ -274,6 +276,32 @@
             <button id="exitbutt" type="button" class="btn btn-success btn-lg" onclick="exitfirstgame()" style="display: none;">Exit</button>
           </a>
         </div>
+        -->
+
+        <div class="btn-toolbar d-flex justify-content-around" role="toolbar" aria-label="Toolbar with button groups">
+          <div id="initbutt" class="btn-group" style="display: none;">
+            <button type="button" class="btn btn-success btn-md" onclick="startgame()">Start</button>
+          </div>
+
+          <div id="gp1" class="btn-group" style="display: none;">
+            <button id="gp1" type="button" class="btn btn-dark btn-md" onclick="exposeElements(this.id)">SA INCEPEM!</button>
+          </div>
+
+          <div id="gp2" class="btn-group" style="display: none;">
+            <button id="gp2" type="button" class="btn btn-dark btn-md" onclick="exposeElements(this.id)">SA PETRECEM BAG PULA!</button>
+          </div>
+
+          <div id="gp3" class="btn-group" style="display: none;">
+            <button id="gp3" type="button" class="btn btn-dark btn-md" onclick="exposeElements(this.id)">MERGEM LA MUNCA ECONOMISIM!</button>
+          </div>
+
+          <div id="exitbutt" class="btn-group" style="display: none;">
+            <a href="#buttons">
+              <button type="button" class="btn btn-success btn-md" onclick="exitfirstgame()">Exit</button>
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
 
