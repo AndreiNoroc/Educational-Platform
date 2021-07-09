@@ -517,3 +517,9 @@ body
   font-size: 2em;
   text-align: center;
 }
+
+/* Large rounded green border */
+hr.new5 {
+  border: 10px solid #1d6c0c;
+  border-radius: 5px;
+}
