@@ -253,10 +253,10 @@
             <h3 id="div1vh1" style="padding: 10px; display: none;" class="card-body border border-3 border-dark"> In primul weekend colegii te invita la o petrecere. In acelasi timp un amic iti ofera sansa de a castiga 100RON daca il ajuti sa se mute in noua camera.
             </h3>
 
-            <h3 id="div2vh1" style="padding: 10px; display: none;" class="border border-3 border-dark"> PETRECI SI MORI DE FOAME!
+            <h3 id="div2vh1" style="padding: 10px; display: none;" class="card-body border border-3 border-dark"> PETRECI SI MORI DE FOAME!
             </h3>
 
-            <h3 id="div3vh1" style="padding: 10px; display: none;" class="border border-3 border-dark"> BRAVO BAIAT BUN MARS LA MUNCA!
+            <h3 id="div3vh1" style="padding: 10px; display: none;" class="card-body border border-3 border-dark"> BRAVO BAIAT BUN MARS LA MUNCA!
             </h3>
           </div>
         </div>
@@ -306,20 +306,50 @@
     </div>
 
     <div id="secondgame" class="container container-fluid border border-3 border-dark w-75 my-5" style="height: 80%; display: none;">
-      <div class="d-flex align-items-center justify-content-center w-75 h-100">
-        <h3 id="explainsecgame" style="padding: 10px; display: none;" class="border border-3 border-dark"> The way a city is placed can influence his economy. You should position buildings as correct as possible.
+      <div class="d-flex align-items-center justify-content-center w-100 h-75 my-4">
+        <h3 id="explainsecgame" style="padding: 10px; display: none;" class="card-body border border-3 border-dark"> The way a city is placed can influence his economy. You should position buildings as correct as possible.
         </h3>
 
-        <div id="citypuzzle" class="w-100 h-100 bg-danger" style="display: none;">
+        <div id="citypuzzle" class="bg-dark w-100 h-100" style="display: none;">
+          <div id="tablepuzzle" class="d-flex align-items-center h-50 w-100 px-3 py-3">
+            <div class="row justify-content-start w-100">
+              <div id="div1" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+              <div id="div2" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+              <div id="div3" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+              <div id="div4" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+
+            <div class="row">
+              <div id="div5" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+              <div id="div6" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+              <div id="div7" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+              <div id="div8" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+
+            <div id="div9" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div10" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div11" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div12" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div13" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div id="div14" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          </div>
+
+          <div id="itemspuzzle"class="w-100 h-50 bg-danger">
+              
+          </div>
         </div>
       </div>
 
-      <div class="d-flex justify-content-around d-inline-block w-100 h-10 mt-3" style="position: relative;">
-        <a href="#buttons">
-          <button id="initbuttsecond" type="button" class="btn btn-success btn-md mx-2" onclick="startsecondgame()" style="display: none;">Start</button>
+      <div class="btn-toolbar d-flex justify-content-around mt-2" role="toolbar" aria-label="Toolbar with button groups">
+          <div id="initbuttsecond" class="btn-group" style="display: none;">
+            <button type="button" class="btn btn-success btn-md" onclick="startsecondgame()">Start</button>
+          </div>
 
-          <button id="exitbuttsecgame" type="button" class="btn btn-success btn-lg" onclick="exitsecondgame()" style="display: none;">Exit</button>
-        </a>
+          <div id="exitbuttsecgame" class="btn-group" style="display: none;">
+            <a href="#buttons">
+              <button type="button" class="btn btn-success btn-md" onclick="exitsecondgame()">Exit</button>
+            </a>
+          </div>
       </div>
     </div>
   </section>

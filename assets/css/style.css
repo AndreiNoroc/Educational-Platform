@@ -523,3 +523,10 @@ hr.new5 {
   border: 10px solid #1d6c0c;
   border-radius: 5px;
 }
+
+#tablepuzzle div {
+  height: 80px;
+  width: 80px;
+  border: 1px dashed gray;
+  display: inline-block;
+}
