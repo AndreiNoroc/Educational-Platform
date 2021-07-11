@@ -179,12 +179,37 @@ function startsecondgame() {
 	document.getElementById("explainsecgame").style.display = 'none';
 	document.getElementById("initbuttsecond").style.display = 'none';
 
+	document.getElementById("finishbutton").style.display = 'inline-block';
 	document.getElementById("citypuzzle").style.display = 'inline-block';
 }
+
+function drag(ev) {
+    ev.dataTransfer.setData("tablepuzzlepieces", ev.target.id);
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("tablepuzzlepieces");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+
 
 function exitsecondgame() {
 	gameInProgress = false;
 
+	if (document.getElementById('div16').innerHTML.trim().length == 0) {
+		console.log("DAAA");
+	} else {
+		var moveElem = document.getElementById('div16').getElementsByTagName("*");
+		document.getElementById('tablepuzzlepieces').appendChild(document.getElementById(moveElem[0].id));
+	}
+
+	document.getElementById("finishbutton").style.display = 'none';
 	document.getElementById("citypuzzle").style.display = 'none';
 	document.getElementById("secondgame").style.display = 'none';
 	document.getElementById("startsgame").disabled = false;

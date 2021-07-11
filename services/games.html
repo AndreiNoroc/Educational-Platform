@@ -311,31 +311,78 @@
         </h3>
 
         <div id="citypuzzle" class="bg-dark w-100 h-100" style="display: none;">
-          <div id="tablepuzzle" class="d-flex align-items-center h-50 w-100 px-3 py-3">
-            <div class="row justify-content-start w-100">
-              <div id="div1" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-              <div id="div2" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-              <div id="div3" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-              <div id="div4" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+          <div id="tablepuzzle" class="col w-100 px-3 py-3" style="height: 70%;">
+            <div class="row my-1">
+              <div id="tablepuzzleelem" class="d-flex justify-content-center">
+                <div id="div1" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div2" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div3" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div4" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div5" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+              </div>
             </div>
 
-            <div class="row">
-              <div id="div5" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-              <div id="div6" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-              <div id="div7" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-              <div id="div8" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="row my-1">
+              <div id="tablepuzzleelem" class="d-flex justify-content-center">
+                <div id="div6" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div7" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div8" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div9" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div10" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+              </div>
             </div>
 
-            <div id="div9" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div10" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div11" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div12" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div13" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            <div id="div14" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <div class="row my-1">
+              <div id="tablepuzzleelem" class="d-flex justify-content-center">
+                <div id="div11" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div12" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div13" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div14" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div15" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+              </div>
+            </div>
+
+            <div class="row my-1">
+              <div id="tablepuzzleelem" class="d-flex justify-content-center">
+                <div id="div16" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div17" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div18" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div19" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                <div id="div20" class="mx-1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+              </div>
+            </div>
           </div>
 
-          <div id="itemspuzzle"class="w-100 h-50 bg-danger">
-              
+          <div id="itemspuzzle"class="col w-100 bg-danger px-2 py-2" style="height: 30%;">
+            <div class="row my-1">
+              <div id="tablepuzzlepieces" class="d-flex justify-content-center" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="drag1" class="rounded mx-1" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag2" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag3" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag4" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag5" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag6" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag7" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag8" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag9" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag10" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+              </div>
+            </div>
+
+            <div class="row my-1">
+              <div id="tablepuzzlepieces" class="d-flex justify-content-center" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="drag11" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag12" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag13" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag14" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag15" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag16" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag17" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag18" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag19" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag20" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -343,6 +390,10 @@
       <div class="btn-toolbar d-flex justify-content-around mt-2" role="toolbar" aria-label="Toolbar with button groups">
           <div id="initbuttsecond" class="btn-group" style="display: none;">
             <button type="button" class="btn btn-success btn-md" onclick="startsecondgame()">Start</button>
+          </div>
+
+          <div id="finishbutton" class="btn-group" style="display: none;">
+            <button type="button" class="btn btn-success btn-md" onclick="startsecondgame()">Finish</button>
           </div>
 
           <div id="exitbuttsecgame" class="btn-group" style="display: none;">
