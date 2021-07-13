@@ -542,3 +542,17 @@ hr.new5 {
 #drag1:hover {
   background-image: url('../img/citypuzzle/school_explain.jpg'); 
 }
+
+/* forum */
+.registerforms {
+  margin: 20px;
+  padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border: 1px solid white;
+}
+
+#fname, #lname, #country, #subject {
+  color: #ffffff;
+  font-size: large;
+}
