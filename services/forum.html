@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Forum</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <link href="../assets/img/apple-touch-icon.png" rel="icon">
+    <!-- Favicons -->
+    <link href="../assets/img/favicon.png" rel="icon">
+    <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!-- Compiled and minified CSS (face parte din pachetul materialize, foarte folositor pentru frontend-->
-    <link rel="stylesheet" href="../assets/materialize/css/materialize.min.css" media="screen,projection"/>
-
     <!-- Vendor CSS Files -->
+    <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <!-- CSS-ul facut de noi -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <!-- Template Main CSS File -->
+    <link href="../assets/css/style.css" rel="stylesheet">
 </head>
 
 <body style="background: #282727">
 
-    <!--Start Header -->
-    <header id="header" style="position: fixed;left:0;right:0;height:66px">
+    <!-- Start Header -->
+    <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="../index.html">CumSaFaciBani</a></h1>
+            <h1 class="logo"><a href="../index.html">EducationFirst</a></h1>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="../index.html">Back to main page</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
         </div>
     </header><!-- End Header -->
 
-    <!--Start Hero -->
-    <section id="hero" class="scrollspy">
+    <!-- Start Header -->
+    <section id="hero">
         <div class="hero-container">
-            <h3>Bine ati venit pe <strong>CumSaFaciBani</strong></h3>
-            <h1>Consideri ca ai nevoie de o educatie financiara mai buna?</h1>
-            <h2 style="margin-top: 0">Ai gasit locul unde poti sa inveti ideei despre cum sa iti investesti banii cu folos la fiecare pas din viata ta.</h2>
+            <h3>Welcome to <strong>EducationFirst</strong></h3>
+            <h1>Have you ever asked yourself how entrepreneurs or businessmen work with money?</h1>
+            <h2>Well, here are some opinions from people who already have some experience in this domain.</h2>
         </div>
-    </section><!-- End Hero -->
+    </section><!-- End Header -->
 
     <section>
         <div class="section-title" style="padding-top:3rem">
@@ -51,52 +62,32 @@
 
      <!-- Adaugarea unui topic nou. -->
     <section>
-        <div class="container container-fluid">
-            <!-- <form action="/action_page.php"> -->
-            <div class="registerforms">
-                <div class="row">
-                    <div class="col-25">
-                        <label for="fname">First Name</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="fname" name="firstname" placeholder="Your name..">
-                    </div>
+        <main class="container">
+            <p style="text-align: center">Send email</p>
+            <form action="../forms/contactform.php" method="post" style="text-align: center">
+                <ul class="errorMessages"></ul>
+                <div>
+                    <label for="nume">Nume</label>
+                    <input id="nume" type="text" name="name" placeholder="full name" required>
                 </div>
-
-                <div class="row">
-                    <div class="col-25">
-                        <label for="lname">Last Name</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-                    </div>
+                <div>
+                    <label for="mail">E-mail</label>
+                    <input id="mail" type="text" name="email" placeholder="your email" required>
                 </div>
-
-                <div class="row">
-                    <div class="col-25">
-                        <label for="country">Country</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="country" name="country" placeholder="Your country..">
-                    </div>
+                <div>
+                    <label for="subiect">Subject</label>
+                    <input id="subiect" type="text" name="subject" placeholder="subject" style="color: black" required>
                 </div>
-
-                <div class="row">
-                    <div class="col-25">
-                        <label for="subject">Subject</label>
-                    </div>
-                    <div class="col-75">
-                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-                    </div>
+                <div>
+                    <label for="txt">Subject</label>
+                    <textarea id="txt" name="message" placeholder="message" required></textarea>
                 </div>
-
-                <div class="row">
-                    <button type="button" class="btn btn-outline-success">Submit</button>
+                <div class="buttons">
+                    <button type="submit" name="submit">SEND MAIL</button>
                 </div>
-            </div>
-            <!-- </form> -->
-        </div>
-    </section>
+            </form>
+        </main>
+    </section><!-- end forum-->
 
     <!-- ======= Footer ======= -->
     <footer id="footer" style = "background:#282727">
@@ -115,15 +106,16 @@
         </div>
     </footer><!-- End Footer -->
 
-    <!-- Arrow back to Top -->
-    <a href="#hero" class="back-to-top" style="display: flex; align-items:center; justify-content: center"><i class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!--Jquery (nu merge caruselul fara) -->
-<!-- Compiled and minified JavaScript -->
-    <script src="../assets/materialize/js/materialize.min.js"></script> <!-- Foarte importanta, nu mai merge nici caruselul si nici modalele fara -->
+    <!-- Vendor JS Files -->
+    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="../assets/vendor/php-email-form/validate.js"></script>
     <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+    <script src="../assets/js/contact-errors.js"></script>
 
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
