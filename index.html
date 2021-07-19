@@ -36,7 +36,7 @@
                     <li><a class="nav-link scrollto" href="#services">Services</a></li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="nav-link scrollto" id="myBtn" style="cursor: pointer">Login</a></li>
+                    <li><a class="nav-link scrollto" id="buttonLogin" style="cursor: pointer">Login</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -44,9 +44,11 @@
     </header><!-- End Header -->
 
     <!-- The Modal -->
-    <div id="myModal" class="modal">
+    <div id="loginModal" class="modal">
             <div class="modal-content container" style="color: black; top:30%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
-                <h2 style="text-align: center;padding-top: 10px;color: #FFFFFF">Login</h2>
+            
+                <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 40px;">Login</p>
+
                 <hr>
                 <form class="d-block" style="text-align: center; color: #FFFFFF">
                     <div style="padding-bottom: 20px">
@@ -55,16 +57,59 @@
                     </div>
                     <div style="padding-bottom: 20px">
                         <label for="password">Password:</label>
-                        <input id="password" type="text" name="password" placeholder="Password" required>
+                        <input id="password" type="password" name="password" placeholder="Password" required>
                     </div>
-                    <div class="buttons">
-                        <button type="submit" name="submit" style="color: #FFFFFF;background: #282727;border: none">LOGIN</button>
-                    </div>
+                    <button type="button" class="btn btn-outline-success">Login</button>
+
+                    <br><br>
+                    <span id="change_link">
+                        Do you not have an account?
+                        <a class="btn" id="new_account" style="margin-left: 10px;color:#1D6C0C;"><i>New Account</i></a>
+                    </span>
                 </form>
                 <hr>
+    
                 <button class="close" style="position: absolute; right: 0;max-width: 100px;color:#ffffff;background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;outline:none;font-size: 30px">&times;</button>
             </div>
     </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content container" style="color: black; top:30%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
+        
+            <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 40px;">Register</p>
+
+            <hr>
+            <form class="d-block" style="text-align: center; color: #FFFFFF">
+                <div style="padding-bottom: 20px">
+                    <label for="username">Username:</label>
+                    <input id="username" type="text" name="username" placeholder="Username" required>
+                </div>
+                <div style="padding-bottom: 20px">
+                    <label for="email" style="margin-left: 35px;">Email:</label>
+                    <input id="email" type="email" name="email" placeholder="Email" required>
+                </div>
+                <div style="padding-bottom: 20px">
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" name="password" placeholder="Password" required>
+                </div>
+                <div style="padding-bottom: 20px">
+                    <label for="password">Password:</label>
+                    <input id="password" type="password" name="password" placeholder="Confirm Password" required>
+                </div>
+                <button type="button" class="btn btn-outline-success">Register</button>
+
+                <br><br>
+                <p class="change_link">
+                    Do you have an account?
+                    <a class="btn" id="exist_account" style="margin-left: 10px;color:#1D6C0C;"><i>Log in</i></a>
+                </p>
+            </form>
+            <hr>
+                
+            <button class="close" style="position: absolute; right: 0;max-width: 100px;color:#ffffff;background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;outline:none;font-size: 30px">&times;</button>
+        </div>
+    </div> <!-- End Modal -->
+
 
     <!-- ======= Hero Section ======= -->
     <section id="hero">
@@ -371,6 +416,7 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/modal.js"></script>
+    <script src="assets/js/switch.js"></script>
 
 </body>
 </html>
