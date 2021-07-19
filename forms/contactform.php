@@ -15,12 +15,12 @@ if (isset($_POST['submit'])) {
     if(!empty($message) && !empty($subject) && !empty($name) && !empty($mailFrom)) {
         if(strpos($mailFrom, $sign)) {
             mail($mailTo, $subject, $txt, $headers);
-            header("Location: ../services/forum.html");
+            header("Location: ../index.html");
         } else {
-            header("Location: ../services/forum.html?NotRightFormat");
+            header("Location: ../index.html?NotRightFormat");
         }
     } else {
-        header("Location: ../services/forum.html?ErrorCompleteAllFields");
+        header("Location: ../index.html?ErrorCompleteAllFields");
     }
 }
 

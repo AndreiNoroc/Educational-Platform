@@ -525,3 +525,21 @@ section {
     color: #fff;
 }
 
+/*
+pt blurr
+ */
+.blurr{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+/*
+pt partea de contact
+ */
+.send_mail{
+    color: #ffffff;
+}
+.send_mail:hover{
+    color: #1D6C0C;
+}
+
