@@ -28,7 +28,7 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="index.html">EducationFirst</a></h1>
+            <h1 class="logo"><a href="index.php">EducationFirst</a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
@@ -46,20 +46,54 @@
     <!-- The Modal -->
     <div id="loginModal" class="modal">
             <div class="modal-content container" style="color: black; top:30%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
-            
+
                 <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 40px;">Login</p>
 
+                <?php
+                //aici verificam ce mesaj se primeste cand se da submit
+                //in functie de acel mesaj se va afisa mesajul corespunzator
+                if(!isset($_GET['login'])) {
+                //                    exit();
+                } else {
+                    $signupCheck = $_GET['login'];
+                    if($signupCheck == "empty") {
+                    echo "<p style='text-align: center; color: white'>You did not fill in all fields!</p>";
+                    //                        exit();
+                    }
+                    if($signupCheck == "errorusername") {
+                        echo "<p style='text-align: center; color: white'>Wrong username!</p>";
+                        //                        exit();
+                    }
+                    if($signupCheck == "errorpassword") {
+                        echo "<p style='text-align: center; color: white'>Wrong password!</p>";
+                        //                        exit();
+                    }
+                    if($signupCheck == "success") {
+                    echo "<p style='text-align: center; color: white'>You have been logged in!</p>";
+                    //                        exit();
+                    }
+                }
+                ?>
+
                 <hr>
-                <form class="d-block" style="text-align: center; color: #FFFFFF">
+                <form class="d-block" style="text-align: center; color: #FFFFFF" action="forms/login.inc.php" method="post">
                     <div style="padding-bottom: 20px">
                         <label for="username">Username:</label>
-                        <input id="username" type="text" name="username" placeholder="Username" required>
+                        <?php
+                        //conditie ca acest camp sa ramana neschimbat cand se greseste altceva
+                        if (isset($_GET['username'])) {
+                            $username = $_GET['username'];
+                            echo '<input id="username" type="text" name="username" placeholder="Username or email" value="'.$username.'">';
+                        } else {
+                            echo '<input id="username" type="text" name="username" placeholder="Username or email">';
+                        }
+                        ?>
                     </div>
                     <div style="padding-bottom: 20px">
                         <label for="password">Password:</label>
-                        <input id="password" type="password" name="password" placeholder="Password" required>
+                        <input id="password" type="password" name="password" placeholder="Password">
                     </div>
-                    <button type="button" class="btn btn-outline-success">Login</button>
+                    <button type="submit" name="submit" class="btn btn-outline-success">Login</button>
 
                     <br><br>
                     <span id="change_link">
@@ -68,35 +102,114 @@
                     </span>
                 </form>
                 <hr>
-    
+
                 <button class="close" style="position: absolute; right: 0;max-width: 100px;color:#ffffff;background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;outline:none;font-size: 30px">&times;</button>
             </div>
     </div>
 
     <div id="registerModal" class="modal">
-        <div class="modal-content container" style="color: black; top:30%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
-        
+        <div class="modal-content container" style="color: black; top:10%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
+
             <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 40px;">Register</p>
 
+            <?php
+            //aici verificam ce mesaj se primeste cand se da submit
+            //in functie de acel mesaj se va afisa mesajul corespunzator
+            if(!isset($_GET['signup'])) {
+//                    exit();
+            } else {
+                $signupCheck = $_GET['signup'];
+                if($signupCheck == "empty") {
+                    echo "<p style='text-align: center; color: white'>You did not fill in all fields!</p>";
+//                        exit();
+                }
+                if($signupCheck == "char") {
+                    echo "<p style='text-align: center; color: white'>You used invalid characters!</p>";
+//                        exit();
+                }
+                if($signupCheck == "email") {
+                    echo "<p style='text-align: center; color: white'>You used invalid email!</p>";
+//                        exit();
+                }
+                if($signupCheck == "success") {
+                    echo "<p style='text-align: center; color: white'>You have been signed up!</p>";
+                    echo "<p style='text-align: center; color: white'>Now go to Log in!</p>";
+//                        exit();
+                }
+                if($signupCheck == "usedEmail") {
+                    echo "<p style='text-align: center; color: white'>The email has already been used!</p>";
+//                        exit();
+                }
+                if($signupCheck == "usedUsername") {
+                    echo "<p style='text-align: center; color: white'>The username has already been used!</p>";
+//                        exit();
+                }
+                if($signupCheck == "passwordsDontMatch") {
+                    echo "<p style='text-align: center; color: white'>The passwords don't match!</p>";
+//                        exit();
+                }
+            }
+            ?>
+
             <hr>
-            <form class="d-block" style="text-align: center; color: #FFFFFF">
+            <form class="d-block" style="text-align: center; color: #FFFFFF" action="forms/signup.inc.php" method="post">
+                <div style="padding-bottom: 20px">
+                    <label for="first-name">First-Name:</label>
+                    <?php
+                    //conditie ca acest camp sa ramana neschimbat cand se greseste altceva
+                    if (isset($_GET['first'])) {
+                        $first = $_GET['first'];
+                        echo '<input id="first-name" type="text" name="first" placeholder="First_name" value="'.$first.'">';
+                    } else {
+                        echo '<input id="first-name" type="text" name="first" placeholder="First_name">';
+                    }
+                    ?>
+                </div>
+                <div style="padding-bottom: 20px">
+                    <label for="last-name">Last-Name:</label>
+                    <?php
+                    //conditie ca acest camp sa ramana neschimbat cand se greseste altceva
+                    if (isset($_GET['last'])) {
+                        $last = $_GET['last'];
+                        echo '<input id="last-name" type="text" name="last" placeholder="Last_name" value="'.$last.'">';
+                    } else {
+                        echo '<input id="last-name" type="text" name="last" placeholder="Last_name">';
+                    }
+                    ?>
+                </div>
                 <div style="padding-bottom: 20px">
                     <label for="username">Username:</label>
-                    <input id="username" type="text" name="username" placeholder="Username" required>
+                    <?php
+                    //conditie ca acest camp sa ramana neschimbat cand se greseste altceva
+                    if (isset($_GET['uid'])) {
+                        $uid = $_GET['uid'];
+                        echo '<input id="username" type="text" name="uid" placeholder="Username" value="'.$uid.'">';
+                    } else {
+                        echo '<input id="username" type="text" name="uid" placeholder="Username">';
+                    }
+                    ?>
                 </div>
                 <div style="padding-bottom: 20px">
                     <label for="email" style="margin-left: 35px;">Email:</label>
-                    <input id="email" type="email" name="email" placeholder="Email" required>
+                    <?php
+                    //conditie ca acest camp sa ramana neschimbat cand se greseste altceva
+                    if (isset($_GET['email'])) {
+                        $email = $_GET['email'];
+                        echo '<input id="email" type="text" name="email" placeholder="Email" value="'.$email.'">';
+                    } else {
+                        echo '<input id="email" type="text" name="email" placeholder="Email">';
+                    }
+                    ?>
                 </div>
                 <div style="padding-bottom: 20px">
                     <label for="password">Password:</label>
-                    <input id="password" type="password" name="password" placeholder="Password" required>
+                    <input id="password" type="password" name="pwd" placeholder="Password">
                 </div>
                 <div style="padding-bottom: 20px">
                     <label for="password">Password:</label>
-                    <input id="password" type="password" name="password" placeholder="Confirm Password" required>
+                    <input id="password" type="password" name="pwd2" placeholder="Confirm Password">
                 </div>
-                <button type="button" class="btn btn-outline-success">Register</button>
+                <button type="submit" name="submit" class="btn btn-outline-success">Register</button>
 
                 <br><br>
                 <p class="change_link">
@@ -105,7 +218,6 @@
                 </p>
             </form>
             <hr>
-                
             <button class="close" style="position: absolute; right: 0;max-width: 100px;color:#ffffff;background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;outline:none;font-size: 30px">&times;</button>
         </div>
     </div> <!-- End Modal -->
@@ -403,6 +515,46 @@
         </div>
     </footer><!-- End Footer -->
 
+    <?php
+    //partea asta se foloseste ca atunci cand se da submit la register sa ramana pe modal
+    if(!isset($_GET['signup'])) {
+//                    exit();
+    } else {
+        $signupCheck = $_GET['signup'];
+        if(!empty($signupCheck)) {
+            echo '<script type="text/javascript">',
+            'var registerModal = document.getElementById("registerModal");',
+            ' registerModal.style.display = "block";',
+            'document.getElementById("hero").classList.add("blurr");',
+                'document.getElementById("tabs").classList.add("blurr");',
+            'document.getElementById("services").classList.add("blurr");',
+            'document.getElementById("team").classList.add("blurr");',
+            'document.getElementById("contact").classList.add("blurr");',
+            'document.getElementById("footer").classList.add("blurr");',
+            '</script>'
+            ;
+        }
+    }
+    if(!isset($_GET['login'])) {
+//                    exit();
+    } else {
+        $signupCheck = $_GET['login'];
+        if(!empty($signupCheck)) {
+            echo '<script type="text/javascript">',
+            'var registerModal = document.getElementById("loginModal");',
+            ' registerModal.style.display = "block";',
+            'document.getElementById("hero").classList.add("blurr");',
+            'document.getElementById("tabs").classList.add("blurr");',
+            'document.getElementById("services").classList.add("blurr");',
+            'document.getElementById("team").classList.add("blurr");',
+            'document.getElementById("contact").classList.add("blurr");',
+            'document.getElementById("footer").classList.add("blurr");',
+            '</script>'
+            ;
+        }
+    }
+    ?>
+
     <!--Javascript-->
     <script src="assets/js/http_code.jquery.com_jquery-3.5.1.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -416,7 +568,6 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/app.js"></script>
     <script src="assets/js/modal.js"></script>
-    <script src="assets/js/switch.js"></script>
 
 </body>
 </html>
