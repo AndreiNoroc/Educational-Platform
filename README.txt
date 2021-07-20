@@ -18,11 +18,11 @@ In interiorul phpMyAdmin creati o baza de date noua numita loginsystem.
 In interiorul acesteia un tabel numit users, dand paste la codul:
 CREATE TABLE users (
     id int(11) not null PRIMARY KEY AUTO_INCREMENT,
-    first varchar(128) not null,
-    last varchar(128) not null,
-    email varchar(128) not null,
-    uid varchar(128) not null,
-    pwd varchar(128) not null
+    user_first varchar(128) not null,
+    user_last varchar(128) not null,
+    user_email varchar(128) not null,
+    user_uid varchar(128) not null,
+    user_pwd varchar(128) not null
 );
 in sectiunea SQL
 Apoi ar trebui sa aveti un tabel gol pe care sa il puteti completa si voi.
