@@ -31,7 +31,7 @@ if(isset($_POST['submit'])) {
                 exit();
             } else {
                 //verificam daca email-ul a ma fost folosit
-                $sqlSelect = "select user_email from users;";
+                $sqlSelect = "SELECT user_email FROM users;";
                 $result = mysqli_query($conn, $sqlSelect);
                 $resultCheck = mysqli_num_rows($result);
                 if($resultCheck > 0) {
@@ -43,7 +43,7 @@ if(isset($_POST['submit'])) {
                     }
                 }
                 //verificam daca numele de utilizator a mai fost folosit
-                $sqlSelect = "select user_uid from users;";
+                $sqlSelect = "SELECT user_uid FROM users;";
                 $result = mysqli_query($conn, $sqlSelect);
                 $resultCheck = mysqli_num_rows($result);
                 if($resultCheck > 0) {
@@ -60,8 +60,8 @@ if(isset($_POST['submit'])) {
                     exit();
                 }
                 //daca se ajunge aici ntroducem datele in baza de date
-                $sql = "insert into users (user_first, user_last, user_email, user_uid, user_pwd) 
-                            values (?, ?, ?, ?, ?);";
+                $sql = "INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd) 
+                            VALUES (?, ?, ?, ?, ?);";
                 $stmt = mysqli_stmt_init($conn);
                 if (!mysqli_stmt_prepare($stmt, $sql)) {
                     echo "SQL ERROR";

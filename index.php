@@ -50,29 +50,30 @@
                 <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 40px;">Login</p>
 
                 <?php
-                //aici verificam ce mesaj se primeste cand se da submit
-                //in functie de acel mesaj se va afisa mesajul corespunzator
-                if(!isset($_GET['login'])) {
-                //                    exit();
-                } else {
-                    $signupCheck = $_GET['login'];
-                    if($signupCheck == "empty") {
-                    echo "<p style='text-align: center; color: white'>You did not fill in all fields!</p>";
-                    //                        exit();
+                    //aici verificam ce mesaj se primeste cand se da submit
+                    //in functie de acel mesaj se va afisa mesajul corespunzator
+                    if(isset($_GET['login'])) {
+                        $signupCheck = $_GET['login'];
+                        if($signupCheck == "empty") {
+                        echo "<p style='text-align: center; color: red'>You did not fill in all fields!</p>";
+                        }
+                        if($signupCheck == "errorusername") {
+                            echo "<p style='text-align: center; color: red'>Wrong username!</p>";
+                        }
+                        if($signupCheck == "errorpassword") {
+                            echo "<p style='text-align: center; color: red'>Wrong password!</p>";
+                        }
+                        if($signupCheck == "success") {
+                        echo "<p style='text-align: center; color: green'>You have been logged in!</p>";
+                        }
                     }
-                    if($signupCheck == "errorusername") {
-                        echo "<p style='text-align: center; color: white'>Wrong username!</p>";
-                        //                        exit();
+
+                    if(isset($_GET['newpwd'])) {
+                        $signupCheck = $_GET['newpwd'];
+                        if($signupCheck == "passwordupdate") {
+                            echo "<p style='text-align: center; color: green'>Your password has been reset!</p>";
+                        }
                     }
-                    if($signupCheck == "errorpassword") {
-                        echo "<p style='text-align: center; color: white'>Wrong password!</p>";
-                        //                        exit();
-                    }
-                    if($signupCheck == "success") {
-                    echo "<p style='text-align: center; color: white'>You have been logged in!</p>";
-                    //                        exit();
-                    }
-                }
                 ?>
 
                 <hr>
@@ -94,8 +95,21 @@
                         <input id="password" type="password" name="password" placeholder="Password">
                     </div>
                     <button type="submit" name="submit" class="btn btn-outline-success">Login</button>
+                    
+                    <?php
+
+                    if(isset($_GET['newpwd'])) {
+                        $signupCheck = $_GET['newpwd'];
+                        if($signupCheck == "passwordupdate") {
+                            echo "<p style='text-align: center; color: white'>Your password has benn reset!</p>";
+                        }
+                    }
+                    ?>
 
                     <br><br>
+                    <a class="btn" id="forgotPass" style="margin-left: 10px;color:#1D6C0C;"><i>Forgot your password?</i></a>
+                    <br><br>
+                    
                     <span id="change_link">
                         Do you not have an account?
                         <a class="btn" id="new_account" style="margin-left: 10px;color:#1D6C0C;"><i>New Account</i></a>
@@ -115,38 +129,35 @@
             <?php
             //aici verificam ce mesaj se primeste cand se da submit
             //in functie de acel mesaj se va afisa mesajul corespunzator
-            if(!isset($_GET['signup'])) {
-//                    exit();
-            } else {
+            if(isset($_GET['signup'])) {
                 $signupCheck = $_GET['signup'];
                 if($signupCheck == "empty") {
-                    echo "<p style='text-align: center; color: white'>You did not fill in all fields!</p>";
-//                        exit();
+                    echo "<p style='text-align: center; color: red'>You did not fill in all fields!</p>";
                 }
+
                 if($signupCheck == "char") {
-                    echo "<p style='text-align: center; color: white'>You used invalid characters!</p>";
-//                        exit();
+                    echo "<p style='text-align: center; color: red'>You used invalid characters!</p>";
                 }
+                
                 if($signupCheck == "email") {
-                    echo "<p style='text-align: center; color: white'>You used invalid email!</p>";
-//                        exit();
+                    echo "<p style='text-align: center; color: red'>You used invalid email!</p>";
                 }
+                
                 if($signupCheck == "success") {
-                    echo "<p style='text-align: center; color: white'>You have been signed up!</p>";
-                    echo "<p style='text-align: center; color: white'>Now go to Log in!</p>";
-//                        exit();
+                    echo "<p style='text-align: center; color: green'>You have been signed up!</p>";
+                    echo "<p style='text-align: center; color: green'>Now go to Log in!</p>";
                 }
+                
                 if($signupCheck == "usedEmail") {
-                    echo "<p style='text-align: center; color: white'>The email has already been used!</p>";
-//                        exit();
+                    echo "<p style='text-align: center; color: red'>The email has already been used!</p>";
                 }
+                
                 if($signupCheck == "usedUsername") {
-                    echo "<p style='text-align: center; color: white'>The username has already been used!</p>";
-//                        exit();
+                    echo "<p style='text-align: center; color: red'>The username has already been used!</p>";
                 }
+                
                 if($signupCheck == "passwordsDontMatch") {
-                    echo "<p style='text-align: center; color: white'>The passwords don't match!</p>";
-//                        exit();
+                    echo "<p style='text-align: center; color: red'>The passwords don't match!</p>";
                 }
             }
             ?>
@@ -160,11 +171,13 @@
                     if (isset($_GET['first'])) {
                         $first = $_GET['first'];
                         echo '<input id="first-name" type="text" name="first" placeholder="First_name" value="'.$first.'">';
+                    
                     } else {
                         echo '<input id="first-name" type="text" name="first" placeholder="First_name">';
                     }
                     ?>
                 </div>
+
                 <div style="padding-bottom: 20px">
                     <label for="last-name">Last-Name:</label>
                     <?php
@@ -172,11 +185,13 @@
                     if (isset($_GET['last'])) {
                         $last = $_GET['last'];
                         echo '<input id="last-name" type="text" name="last" placeholder="Last_name" value="'.$last.'">';
+                    
                     } else {
                         echo '<input id="last-name" type="text" name="last" placeholder="Last_name">';
                     }
                     ?>
                 </div>
+
                 <div style="padding-bottom: 20px">
                     <label for="username">Username:</label>
                     <?php
@@ -184,11 +199,13 @@
                     if (isset($_GET['uid'])) {
                         $uid = $_GET['uid'];
                         echo '<input id="username" type="text" name="uid" placeholder="Username" value="'.$uid.'">';
+                   
                     } else {
                         echo '<input id="username" type="text" name="uid" placeholder="Username">';
                     }
                     ?>
                 </div>
+
                 <div style="padding-bottom: 20px">
                     <label for="email" style="margin-left: 35px;">Email:</label>
                     <?php
@@ -196,11 +213,13 @@
                     if (isset($_GET['email'])) {
                         $email = $_GET['email'];
                         echo '<input id="email" type="text" name="email" placeholder="Email" value="'.$email.'">';
+                    
                     } else {
                         echo '<input id="email" type="text" name="email" placeholder="Email">';
                     }
                     ?>
                 </div>
+
                 <div style="padding-bottom: 20px">
                     <label for="password">Password:</label>
                     <input id="password" type="password" name="pwd" placeholder="Password">
@@ -220,8 +239,81 @@
             <hr>
             <button class="close" style="position: absolute; right: 0;max-width: 100px;color:#ffffff;background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;outline:none;font-size: 30px">&times;</button>
         </div>
-    </div> <!-- End Modal -->
+    </div>
 
+    <div id="recoverModal" class="modal">
+        <div class="modal-content container" style="color: black; top:30%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
+        
+            <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 40px;">Recover</p>
+            <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 15px;">
+                An email will be send to you with instructions on how reset your password..</p>
+
+                <?php
+                //aici verificam ce mesaj se primeste cand se da submit
+                //in functie de acel mesaj se va afisa mesajul corespunzator
+                if(isset($_GET['reset'])) {
+                    $resetCheck = $_GET['reset'];
+                    if($resetCheck == "success") {
+                        echo "<p style='text-align: center; color: green'>Check your email..</p>";
+                    }
+
+                    if($resetCheck == "notExist") {
+                        echo "<p style='text-align: center; color: red'>This email address does not exist..
+                        </p>";
+                    }
+                }
+                ?>
+            <hr>
+            <form class="d-block" style="text-align: center; color: #FFFFFF" action="forms/reset-request.inc.php" method="post">
+                <div style="padding-bottom: 20px">
+                    <label for="email" style="margin-left: 35px;">Email:</label>
+                    <input id="email" type="email" name="uEmail" placeholder="Email" required>
+                </div>
+                <button type="submit" name="reset-request-submit" class="btn btn-outline-success">Send email</button>
+            </form>
+            <hr>
+                
+            <button class="close" style="position: absolute; right: 0;max-width: 100px;color:#ffffff;background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;outline:none;font-size: 30px">&times;</button>
+        </div>
+    </div>
+    
+    <div id="resetModal" class="modal">
+        <div class="modal-content container" style="color: black; top:30%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
+        
+            <?php
+                $selector  = $_GET["selector"];
+                $validator  = $_GET["validator"];
+
+                if(empty($selector) || empty($validator)) {
+                    echo "Could not validate your request!";
+                } else {
+                    if(ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false) {
+                        ?>
+                            <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 15px;">Create new password..</p>
+                            
+                            <hr>
+                            <form class="d-block" style="text-align: center; color: #FFFFFF" action="./forms/reset-password.inc.php" method="post">
+                                <input type="hidden" name="selector" value="<?php echo $selector;?>">
+                                <input type="hidden" name="validator" value="<?php echo $validator;?>">
+                                <div style="padding-bottom: 20px">
+                                    <label for="password">Password:</label>
+                                    <input id="password" type="password" name="pwd" placeholder="New Password">
+                                </div>
+                                <div style="padding-bottom: 20px">
+                                    <label for="password">Password:</label>
+                                    <input id="password" type="password" name="pwd-repeat" placeholder="Confirm Password">
+                                </div>
+                                <button type="submit" name="reset-password-submit" class="btn btn-outline-success">Send email</button>
+                            </form>
+                            <hr>
+                                
+                            <button class="close" style="position: absolute; right: 0;max-width: 100px;color:#ffffff;background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;outline:none;font-size: 30px">&times;</button> 
+                        <?php
+                    }
+                }
+            ?>
+        </div>
+    </div>
 
     <!-- ======= Hero Section ======= -->
     <section id="hero">
@@ -440,32 +532,38 @@
                 <div class="col-lg-5 mb-lg-0 mb-4">
                     <main class="container">
                         <p class="send_mail" style="text-align: center;font-size: 30px;font-family: 'Nunito', sans-serif;">Send email:</p>
+                        
                         <form action="forms/contactform.php" method="post">
                             <ul class="errorMessages"></ul>
+
                             <div style="padding-bottom: 20px">
                                 <i style="color: #1D6C0C" class="ri-user-line"></i>
                                 <label class="send_mail" style="font-size: 20px" for="nume">Name:</label>
                                 <br>
                                 <input id="nume" type="text" name="name" placeholder="full name" style="width: 100%;height: 50px" required>
                             </div>
+                            
                             <div style="padding-bottom: 20px">
                                 <i style="color: #1D6C0C" class="ri-mail-line"></i>
                                 <label class="send_mail" style="font-size: 20px" for="mail">E-mail:</label>
                                 <br>
                                 <input id="mail" type="text" name="email" placeholder="your email" style="width: 100%;height: 50px" required>
                             </div>
+                        
                             <div style="padding-bottom: 20px">
                                 <i style="color: #1D6C0C" class="ri-file-text-line"></i>
                                 <label class="send_mail" style="font-size: 20px" for="subiect">Subject:</label>
                                 <br>
                                 <input id="subiect" type="text" name="subject" placeholder="subject" style="width: 100%;height: 50px" required>
                             </div>
+                        
                             <div style="padding-bottom: 20px">
                                 <i style="color: #1D6C0C" class="ri-text"></i>
                                 <label class="send_mail" style="font-size: 20px" for="txt">Message:</label>
                                 <br>
                                 <textarea id="txt" name="message" placeholder="message" style="width: 100%" required></textarea>
                             </div>
+                        
                             <div class="buttons" style="text-align: center">
                                 <button class="send_mail" type="submit" name="submit" style="background: #282727;border-color: #0c4128;font-size: 20px">SEND MAIL</button>
                             </div>
@@ -535,6 +633,7 @@
             ;
         }
     }
+
     if(!isset($_GET['login'])) {
 //                    exit();
     } else {
@@ -553,6 +652,26 @@
             ;
         }
     }
+
+    if(!isset($_GET['reset'])) {
+        //                    exit();
+            } else {
+                $signupCheck = $_GET['reset'];
+                if(!empty($signupCheck)) {
+                    echo '<script type="text/javascript">',
+                    'var registerModal = document.getElementById("recoverModal");',
+                    ' registerModal.style.display = "block";',
+                    'document.getElementById("hero").classList.add("blurr");',
+                    'document.getElementById("tabs").classList.add("blurr");',
+                    'document.getElementById("services").classList.add("blurr");',
+                    'document.getElementById("team").classList.add("blurr");',
+                    'document.getElementById("contact").classList.add("blurr");',
+                    'document.getElementById("footer").classList.add("blurr");',
+                    '</script>'
+                    ;
+                }
+            }
+
     ?>
 
     <!--Javascript-->

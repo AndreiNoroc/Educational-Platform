@@ -30,3 +30,11 @@ Apoi ar trebui sa aveti un tabel gol pe care sa il puteti completa si voi.
 Ultimele parti nu sunt importante decat daca vreti sa testati si voi login system-ul.
 In rest va trebuie doar xampp.
 
+In interiorul acesteia un tabel numit pwdReset, dand paste la codul:
+CREATE TABLE pwdReset (
+    pwdResetId int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    pwdResetEmail TEXT NOT NULL,
+    pwdResetSelector TEXT NOT NULL,
+    pwdResetToken TEXT NOT NULL,
+    pwdResetExpires TEXT NOT NULL,
+);

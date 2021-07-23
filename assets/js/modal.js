@@ -1,15 +1,18 @@
 // Get the modal
 var loginModal = document.getElementById("loginModal");
 var registerModal = document.getElementById("registerModal");
+var recoverModal = document.getElementById("recoverModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("buttonLogin");
 var registration = document.getElementById("new_account");
 var login = document.getElementById("exist_account");
+var recover = document.getElementById("forgotPass");
 
 // Get the <span> element that closes the modal
 var spanLogin = document.getElementsByClassName("close")[0];
 var spanRegister = document.getElementsByClassName("close")[1];
+var spanRecover = document.getElementsByClassName("close")[2];
 
 // When the user clicks the button, open the modal
 btn.onclick = function() {
@@ -43,6 +46,17 @@ spanRegister.onclick = function() {
     registerModal.style.display = "none";
 }
 
+spanRecover.onclick = function() {
+    document.getElementById('hero').classList.remove("blurr");
+    document.getElementById('tabs').classList.remove("blurr");
+    document.getElementById('services').classList.remove("blurr");
+    document.getElementById('team').classList.remove("blurr");
+    document.getElementById('contact').classList.remove("blurr");
+    document.getElementById('footer').classList.remove("blurr");
+    recoverModal.style.display = "none";
+}
+
+
 // When the user clicks anywhere outside of the loginModal, close it
 window.onclick = function(event) {
     if (event.target == loginModal) {
@@ -55,8 +69,8 @@ window.onclick = function(event) {
         document.getElementById('footer').classList.remove("blurr");
     }
 
-    if (event.target == registerModal) {
-        registerModal.style.display = "none";
+    if (event.target == recoverModal) {
+        recoverModal.style.display = "none";
         document.getElementById('hero').classList.remove("blurr");
         document.getElementById('tabs').classList.remove("blurr");
         document.getElementById('services').classList.remove("blurr");
@@ -64,6 +78,8 @@ window.onclick = function(event) {
         document.getElementById('contact').classList.remove("blurr");
         document.getElementById('footer').classList.remove("blurr");
     }
+
+
 }
 
 registration.onclick = function() {
@@ -74,4 +90,9 @@ registration.onclick = function() {
 login.onclick = function() {
     registerModal.style.display = "none";
     loginModal.style.display = "block";
+}
+
+recover.onclick = function () {
+    loginModal.style.display = "none";
+    recoverModal.style.display = "block";
 }
