@@ -10,7 +10,7 @@ if (isset($_POST['reset-request-submit'])) {
     $token = random_bytes(32);
 
     ///Url-ul care va fi trimis pe email pentru a fi accesat
-    $url = "localhost/FinancialEducation?selector=" . $selector . "&validator=". bin2hex($token);
+    $url = "https://bioferma-cuza-voda.ro/index.php?selector=" . $selector . "&validator=". bin2hex($token);
     bin2hex($token);
 
     //Pentru a genera un link care expira
@@ -35,7 +35,7 @@ if (isset($_POST['reset-request-submit'])) {
         $stmt = mysqli_stmt_init($conn);
     
         if(!mysqli_stmt_prepare($stmt, $sql)) {
-            echo "There was an error!";
+            echo "There was an error1!";
             exit();
         
         } else {
@@ -47,7 +47,7 @@ if (isset($_POST['reset-request-submit'])) {
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)) {
-            echo "There was an error!";
+            echo "There was an error2!";
             exit();
 
         } else {

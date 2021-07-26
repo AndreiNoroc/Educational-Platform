@@ -2,6 +2,7 @@
 var loginModal = document.getElementById("loginModal");
 var registerModal = document.getElementById("registerModal");
 var recoverModal = document.getElementById("recoverModal");
+var resetModal = document.getElementById("resetModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("buttonLogin");
@@ -68,6 +69,16 @@ window.onclick = function(event) {
         document.getElementById('contact').classList.remove("blurr");
         document.getElementById('footer').classList.remove("blurr");
     }
+    
+    if (event.target == registerModal) {
+        registerModal.style.display = "none";
+        document.getElementById('hero').classList.remove("blurr");
+        document.getElementById('tabs').classList.remove("blurr");
+        document.getElementById('services').classList.remove("blurr");
+        document.getElementById('team').classList.remove("blurr");
+        document.getElementById('contact').classList.remove("blurr");
+        document.getElementById('footer').classList.remove("blurr");
+    }
 
     if (event.target == recoverModal) {
         recoverModal.style.display = "none";
@@ -78,8 +89,16 @@ window.onclick = function(event) {
         document.getElementById('contact').classList.remove("blurr");
         document.getElementById('footer').classList.remove("blurr");
     }
-
-
+    
+    if (event.target == resetModal) {
+        resetModal.style.display = "none";
+        document.getElementById('hero').classList.remove("blurr");
+        document.getElementById('tabs').classList.remove("blurr");
+        document.getElementById('services').classList.remove("blurr");
+        document.getElementById('team').classList.remove("blurr");
+        document.getElementById('contact').classList.remove("blurr");
+        document.getElementById('footer').classList.remove("blurr");
+    }
 }
 
 registration.onclick = function() {

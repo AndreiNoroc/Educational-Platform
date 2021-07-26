@@ -43,7 +43,7 @@
         </div>
     </header><!-- End Header -->
 
-    <!-- The Modal -->
+    <!-- The Modals -->
     <div id="loginModal" class="modal">
             <div class="modal-content container" style="color: black; top:30%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
 
@@ -246,7 +246,7 @@
         
             <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 40px;">Recover</p>
             <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 15px;">
-                An email will be send to you with instructions on how reset your password..</p>
+                An email will be send to you with instructions on how reset your password.</p>
 
                 <?php
                 //aici verificam ce mesaj se primeste cand se da submit
@@ -254,11 +254,11 @@
                 if(isset($_GET['reset'])) {
                     $resetCheck = $_GET['reset'];
                     if($resetCheck == "success") {
-                        echo "<p style='text-align: center; color: green'>Check your email..</p>";
+                        echo "<p style='text-align: center; color: green'>Check your email.</p>";
                     }
 
                     if($resetCheck == "notExist") {
-                        echo "<p style='text-align: center; color: red'>This email address does not exist..
+                        echo "<p style='text-align: center; color: red'>This email address does not exist.
                         </p>";
                     }
                 }
@@ -279,6 +279,23 @@
     
     <div id="resetModal" class="modal">
         <div class="modal-content container" style="color: black; top:30%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
+            
+            <?php
+            //aici verificam ce mesaj se primeste cand se da submit
+            //in functie de acel mesaj se va afisa mesajul corespunzator
+            if(isset($_GET['newpwd'])) {
+                $signupCheck = $_GET['newpwd'];
+                if($signupCheck == "empty") {
+                    echo "<p style='text-align: center; color: red'>You did not fill in all fields!</p>";
+                }
+                if($signupCheck == "pwdnotsame") {
+                    echo "<p style='text-align: center; color: red'>The passwords don't match!</p>";
+                }
+                if($signupCheck == "passwordupdate") {
+                    echo "<p style='text-align: center; color: green'>The password has been changed!</p>";
+                }
+            }
+            ?>
         
             <?php
                 $selector  = $_GET["selector"];
@@ -671,7 +688,42 @@
                     ;
                 }
             }
-
+    if(!isset($_GET['selector'])) {
+        //                    exit();
+        } else {
+            $signupCheck = $_GET['selector'];
+            if(!empty($signupCheck)) {
+                echo '<script type="text/javascript">',
+                'var registerModal = document.getElementById("resetModal");',
+                ' registerModal.style.display = "block";',
+                'document.getElementById("hero").classList.add("blurr");',
+                'document.getElementById("tabs").classList.add("blurr");',
+                'document.getElementById("services").classList.add("blurr");',
+                'document.getElementById("team").classList.add("blurr");',
+                'document.getElementById("contact").classList.add("blurr");',
+                'document.getElementById("footer").classList.add("blurr");',
+                '</script>'
+                ;
+            }
+        }
+    if(!isset($_GET['newpwd'])) {
+        //                    exit();
+        } else {
+            $signupCheck = $_GET['newpwd'];
+            if(!empty($signupCheck)) {
+                echo '<script type="text/javascript">',
+                'var registerModal = document.getElementById("resetModal");',
+                ' registerModal.style.display = "block";',
+                'document.getElementById("hero").classList.add("blurr");',
+                'document.getElementById("tabs").classList.add("blurr");',
+                'document.getElementById("services").classList.add("blurr");',
+                'document.getElementById("team").classList.add("blurr");',
+                'document.getElementById("contact").classList.add("blurr");',
+                'document.getElementById("footer").classList.add("blurr");',
+                '</script>'
+                ;
+            }
+        }
     ?>
 
     <!--Javascript-->
