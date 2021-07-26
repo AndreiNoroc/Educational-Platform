@@ -179,7 +179,7 @@ function startsecondgame() {
 	document.getElementById("explainsecgame").style.display = 'none';
 	document.getElementById("initbuttsecond").style.display = 'none';
 
-	document.getElementById("finishbutton").style.display = 'inline-block';
+	document.getElementById("finishbuttonsecond").style.display = 'inline-block';
 	document.getElementById("citypuzzle").style.display = 'inline-block';
 }
 
@@ -197,19 +197,40 @@ function drop(ev) {
     ev.target.appendChild(document.getElementById(data));
 }
 
+function exitsecondgame(ev) {
+	if (ev == "finishbuttonsecond") {
+		for (var i = 1 ; i <= 20 ; i++) {
+			var nm = "div" + i;
+			
+			if (document.getElementById(nm).innerHTML.trim().length == 0) {
+				alert("You need to complete all boxes!!!");
+				return;
+			}
+		}
 
-
-function exitsecondgame() {
-	gameInProgress = false;
-
-	if (document.getElementById('div16').innerHTML.trim().length == 0) {
-		console.log("DAAA");
-	} else {
-		var moveElem = document.getElementById('div16').getElementsByTagName("*");
-		document.getElementById('tablepuzzlepieces').appendChild(document.getElementById(moveElem[0].id));
+		
+		alert("Your score is: ");	
 	}
 
-	document.getElementById("finishbutton").style.display = 'none';
+	gameInProgress = false;
+
+	for (var i = 1 ; i <= 20 ; i++) {
+		var nm = "div" + i;
+		
+		if (document.getElementById(nm).innerHTML.trim().length == 0) {
+			console.log(nm);
+		} else {
+			var moveElem = document.getElementById(nm).getElementsByTagName("*");
+
+			if (document.getElementById('tablepuzzlepieces1').childElementCount < 10) {
+				document.getElementById('tablepuzzlepieces1').appendChild(document.getElementById(moveElem[0].id));
+			} else {
+				document.getElementById('tablepuzzlepieces2').appendChild(document.getElementById(moveElem[0].id));
+			}
+		}
+	}
+
+	document.getElementById("finishbuttonsecond").style.display = 'none';
 	document.getElementById("citypuzzle").style.display = 'none';
 	document.getElementById("secondgame").style.display = 'none';
 	document.getElementById("startsgame").disabled = false;

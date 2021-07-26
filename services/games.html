@@ -355,9 +355,9 @@
 
           <div id="itemspuzzle"class="col w-100 bg-danger px-2 py-2" style="height: 30%;">
             <div class="row my-1">
-              <div id="tablepuzzlepieces" class="d-flex justify-content-center" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <div id="tablepuzzlepieces1" class="d-flex justify-content-center" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div id="drag1" class="rounded mx-1" draggable="true" ondragstart="drag(event)"></div>
-                <div id="drag2" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="drag2" class="rounded mx-1" draggable="true" ondragstart="drag(event)"></div>
                 <div id="drag3" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
                 <div id="drag4" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
                 <div id="drag5" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
@@ -370,7 +370,7 @@
             </div>
 
             <div class="row my-1">
-              <div id="tablepuzzlepieces" class="d-flex justify-content-center" ondrop="drop(event)" ondragover="allowDrop(event)">
+              <div id="tablepuzzlepieces2" class="d-flex justify-content-center" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div id="drag11" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
                 <div id="drag12" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
                 <div id="drag13" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
@@ -392,13 +392,13 @@
             <button type="button" class="btn btn-success btn-md" onclick="startsecondgame()">Start</button>
           </div>
 
-          <div id="finishbutton" class="btn-group" style="display: none;">
-            <button type="button" class="btn btn-success btn-md" onclick="startsecondgame()">Finish</button>
+          <div id="finishbuttonsecond" class="btn-group" style="display: none;">
+            <button id="finishbuttonsecond" type="button" class="btn btn-success btn-md" onclick="exitsecondgame(this.id)">Finish</button>
           </div>
 
           <div id="exitbuttsecgame" class="btn-group" style="display: none;">
             <a href="#buttons">
-              <button type="button" class="btn btn-success btn-md" onclick="exitsecondgame()">Exit</button>
+              <button type="button" class="btn btn-success btn-md" onclick="exitsecondgame(this.id)">Exit</button>
             </a>
           </div>
       </div>
