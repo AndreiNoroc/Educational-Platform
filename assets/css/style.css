@@ -484,41 +484,6 @@ section {
 # Games
 --------------------------------------------------------------*/
 
-/*----------------------------------------------------------------------------------------------------------------------
-# Carousel
-----------------------------------------------------------------------------------------------------------------------*/
-body
-{
-  margin: 0;
-  padding: 0;
-  background: #282727;
-}
-.carousel
-{
-  height: 700px;
-  perspective: 600px;
-}
-.carousel .carousel-item
-{
-  width: 500px;
-}
-.carousel .carousel-item img
-{
-  width: 100%;
-}
-.carousel .carousel-item h3
-{
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  color: #000;
-  box-sizing: border-box;
-  padding: 10px 5px;
-  font-weight: bold;
-  font-size: 2em;
-  text-align: center;
-}
-
 /*
 ------------------------------------------------------------------------------------------------------------------------
  */

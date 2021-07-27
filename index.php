@@ -1,3 +1,8 @@
+<?php
+//! parte de php in html, aici incepe sesiunea pentru a putea trimite date in alte pagini
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,8 +74,11 @@
                         }
                         if($signupCheck == "success") {
                             echo "<p style='text-align: center; color: green'>You have been logged in!</p>";
+                            $_SESSION["username"] = $_GET['username'];
                         }
                     }
+                    //? cu asta scoatem sesiunea pana la logout
+                    //! unset($_SESSION['username']);
                 ?>
 
                 <hr>
@@ -487,7 +495,7 @@
                 </div>
 
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                    <a href="services/forum.html" target="_blank">
+                    <a href="services/forum.php" target="_blank">
                         <div class="icon-box">
                             <div class="icon"><i class="bx bx-world"></i></div>
                             <h4 class="title">Forum</h4>

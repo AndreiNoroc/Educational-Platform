@@ -27,8 +27,14 @@ if(isset($_POST['submit'])) {
                 header("Location: ../index.php?login=errorpassword&username=$username");
                 exit();
             } else {
-                header("Location: ../index.php?login=success");
-                exit();
+                $u = $row['user_uid']; //? retin username-ul in u;
+                if (strpos($username, "@")) {
+                    header("Location: ../index.php?login=success&username=$u");
+                    exit();
+                } else {
+                    header("Location: ../index.php?login=success&username=$username");
+                    exit();
+                }
             }
         }
     }
