@@ -12,7 +12,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!--CSS-->
+    <!-- CSS from bootstrap -->
     <link href="assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -20,12 +20,13 @@
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+    <!-- CSS homemade -->
     <link href="assets/css/style-index.css" rel="stylesheet">
-
 </head>
-<body style="background: #282727">
 
-    <!-- ======= Header ======= -->
+<body>
+
+    <!-- //? ==================== Header(navbar) starts here ==================== -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-between">
             <h1 class="logo"><a href="index.php">EducationFirst</a></h1>
@@ -39,23 +40,26 @@
                     <li><a class="nav-link scrollto" id="buttonLogin" style="cursor: pointer">Login</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
+            </nav> <!-- //* navbar ends here -->
         </div>
-    </header><!-- End Header -->
+    </header>
+    <!-- //? ==================== Header(navbar) ends here ==================== -->
 
-    <!-- The Modals -->
+    <!-- //* ==================== The login modal starts here ==================== -->
     <div id="loginModal" class="modal">
-            <div class="modal-content container" style="color: black; top:30%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
+            <div class="modal-content container modal_look">
 
-                <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 40px;">Login</p>
+                <!-- //? Titlul din interiorul modalului -->
+                <p class="modal_title">Login</p>
 
                 <?php
-                    //aici verificam ce mesaj se primeste cand se da submit
-                    //in functie de acel mesaj se va afisa mesajul corespunzator
+                    //! parte de php in interiorul html
+                    //* verificam mesajul primit de la server
+                    //* in functie de acesta afisam alt mesaj
                     if(isset($_GET['login'])) {
                         $signupCheck = $_GET['login'];
                         if($signupCheck == "empty") {
-                        echo "<p style='text-align: center; color: red'>You did not fill in all fields!</p>";
+                            echo "<p style='text-align: center; color: red'>You did not fill in all fields!</p>";
                         }
                         if($signupCheck == "errorusername") {
                             echo "<p style='text-align: center; color: red'>Wrong username!</p>";
@@ -64,24 +68,18 @@
                             echo "<p style='text-align: center; color: red'>Wrong password!</p>";
                         }
                         if($signupCheck == "success") {
-                        echo "<p style='text-align: center; color: green'>You have been logged in!</p>";
-                        }
-                    }
-
-                    if(isset($_GET['newpwd'])) {
-                        $signupCheck = $_GET['newpwd'];
-                        if($signupCheck == "passwordupdate") {
-                            echo "<p style='text-align: center; color: green'>Your password has been reset!</p>";
+                            echo "<p style='text-align: center; color: green'>You have been logged in!</p>";
                         }
                     }
                 ?>
 
                 <hr>
-                <form class="d-block" style="text-align: center; color: #FFFFFF" action="forms/login.inc.php" method="post">
+                <form class="d-block modal_form" action="forms/login.inc.php" method="post">
                     <div style="padding-bottom: 20px">
                         <label for="username">Username:</label>
                         <?php
-                        //conditie ca acest camp sa ramana neschimbat cand se greseste altceva
+                        //! parte de php in interiorul html
+                        //* folosim php aici pentru a pastra username-ul in cazul in care s-a gresit doar parola
                         if (isset($_GET['username'])) {
                             $username = $_GET['username'];
                             echo '<input id="username" type="text" name="username" placeholder="Username or email" value="'.$username.'">';
@@ -95,40 +93,34 @@
                         <input id="password" type="password" name="password" placeholder="Password">
                     </div>
                     <button type="submit" name="submit" class="btn btn-outline-success">Login</button>
-                    
-                    <?php
-
-                    if(isset($_GET['newpwd'])) {
-                        $signupCheck = $_GET['newpwd'];
-                        if($signupCheck == "passwordupdate") {
-                            echo "<p style='text-align: center; color: white'>Your password has benn reset!</p>";
-                        }
-                    }
-                    ?>
 
                     <br><br>
-                    <a class="btn" id="forgotPass" style="margin-left: 10px;color:#1D6C0C;"><i>Forgot your password?</i></a>
+                    <a class="modal_text_link" id="forgotPass"><i>Forgot your password?</i></a>
                     <br><br>
                     
                     <span id="change_link">
                         Do you not have an account?
-                        <a class="btn" id="new_account" style="margin-left: 10px;color:#1D6C0C;"><i>New Account</i></a>
+                        <a class="modal_text_link" id="new_account"><i>New Account</i></a>
                     </span>
                 </form>
                 <hr>
 
-                <button class="close" style="position: absolute; right: 0;max-width: 100px;color:#ffffff;background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;outline:none;font-size: 30px">&times;</button>
+                <button class="close modal_close_button">&times;</button>
             </div>
     </div>
+    <!-- //* ==================== The login modal ends here ==================== -->
 
+    <!-- //? ==================== The register modal starts here ==================== -->
     <div id="registerModal" class="modal">
-        <div class="modal-content container" style="color: black; top:10%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
+        <div class="modal-content container modal_look">
 
-            <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 40px;">Register</p>
+            <!-- //? Titlul din interiorul modalului -->
+            <p class="modal_title">Register</p>
 
             <?php
-            //aici verificam ce mesaj se primeste cand se da submit
-            //in functie de acel mesaj se va afisa mesajul corespunzator
+            //! parte de php in interiorul html
+            //* verificam mesajul primit de la server
+            //* in functie de acesta afisam alt mesaj
             if(isset($_GET['signup'])) {
                 $signupCheck = $_GET['signup'];
                 if($signupCheck == "empty") {
@@ -163,11 +155,12 @@
             ?>
 
             <hr>
-            <form class="d-block" style="text-align: center; color: #FFFFFF" action="forms/signup.inc.php" method="post">
+            <form class="d-block modal_form" action="forms/signup.inc.php" method="post">
                 <div style="padding-bottom: 20px">
                     <label for="first-name">First-Name:</label>
                     <?php
-                    //conditie ca acest camp sa ramana neschimbat cand se greseste altceva
+                    //! parte de php in interiorul html
+                    //* conditie sa ramana valoarea scrisa dupa refresh
                     if (isset($_GET['first'])) {
                         $first = $_GET['first'];
                         echo '<input id="first-name" type="text" name="first" placeholder="First_name" value="'.$first.'">';
@@ -181,7 +174,8 @@
                 <div style="padding-bottom: 20px">
                     <label for="last-name">Last-Name:</label>
                     <?php
-                    //conditie ca acest camp sa ramana neschimbat cand se greseste altceva
+                    //! parte de php in interiorul html
+                    //* conditie sa ramana valoarea scrisa dupa refresh
                     if (isset($_GET['last'])) {
                         $last = $_GET['last'];
                         echo '<input id="last-name" type="text" name="last" placeholder="Last_name" value="'.$last.'">';
@@ -195,7 +189,8 @@
                 <div style="padding-bottom: 20px">
                     <label for="username">Username:</label>
                     <?php
-                    //conditie ca acest camp sa ramana neschimbat cand se greseste altceva
+                    ///! parte de php in interiorul html
+                    //* conditie sa ramana valoarea scrisa dupa refresh
                     if (isset($_GET['uid'])) {
                         $uid = $_GET['uid'];
                         echo '<input id="username" type="text" name="uid" placeholder="Username" value="'.$uid.'">';
@@ -209,7 +204,8 @@
                 <div style="padding-bottom: 20px">
                     <label for="email" style="margin-left: 35px;">Email:</label>
                     <?php
-                    //conditie ca acest camp sa ramana neschimbat cand se greseste altceva
+                    //! parte de php in interiorul html
+                    //* conditie sa ramana valoarea scrisa dupa refresh
                     if (isset($_GET['email'])) {
                         $email = $_GET['email'];
                         echo '<input id="email" type="text" name="email" placeholder="Email" value="'.$email.'">';
@@ -224,6 +220,7 @@
                     <label for="password">Password:</label>
                     <input id="password" type="password" name="pwd" placeholder="Password">
                 </div>
+
                 <div style="padding-bottom: 20px">
                     <label for="password">Password:</label>
                     <input id="password" type="password" name="pwd2" placeholder="Confirm Password">
@@ -233,56 +230,62 @@
                 <br><br>
                 <p class="change_link">
                     Do you have an account?
-                    <a class="btn" id="exist_account" style="margin-left: 10px;color:#1D6C0C;"><i>Log in</i></a>
+                    <a class="modal_text_link" id="exist_account"><i>Log in</i></a>
                 </p>
             </form>
             <hr>
-            <button class="close" style="position: absolute; right: 0;max-width: 100px;color:#ffffff;background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;outline:none;font-size: 30px">&times;</button>
+            <button class="close modal_close_button">&times;</button>
         </div>
     </div>
+    <!-- //? ==================== The register modal ends here ==================== -->
 
+    <!-- //* ==================== The recover modal starts here ==================== -->
     <div id="recoverModal" class="modal">
-        <div class="modal-content container" style="color: black; top:30%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
+        <div class="modal-content container modal_look">
         
-            <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 40px;">Recover</p>
-            <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 15px;">
-                An email will be send to you with instructions on how reset your password.</p>
+            <!-- //? Titlul din interiorul modalului -->
+            <p class="modal_title">Recover</p>
+            <p class="modal_subtitle">An email will be send to you with instructions on how reset your password.</p>
 
-                <?php
-                //aici verificam ce mesaj se primeste cand se da submit
-                //in functie de acel mesaj se va afisa mesajul corespunzator
-                if(isset($_GET['reset'])) {
-                    $resetCheck = $_GET['reset'];
-                    if($resetCheck == "success") {
-                        echo "<p style='text-align: center; color: green'>Check your email.</p>";
-                    }
-
-                    if($resetCheck == "notExist") {
-                        echo "<p style='text-align: center; color: red'>This email address does not exist.
-                        </p>";
-                    }
+            <?php
+            //! parte de php in interiorul html
+            // TODO: sa se verifice si daca este campul gol, nu mai facem cu required(nu acum ca poate stricam ceva, cand o sa mai putem testa)
+            //* verificam mesajul primit de la server
+            //* in functie de acesta afisam alt mesaj
+            if(isset($_GET['reset'])) {
+                $resetCheck = $_GET['reset'];
+                if($resetCheck == "success") {
+                    echo "<p style='text-align: center; color: green'>Check your email.</p>";
                 }
-                ?>
+                if($resetCheck == "notExist") {
+                    echo "<p style='text-align: center; color: red'>This email address does not exist.</p>";
+                }
+            }
+            ?>
+
             <hr>
-            <form class="d-block" style="text-align: center; color: #FFFFFF" action="forms/reset-request.inc.php" method="post">
+            <form class="d-block modal_form" action="forms/reset-request.inc.php" method="post">
                 <div style="padding-bottom: 20px">
-                    <label for="email" style="margin-left: 35px;">Email:</label>
-                    <input id="email" type="email" name="uEmail" placeholder="Email" required>
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" name="uEmail" placeholder="Email" required><!-- //! trebuie sters required-ul asta-->
                 </div>
                 <button type="submit" name="reset-request-submit" class="btn btn-outline-success">Send email</button>
             </form>
             <hr>
                 
-            <button class="close" style="position: absolute; right: 0;max-width: 100px;color:#ffffff;background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;outline:none;font-size: 30px">&times;</button>
+            <button class="close modal_close_button">&times;</button>
         </div>
     </div>
+    <!-- //* ==================== The recover modal ends here ==================== -->
     
+    <!-- //? ==================== The reset modal starts here ==================== -->
     <div id="resetModal" class="modal">
-        <div class="modal-content container" style="color: black; top:30%; max-width: 700px;background: #282727; border-color: #1D6C0C;border-radius: 20px; border-width: 5px;">
+        <div class="modal-content container modal_look">
             
             <?php
-            //aici verificam ce mesaj se primeste cand se da submit
-            //in functie de acel mesaj se va afisa mesajul corespunzator
+            //! parte de php in interiorul html
+            //* verificam mesajul primit de la server
+            //* in functie de acesta afisam alt mesaj
             if(isset($_GET['newpwd'])) {
                 $signupCheck = $_GET['newpwd'];
                 if($signupCheck == "empty") {
@@ -298,6 +301,7 @@
             ?>
         
             <?php
+                //! parte de php in interiorul html
                 $selector  = $_GET["selector"];
                 $validator  = $_GET["validator"];
 
@@ -305,11 +309,13 @@
                     echo "Could not validate your request!";
                 } else {
                     if(ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false) {
-                        ?>
-                            <p style="text-align: center;padding-top: 10px;color: #FFFFFF;font-size: 15px;">Create new password..</p>
+            ?>
+                            <!-- //? Titlul din interiorul modalului -->
+                            <p class="modal_subtitle">Create new password.</p>
                             
                             <hr>
-                            <form class="d-block" style="text-align: center; color: #FFFFFF" action="./forms/reset-password.inc.php" method="post">
+                            <form class="d-block modal_form" action="./forms/reset-password.inc.php" method="post">
+                                <!-- // TODO: Razvane comenteaza tu aici ca nu inteleg exact -->
                                 <input type="hidden" name="selector" value="<?php echo $selector;?>">
                                 <input type="hidden" name="validator" value="<?php echo $validator;?>">
                                 <div style="padding-bottom: 20px">
@@ -324,15 +330,16 @@
                             </form>
                             <hr>
                                 
-                            <button class="close" style="position: absolute; right: 0;max-width: 100px;color:#ffffff;background-color: Transparent;background-repeat:no-repeat;border: none;cursor:pointer;overflow: hidden;outline:none;font-size: 30px">&times;</button> 
-                        <?php
+                            <button class="close modal_close_button">&times;</button> 
+            <?php
                     }
                 }
             ?>
         </div>
     </div>
+    <!-- //? ==================== The reset modal ends here ==================== -->
 
-    <!-- ======= Hero Section ======= -->
+    <!-- //* ==================== Hero Section ==================== -->
     <section id="hero">
         <div class="hero-container">
             <h3>Welcome to <strong>EducationFirst</strong></h3>
@@ -340,33 +347,38 @@
             <h2>Oh well... You have arrived in an educational environment. Here, you might discover new way to handle your financial education.</h2>
             <a href="#tabs" class="btn-get-started scrollto">Let's make a tour</a>
         </div>
-    </section><!-- End Hero -->
+    </section>
+    <!-- //* ==================== End Hero ==================== -->
 
-    <!-- ======= About Section ======= -->
+    <!-- //? ==================== About Section ==================== -->
             <!-- ======= Tabs Section ======= -->
+            <!-- //* aici avem 3 butoane care te duc pe 3 taburi diferite -->
+            <!-- //! de ce sunt atatea div-uri :))) -->
             <section id="tabs" class="tabs">
                 <div class="container" data-aos="fade-up">
 
+                    <!-- //? aici este doar titlul -->
                     <div class="section-title">
                         <h2>About Us</h2>
                         <h3>Find out more <span>about us</span></h3>
                     </div>
 
+                    <!-- //? un rand cu titlurile tb-urilor -->
                     <ul class="nav nav-tabs row d-flex">
                         <li class="nav-item col-4">
-                            <a id="tab-01" class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1" style="background: none; text-align: center" onclick="myFunction1()">
+                            <a id="tab-01" class="nav-link tab active show" style="background:none" data-bs-toggle="tab" data-bs-target="#tab-1" onclick="myFunction1()">
                                 <i class="ri-team-line"></i>
                                 <h4 class="d-none d-lg-block">Who we are?</h4>
                             </a>
                         </li>
                         <li class="nav-item col-4">
-                            <a id="tab-02" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2" style="text-align: center" onclick="myFunction2()">
+                            <a id="tab-02" class="nav-link tab" data-bs-toggle="tab" data-bs-target="#tab-2" onclick="myFunction2()">
                                 <i class="ri-currency-line"></i>
                                 <h4 class="d-none d-lg-block">What are we trying to do?</h4>
                             </a>
                         </li>
                         <li class="nav-item col-4">
-                            <a id="tab-03" class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3" style="text-align: center" onclick="myFunction3()">
+                            <a id="tab-03" class="nav-link tab" data-bs-toggle="tab" data-bs-target="#tab-3" onclick="myFunction3()">
                                 <i class="ri-vip-diamond-line"></i>
                                 <h4 class="d-none d-lg-block">What we offer?</h4>
                             </a>
@@ -377,8 +389,8 @@
                         <div class="tab-pane active show" id="tab-1">
                             <div class="row">
                                 <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
-                                    <h3 class="d-lg-none d-xl-none" style="padding: 10px"> Who we are? </h3>
-                                    <h3 style="padding: 10px"> A group of aliens.</h3>
+                                    <h3 class="d-lg-none d-xl-none padding_10"> Who we are? </h3>
+                                    <h3 class="padding_10"> A group of aliens.</h3>
                                     <p class="font-italic">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                                         magna aliqua.
@@ -392,8 +404,8 @@
                         <div class="tab-pane" id="tab-2">
                             <div class="row">
                                 <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                                    <h3 class="d-lg-none d-xl-none" style="padding: 10px"> What are we trying to do? </h3>
-                                    <h3 style="padding: 10px">Neque exercitationem debitis soluta quos debitis quo mollitia officia est</h3>
+                                    <h3 class="d-lg-none d-xl-none padding_10"> What are we trying to do? </h3>
+                                    <h3 class="padding_10">Neque exercitationem debitis soluta quos debitis quo mollitia officia est</h3>
                                     <p>
                                         Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                                         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
@@ -412,12 +424,13 @@
                         <div class="tab-pane" id="tab-3">
                             <div class="row">
                                 <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-                                    <h3 class="d-lg-none d-xl-none" style="padding: 10px"> What we offer? </h3>
-                                    <h3 style="padding: 10px">Voluptatibus commodi ut accusamus ea repudiandae ut autem dolor ut assumenda</h3>
+                                    <h3 class="d-lg-none d-xl-none padding_10"> What we offer? </h3>
+                                    <h3 class="padding_10">Voluptatibus commodi ut accusamus ea repudiandae ut autem dolor ut assumenda</h3>
                                     <ul>
                                         <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
                                         <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                        <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.</li>
+                                        <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores dolores quos qui a.
+                                         Ipsum neque dolor voluptate nisi sed.</li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -427,17 +440,21 @@
                         </div>
                     </div>
                 </div>
-            </section><!-- End Tabs Section -->
+            </section>
+            <!-- ======= End Tabs Section ======= -->
+    <!-- //? ==================== End About Section ==================== -->
 
-    <!-- ======= Services Section ======= -->
+    <!-- //* ==================== Services Section ==================== -->
     <section id="services" class="services">
         <div class="container">
 
+            <!-- //? Titlul sectiunii -->
             <div class="section-title">
                 <h2>Services</h2>
                 <h3>Our site offers the <span>services</span> below</h3>
             </div>
 
+            <!-- //? Cele 4 carduri de oferte de nerefuzat -->
             <div class="row">
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
                     <a href="services/games.html" target="_blank">
@@ -482,12 +499,14 @@
             </div>
 
         </div>
-    </section><!-- End Services Section -->
+    </section>
+    <!-- //* ==================== End Services Section ==================== -->
 
-    <!-- ======= Team Section ======= -->
+    <!-- //? ==================== Team Section ==================== -->
     <section id="team" class="team">
         <div class="container">
 
+            <!-- //*titlul sectiunii -->
             <div class="section-title">
                 <h2>Team</h2>
                 <h3>Meet the <span>team</span> behind the idea</h3>
@@ -534,12 +553,14 @@
             </div>
 
         </div>
-    </section><!-- End Team Section -->
+    </section>
+    <!-- //? ==================== End Team Section ==================== -->
 
-    <!-- ======= Contact Section ======= -->
+    <!-- //* ==================== Contact Section ==================== -->
     <section id="contact" class="contact">
         <div class="container">
 
+            <!-- //? titlul sectiunii -->
             <div class="section-title">
                 <h2>Contact</h2>
                 <h3><span>Contact us</span> now</h3>
@@ -548,47 +569,49 @@
             <div class="row">
                 <div class="col-lg-5 mb-lg-0 mb-4">
                     <main class="container">
-                        <p class="send_mail" style="text-align: center;font-size: 30px;font-family: 'Nunito', sans-serif;">Send email:</p>
+                        <!-- //? Partea cu formularul de trimis email-uri -->
+                        <p class="send_mail">Send email:</p>
                         
                         <form action="forms/contactform.php" method="post">
                             <ul class="errorMessages"></ul>
 
-                            <div style="padding-bottom: 20px">
-                                <i style="color: #1D6C0C" class="ri-user-line"></i>
-                                <label class="send_mail" style="font-size: 20px" for="nume">Name:</label>
+                            <div class="padding_bottom_20">
+                                <i class="color_icon ri-user-line"></i>
+                                <label class="send_mail" for="nume">Name:</label>
                                 <br>
-                                <input id="nume" type="text" name="name" placeholder="full name" style="width: 100%;height: 50px" required>
+                                <input id="nume" type="text" name="name" placeholder="full name" class="text_boxes" required>
                             </div>
                             
-                            <div style="padding-bottom: 20px">
-                                <i style="color: #1D6C0C" class="ri-mail-line"></i>
-                                <label class="send_mail" style="font-size: 20px" for="mail">E-mail:</label>
+                            <div class="padding_bottom_20">
+                                <i class="color_icon ri-mail-line"></i>
+                                <label class="send_mail" for="mail">E-mail:</label>
                                 <br>
-                                <input id="mail" type="text" name="email" placeholder="your email" style="width: 100%;height: 50px" required>
+                                <input id="mail" type="text" name="email" placeholder="your email" class="text_boxes" required>
                             </div>
                         
-                            <div style="padding-bottom: 20px">
-                                <i style="color: #1D6C0C" class="ri-file-text-line"></i>
-                                <label class="send_mail" style="font-size: 20px" for="subiect">Subject:</label>
+                            <div class="padding_bottom_20">
+                                <i class="ri-file-text-line color_icon"></i>
+                                <label class="send_mail" for="subiect">Subject:</label>
                                 <br>
-                                <input id="subiect" type="text" name="subject" placeholder="subject" style="width: 100%;height: 50px" required>
+                                <input id="subiect" type="text" name="subject" placeholder="subject" class="text_boxes" required>
                             </div>
                         
-                            <div style="padding-bottom: 20px">
-                                <i style="color: #1D6C0C" class="ri-text"></i>
-                                <label class="send_mail" style="font-size: 20px" for="txt">Message:</label>
+                            <div class="padding_bottom_20">
+                                <i class="ri-text color_icon"></i>
+                                <label class="send_mail" for="txt">Message:</label>
                                 <br>
                                 <textarea id="txt" name="message" placeholder="message" style="width: 100%" required></textarea>
                             </div>
                         
                             <div class="buttons" style="text-align: center">
-                                <button class="send_mail" type="submit" name="submit" style="background: #282727;border-color: #0c4128;font-size: 20px">SEND MAIL</button>
+                                <button class="send_mail send_mail_button" type="submit" name="submit">SEND MAIL</button>
                             </div>
                         </form>
                     </main>
                 </div>
+                <!-- //? partea cu harta s informatii de contact -->
                 <div class="col-lg-7" style="padding-top: 40px">
-                    <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45574.733944936364!2d26.025348695403945!3d44.44504047986557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201eb9755ce5f%3A0xfd63661aa153893!2zUDYsIEJ1Y3VyZciZdGk!5e0!3m2!1sen!2sro!4v1615411120995!5m2!1sen!2sro" frameborder="0" allowfullscreen></iframe>
+                    <iframe class="iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45574.733944936364!2d26.025348695403945!3d44.44504047986557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b201eb9755ce5f%3A0xfd63661aa153893!2zUDYsIEJ1Y3VyZciZdGk!5e0!3m2!1sen!2sro!4v1615411120995!5m2!1sen!2sro" frameborder="0" allowfullscreen></iframe>
                     <div class="row mt-5 text-center">
 
                         <div class="col-lg-4 mb-5 mb-lg-0">
@@ -614,9 +637,10 @@
             </div>
 
         </div>
-    </section><!-- End Contact Section -->
+    </section>
+    <!-- //* ==================== End Contact Section ==================== -->
 
-    <!-- ======= Footer ======= -->
+    <!-- //? ==================== Footer ==================== -->
     <footer id="footer">
         <div class="container d-md-flex py-4">
             <div class="me-md-auto text-center text-md-start">
@@ -628,105 +652,112 @@
                 </div>
             </div>
         </div>
-    </footer><!-- End Footer -->
+    </footer>
+    <!-- //? ==================== End Footer ==================== -->
+
+</body>
 
     <?php
-    //partea asta se foloseste ca atunci cand se da submit la register sa ramana pe modal
+    //! parte de php in interiorul html
+
+    //* modalul de register ramane deschis si dupa ce se da refresh
     if(!isset($_GET['signup'])) {
-//                    exit();
+        //  exit();
     } else {
         $signupCheck = $_GET['signup'];
         if(!empty($signupCheck)) {
             echo '<script type="text/javascript">',
             'var registerModal = document.getElementById("registerModal");',
-            ' registerModal.style.display = "block";',
-            'document.getElementById("hero").classList.add("blurr");',
-                'document.getElementById("tabs").classList.add("blurr");',
-            'document.getElementById("services").classList.add("blurr");',
-            'document.getElementById("team").classList.add("blurr");',
-            'document.getElementById("contact").classList.add("blurr");',
-            'document.getElementById("footer").classList.add("blurr");',
-            '</script>'
-            ;
-        }
-    }
-
-    if(!isset($_GET['login'])) {
-//                    exit();
-    } else {
-        $signupCheck = $_GET['login'];
-        if(!empty($signupCheck)) {
-            echo '<script type="text/javascript">',
-            'var registerModal = document.getElementById("loginModal");',
-            ' registerModal.style.display = "block";',
+            'registerModal.style.display = "block";',
             'document.getElementById("hero").classList.add("blurr");',
             'document.getElementById("tabs").classList.add("blurr");',
             'document.getElementById("services").classList.add("blurr");',
             'document.getElementById("team").classList.add("blurr");',
             'document.getElementById("contact").classList.add("blurr");',
             'document.getElementById("footer").classList.add("blurr");',
-            '</script>'
-            ;
+            '</script>';
         }
     }
 
+    //* modalul de login ramane deschis si dupa ce se da refresh
+    if(!isset($_GET['login'])) {
+        //  exit();
+    } else {
+        $signupCheck = $_GET['login'];
+        if(!empty($signupCheck)) {
+            echo '<script type="text/javascript">',
+            'var registerModal = document.getElementById("loginModal");',
+            'registerModal.style.display = "block";',
+            'document.getElementById("hero").classList.add("blurr");',
+            'document.getElementById("tabs").classList.add("blurr");',
+            'document.getElementById("services").classList.add("blurr");',
+            'document.getElementById("team").classList.add("blurr");',
+            'document.getElementById("contact").classList.add("blurr");',
+            'document.getElementById("footer").classList.add("blurr");',
+            '</script>';
+        }
+    }
+
+    //* modalul de recover ramane deschis si dupa ce se da refresh
     if(!isset($_GET['reset'])) {
-        //                    exit();
-            } else {
-                $signupCheck = $_GET['reset'];
-                if(!empty($signupCheck)) {
-                    echo '<script type="text/javascript">',
-                    'var registerModal = document.getElementById("recoverModal");',
-                    ' registerModal.style.display = "block";',
-                    'document.getElementById("hero").classList.add("blurr");',
-                    'document.getElementById("tabs").classList.add("blurr");',
-                    'document.getElementById("services").classList.add("blurr");',
-                    'document.getElementById("team").classList.add("blurr");',
-                    'document.getElementById("contact").classList.add("blurr");',
-                    'document.getElementById("footer").classList.add("blurr");',
-                    '</script>'
-                    ;
-                }
-            }
+        //  exit();
+    } else {
+        $signupCheck = $_GET['reset'];
+        if(!empty($signupCheck)) {
+            echo '<script type="text/javascript">',
+            'var registerModal = document.getElementById("recoverModal");',
+            'registerModal.style.display = "block";',
+            'document.getElementById("hero").classList.add("blurr");',
+            'document.getElementById("tabs").classList.add("blurr");',
+            'document.getElementById("services").classList.add("blurr");',
+            'document.getElementById("team").classList.add("blurr");',
+            'document.getElementById("contact").classList.add("blurr");',
+            'document.getElementById("footer").classList.add("blurr");',
+            '</script>';
+        }
+    }
+
+    //* modalul de reset ramane deschis si dupa ce se da refresh
     if(!isset($_GET['selector'])) {
-        //                    exit();
-        } else {
-            $signupCheck = $_GET['selector'];
-            if(!empty($signupCheck)) {
-                echo '<script type="text/javascript">',
-                'var registerModal = document.getElementById("resetModal");',
-                ' registerModal.style.display = "block";',
-                'document.getElementById("hero").classList.add("blurr");',
-                'document.getElementById("tabs").classList.add("blurr");',
-                'document.getElementById("services").classList.add("blurr");',
-                'document.getElementById("team").classList.add("blurr");',
-                'document.getElementById("contact").classList.add("blurr");',
-                'document.getElementById("footer").classList.add("blurr");',
-                '</script>'
-                ;
-            }
+        //  exit();
+    } else {
+        $signupCheck = $_GET['selector'];
+        if(!empty($signupCheck)) {
+            echo '<script type="text/javascript">',
+            'var registerModal = document.getElementById("resetModal");',
+            'registerModal.style.display = "block";',
+            'document.getElementById("hero").classList.add("blurr");',
+            'document.getElementById("tabs").classList.add("blurr");',
+            'document.getElementById("services").classList.add("blurr");',
+            'document.getElementById("team").classList.add("blurr");',
+            'document.getElementById("contact").classList.add("blurr");',
+            'document.getElementById("footer").classList.add("blurr");',
+            '</script>';
         }
+    }
+
+    //* modalul de reset ramane deschis si dupa ce se da refresh
+    //! nu cred ca mai este nevoie de asta, avem partea de sus dar testam alta data :))
     if(!isset($_GET['newpwd'])) {
-        //                    exit();
-        } else {
-            $signupCheck = $_GET['newpwd'];
-            if(!empty($signupCheck)) {
-                echo '<script type="text/javascript">',
-                'var registerModal = document.getElementById("resetModal");',
-                ' registerModal.style.display = "block";',
-                'document.getElementById("hero").classList.add("blurr");',
-                'document.getElementById("tabs").classList.add("blurr");',
-                'document.getElementById("services").classList.add("blurr");',
-                'document.getElementById("team").classList.add("blurr");',
-                'document.getElementById("contact").classList.add("blurr");',
-                'document.getElementById("footer").classList.add("blurr");',
-                '</script>'
-                ;
-            }
+        //  exit();
+    } else {
+        $signupCheck = $_GET['newpwd'];
+        if(!empty($signupCheck)) {
+            echo '<script type="text/javascript">',
+            'var registerModal = document.getElementById("resetModal");',
+            'registerModal.style.display = "block";',
+            'document.getElementById("hero").classList.add("blurr");',
+            'document.getElementById("tabs").classList.add("blurr");',
+            'document.getElementById("services").classList.add("blurr");',
+            'document.getElementById("team").classList.add("blurr");',
+            'document.getElementById("contact").classList.add("blurr");',
+            'document.getElementById("footer").classList.add("blurr");',
+            '</script>';
         }
+    }
     ?>
 
-    <!--Javascript-->
+    <!--Javascript from others-->
     <script src="assets/js/http_code.jquery.com_jquery-3.5.1.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/vendor/bootstrap/js/bootstrap.esm.min.js"></script>
@@ -736,9 +767,9 @@
     <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+    <!-- home made javascript (mai putin main :D)-->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/modal.js"></script>
+    <script src="assets/js/app.js"></script> <!-- //? asta schimba taburile de la about us intre ele -->
+    <script src="assets/js/modal.js"></script> <!-- //? asta jongleaza cu modalele -->
 
-</body>
 </html>

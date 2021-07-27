@@ -1,23 +1,22 @@
 <?php
-
-///Daca a fost apasat butonul din recover de submit
+//* Daca a fost apasat butonul din recover de submit
 if (isset($_POST['reset-request-submit'])) {
-     //includem fisierul in care se deschide serverul
+     //* includem fisierul in care se deschide serverul
      include_once 'dbh.inc.php';
 
-    ///Pentru a genera un link criptat
+    //* Pentru a genera un link criptat
     $selector = bin2hex(random_bytes(8));
     $token = random_bytes(32);
 
-    ///Url-ul care va fi trimis pe email pentru a fi accesat
+    // TODO: Url-ul care va fi trimis pe email pentru a fi accesat (trebuie modificat in fucntie de necesitate)
     $url = "https://bioferma-cuza-voda.ro/index.php?selector=" . $selector . "&validator=". bin2hex($token);
     bin2hex($token);
 
-    //Pentru a genera un link care expira
+    //* Pentru a genera un link care expira
     $expires = date("U") + 1800;
 
     $userEmail = $_POST["uEmail"];
-    //verificam daca email-ul a mai fost folosit
+    //* verificam daca email-ul a mai fost folosit
     $sqlSelect = "SELECT user_email FROM users;";
     $result = mysqli_query($conn, $sqlSelect);
     $resultCheck = mysqli_num_rows($result);

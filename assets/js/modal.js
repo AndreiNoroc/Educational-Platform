@@ -1,21 +1,24 @@
-// Get the modal
+// TODO: cam repetitiv dar mege bine, poate revenim pe viitor
+
+//? Get the modal
 var loginModal = document.getElementById("loginModal");
 var registerModal = document.getElementById("registerModal");
 var recoverModal = document.getElementById("recoverModal");
 var resetModal = document.getElementById("resetModal");
 
-// Get the button that opens the modal
+//* Get the button that opens the modal
 var btn = document.getElementById("buttonLogin");
 var registration = document.getElementById("new_account");
 var login = document.getElementById("exist_account");
 var recover = document.getElementById("forgotPass");
 
-// Get the <span> element that closes the modal
+//? Get the <span> element that closes the modal
+// TODO: inca nu am facut pentru ultimul modal
 var spanLogin = document.getElementsByClassName("close")[0];
 var spanRegister = document.getElementsByClassName("close")[1];
 var spanRecover = document.getElementsByClassName("close")[2];
 
-// When the user clicks the button, open the modal
+//* When the user clicks the button, open the modal
 btn.onclick = function() {
     document.getElementById('hero').classList.add("blurr");
     document.getElementById('tabs').classList.add("blurr");
@@ -26,7 +29,7 @@ btn.onclick = function() {
     loginModal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
+//? When the user clicks on <span> (x), close the modal
 spanLogin.onclick = function() {
     document.getElementById('hero').classList.remove("blurr");
     document.getElementById('tabs').classList.remove("blurr");
@@ -58,7 +61,7 @@ spanRecover.onclick = function() {
 }
 
 
-// When the user clicks anywhere outside of the loginModal, close it
+//* When the user clicks anywhere outside of the loginModal, close it
 window.onclick = function(event) {
     if (event.target == loginModal) {
         loginModal.style.display = "none";
