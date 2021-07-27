@@ -537,23 +537,23 @@ hr.new5 {
 }
 
 
-#drag1 {
+#dragschool {
   width: 55px; 
   height: 55px;
   background: url('../img/citypuzzle/school.jpg');
 }
 
-#drag1:hover {
+#dragschool:hover {
   background-image: url('../img/citypuzzle/school_explain.jpg'); 
 }
 
-#drag2 {
+#draghospital {
   width: 55px; 
   height: 55px;
   background: url('../img/citypuzzle/hospital.jpg');
 }
 
-#drag2:hover {
+#draghospital:hover {
   background-image: url('../img/citypuzzle/hospital_explain.jpg'); 
 }
 
