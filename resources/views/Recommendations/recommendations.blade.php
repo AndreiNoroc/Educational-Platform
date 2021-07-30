@@ -9,19 +9,19 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <link href="../assets/img/apple-touch-icon.png" rel="icon">
+    <link href="/img/apple-touch-icon.png" rel="icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Compiled and minified CSS (face parte din pachetul materialize, foarte folositor pentru frontend) -->
-    <link rel="stylesheet" href="../assets/materialize/css/materialize.min.css" media="screen,projection"/>
+    <link rel="stylesheet" href="/materialize/css/materialize.min.css" media="screen,projection"/>
 
     <!-- Vendor CSS Files -->
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
     <!-- CSS-ul facut de noi -->
-    <link rel="stylesheet" href="../assets/css/style-index.css">
+    <link rel="stylesheet" href="/CSS/style-index.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
     <!-- //? ==================== Start Header ==================== -->
     <header id="header" style="position: fixed;left:0;right:0;height:66px">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="../index.php">EducationFirst</a></h1>
+            <h1 class="logo"><a href="../index">EducationFirst</a></h1>
         </div>
     </header>
     <!-- //? ==================== End Header ==================== -->
@@ -47,7 +47,7 @@
 
     <!-- //? ==================== Start Carousel ==================== -->
     <section>
-        <!-- //* Titlu --> 
+        <!-- //* Titlu -->
         <div class="section-title" style="padding-top:3rem">
             <h2>Recommendations</h2>
             <h3>What we are recommending <span>you</span> to do after you close the website!</h3>
@@ -59,23 +59,23 @@
 
         <div class="carousel" style="height: 800px;">
             <div class="carousel-item" style="height: 680px; align-items: center">
-                <img src="../assets/img/blog/rsz_recom1.jpg" alt="">
+                <img src="/img/blog/rsz_recom1.jpg" alt="">
                 <h3 style="background: #282727"><a href="#terms1" class="btn modal-trigger button_carousel">Click to find out more!</a></h3>
             </div>
             <div class="carousel-item" style="height: 680px; align-items: center">
-                <img src="../assets/img/blog/rsz_1rsz_recom2.jpg" alt="">
+                <img src="/img/blog/rsz_1rsz_recom2.jpg" alt="">
                 <h3 style="background: #282727"><a href="#terms2" class="btn modal-trigger button_carousel">Click to find out more!</a></h3>
             </div>
             <div class="carousel-item" style="height: 680px; align-items: center">
-                <img src="../assets/img/blog/rsz_recom3.jpg" alt="">
+                <img src="/img/blog/rsz_recom3.jpg" alt="">
                 <h3 style="background: #282727"><a href="#terms3" class="btn modal-trigger button_carousel">Click to find out more!</a></h3>
             </div>
             <div class="carousel-item" style="height: 680px; align-items: center">
-                <img src="../assets/img/blog/rsz_recom4.jpg" alt="">
+                <img src="/img/blog/rsz_recom4.jpg" alt="">
                 <h3 style="background: #282727"><a href="#terms4" class="btn modal-trigger button_carousel">Click to find out more!</a></h3>
             </div>
             <div class="carousel-item" style="height: 680px; align-items: center">
-                <img src="../assets/img/blog/rsz_recom5.jpg" alt="">
+                <img src="/img/blog/rsz_recom5.jpg" alt="">
                 <h3 style="background: #282727"><a href="#terms5" class="btn modal-trigger button_carousel">Click to find out more!</a></h3>
             </div>
         </div>
@@ -161,12 +161,12 @@
 
 </body>
 
-    <script src="../assets/js/http_code.jquery.com_jquery-3.5.1.js"></script> <!--Jquery (nu merge caruselul fara) -->
+    <script src="/JS/http_code.jquery.com_jquery-3.5.1.js"></script> <!--Jquery (nu merge caruselul fara) -->
 
     <!-- Compiled and minified JavaScript -->
-    <script src="../assets/materialize/js/materialize.min.js"></script> <!-- Foarte importanta, nu mai merge nici caruselul si nici modalele fara -->
-    <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/materialize/js/materialize.min.js"></script> <!-- Foarte importanta, nu mai merge nici caruselul si nici modalele fara -->
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
 
     <!-- Astea sunt sa porneasca modalele si sa se invarta caruselul, le-am lasat aici ca sunt scurte -->
     <script>
@@ -178,6 +178,6 @@
     </script>
 
     <!-- Template Main JS File -->
-    <script src="../assets/js/main.js"></script>
+    <script src="/JS/main.js"></script>
 
 </html>

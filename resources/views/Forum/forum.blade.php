@@ -1,8 +1,3 @@
-<?php
-//! parte de php in html, aici incepe sesiunea pentru a putea trimite date in alte pagini
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,20 +8,20 @@ session_start();
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <link href="../assets/img/apple-touch-icon.png" rel="icon">
+    <link href="/img/apple-touch-icon.png" rel="icon">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="../assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="../assets/css/style-index.css" rel="stylesheet">
+    <link href="/CSS/style-index.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,10 +29,10 @@ session_start();
     <!-- //? ==================== Start Header ==================== -->
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="../index.php">EducationFirst</a></h1>
+            <h1 class="logo"><a href="../index">EducationFirst</a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="../index.php">Back to main page</a></li>
+                    <li><a class="nav-link scrollto active" href="index">Back to main page</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- //* .navbar -->
@@ -60,9 +55,6 @@ session_start();
         <div class="section-title" style="padding-top:3rem">
             <h2>Forum</h2>
             <h3>If <span>you</span> have any questions, write us below...</h3>
-            <?php
-                echo '<h3>Hello '.$_SESSION["username"].'</h3>';
-            ?>
         </div>
     </section>
     <!-- //? ==================== End Title ==================== -->
@@ -70,32 +62,7 @@ session_start();
     <!-- //* ==================== Start Forum ==================== -->
     <section>
         <div class="container">
-            <form>
-                <div class="padding_bottom_20">
-                    <i class="ri-text color_icon"></i>
-                    <label class="send_mail" for="txt">
-                        <?php
-                        if(isset($_SESSION["username"])) {
-                            echo '<h3>'.$_SESSION["username"].'</h3>';
-                        } else {
-                            echo '<h3>Log in first!</h3>';
-                        }
-                        ?>
-                        Add a question:
-                    </label>
-                    <br>
-                    <textarea id="txt" name="message" placeholder="message" style="width: 100%" required></textarea>
-                </div>
-                <div class="buttons" style="text-align: center">
-                    <button class="send_mail send_mail_button" type="submit" name="submit">SUBMIT</button>
-                    <?php
-                    if(!isset($_SESSION["username"])) {
-                            echo "Logheaza-te ba!";
-                    }
-                    ?>
-                </div>
-            </form>
-        </div>     
+        </div>
     </section>
     <!-- //* ==================== End forum ==================== -->
 
@@ -115,18 +82,18 @@ session_start();
     <!-- //? ==================== End Footer ==================== -->
 
 </body>
-    
+
     <!-- Vendor JS Files -->
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="../assets/vendor/php-email-form/validate.js"></script>
-    <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/vendor/php-email-form/validate.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="../assets/js/main.js"></script>
+    <script src="/JS/main.js"></script>
 
-    <script src="../assets/js/contact-errors.js"></script>
-    <script src="../assets/js/fourm.js"></script>
+    <script src="/JS/contact-errors.js"></script>
+    <script src="/JS/fourm.js"></script>
 
 </html>

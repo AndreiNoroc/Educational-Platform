@@ -1,40 +1,14 @@
-<?php
-//! parte de php in html, aici incepe sesiunea pentru a putea trimite date in alte pagini
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>EducationFirst</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <link href="{{asset('img/apple-touch-icon.png')}}" rel="icon">
-
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-    <!-- CSS from bootstrap -->
-    <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/boxicons/css/boxicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/swiper/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/bootstrap-icons/bootstrap-icons.css') }}">
-
-    <!-- CSS homemade -->
-    <link rel="stylesheet" href="{{ asset('CSS/style-index.css') }}">
-</head>
+@extends('layouts.Index.head')
 
 <body>
 
     <!-- //? ==================== Header(navbar) starts here ==================== -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center justify-content-between">
-            <h1 class="logo"><a href="index.php">EducationFirst</a></h1>
+            <h1 class="logo"><a href="index">EducationFirst</a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
@@ -82,7 +56,7 @@ session_start();
                 ?>
 
                 <hr>
-                <form class="d-block modal_form" action="../forms/login.inc.php" method="post">
+                <form class="d-block modal_form" action="../../../forms/login.inc.php" method="post">
                     <div style="padding-bottom: 20px">
                         <label for="username">Username:</label>
                         <?php
@@ -163,7 +137,7 @@ session_start();
             ?>
 
             <hr>
-            <form class="d-block modal_form" action="../forms/signup.inc.php" method="post">
+            <form class="d-block modal_form" action="../../../forms/signup.inc.php" method="post">
                 <div style="padding-bottom: 20px">
                     <label for="first-name">First-Name:</label>
                     <?php
@@ -272,7 +246,7 @@ session_start();
             ?>
 
             <hr>
-            <form class="d-block modal_form" action="../forms/reset-request.inc.php" method="post">
+            <form class="d-block modal_form" action="../../../forms/reset-request.inc.php" method="post">
                 <div style="padding-bottom: 20px">
                     <label for="email">Email:</label>
                     <input id="email" type="email" name="uEmail" placeholder="Email" required><!-- //! trebuie sters required-ul asta-->
@@ -322,7 +296,7 @@ session_start();
                             <p class="modal_subtitle">Create new password.</p>
 
                             <hr>
-                            <form class="d-block modal_form" action="../forms/reset-password.inc.php" method="post">
+                            <form class="d-block modal_form" action="../../../forms/reset-password.inc.php" method="post">
                                 <!-- // TODO: Razvane comenteaza tu aici ca nu inteleg exact -->
                                 <input type="hidden" name="selector" value="<?php echo $selector;?>">
                                 <input type="hidden" name="validator" value="<?php echo $validator;?>">
@@ -405,7 +379,7 @@ session_start();
                                     </p>
                                 </div>
                                 <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                                    <img src={{asset('img/tabs-1.jpg')}} alt="" class="img-fluid">
+                                    <img src="/img/tabs-1.jpg" alt="" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -425,7 +399,7 @@ session_start();
                                     </p>
                                 </div>
                                 <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                    <img src={{asset('img/tabs-2.jpg')}} alt="" class="img-fluid">
+                                    <img src="/img/tabs-2.jpg" alt="" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -442,7 +416,7 @@ session_start();
                                     </ul>
                                 </div>
                                 <div class="col-lg-6 order-1 order-lg-2 text-center">
-                                    <img src={{asset('img/tabs-3.jpg')}} alt="" class="img-fluid">
+                                    <img src="/img/tabs-3.jpg" alt="" class="img-fluid">
                                 </div>
                             </div>
                         </div>
@@ -580,7 +554,7 @@ session_start();
                         <!-- //? Partea cu formularul de trimis email-uri -->
                         <p class="send_mail">Send email:</p>
 
-                        <form action="../forms/contactform.php" method="post">
+                        <form action="../../../forms/contactform.php" method="post">
                             <ul class="errorMessages"></ul>
 
                             <div class="padding_bottom_20">
@@ -766,18 +740,18 @@ session_start();
     ?>
 
     <!--Javascript from others-->
-    <script type="text/javascript" src="{!! asset('JS/http_code.jquery.com_jquery-3.5.1.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('vendor/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
-{{--    <script type="text/javascript" src="{!! asset('vendor/bootstrap/js/bootstrap.esm.min.js') !!}"></script> --}}
-    <script type="text/javascript" src="{!! asset('vendor/bootstrap/js/bootstrap.min.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('vendor/glightbox/js/glightbox.min.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('vendor/isotope-layout/isotope.pkgd.min.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('vendor/php-email-form/validate.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('vendor/swiper/swiper-bundle.min.js') !!}"></script>
+    <script type="text/javascript" src="JS/http_code.jquery.com_jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+{{--    <script type="text/javascript" src="{!! asset('vendor/bootstrap/js/bootstrap.esm.min.js') !!}"></script>--}}
+    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/glightbox/js/glightbox.min.js"></script>
+    <script type="text/javascript" src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="vendor/php-email-form/validate.js"></script>
+    <script type="text/javascript" src="vendor/swiper/swiper-bundle.min.js"></script>
 
     <!-- home made javascript (mai putin main :D)-->
-    <script type="text/javascript" src="{!! asset('JS/app.js') !!}"></script> <!-- //? asta schimba taburile de la about us intre ele -->
-    <script type="text/javascript" src="{!! asset('JS/modal.js') !!}"></script> <!-- //? asta jongleaza cu modalele -->
-    <script type="text/javascript" src="{!! asset('JS/main.js') !!}"></script>
+    <script type="text/javascript" src="JS/app.js"></script> <!-- //? asta schimba taburile de la about us intre ele -->
+    <script type="text/javascript" src="JS/modal.js"></script> <!-- //? asta jongleaza cu modalele -->
+    <script type="text/javascript" src="JS/main.js"></script>
 
 </html>

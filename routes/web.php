@@ -14,20 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('/Index.index');
 });
 
 Route::get('games', function()
 {
-    return view('games');
+    return view('/Games.games');
 });
 
 Route::get('recommendations', function()
 {
-    return view('recommendations');
+    return view('/Recommendations.recommendations');
 });
 
 Route::get('forum', function()
 {
-    return view('forum');
+    return view('/Forum.forum');
+});
+
+Route::get('index', function()
+{
+    return view('/Index.index');
 });
