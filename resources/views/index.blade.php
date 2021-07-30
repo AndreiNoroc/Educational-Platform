@@ -105,7 +105,7 @@ session_start();
                     <br><br>
                     <a class="modal_text_link" id="forgotPass"><i>Forgot your password?</i></a>
                     <br><br>
-                    
+
                     <span id="change_link">
                         Do you not have an account?
                         <a class="modal_text_link" id="new_account"><i>New Account</i></a>
@@ -138,24 +138,24 @@ session_start();
                 if($signupCheck == "char") {
                     echo "<p style='text-align: center; color: red'>You used invalid characters!</p>";
                 }
-                
+
                 if($signupCheck == "email") {
                     echo "<p style='text-align: center; color: red'>You used invalid email!</p>";
                 }
-                
+
                 if($signupCheck == "success") {
                     echo "<p style='text-align: center; color: green'>You have been signed up!</p>";
                     echo "<p style='text-align: center; color: green'>Now go to Log in!</p>";
                 }
-                
+
                 if($signupCheck == "usedEmail") {
                     echo "<p style='text-align: center; color: red'>The email has already been used!</p>";
                 }
-                
+
                 if($signupCheck == "usedUsername") {
                     echo "<p style='text-align: center; color: red'>The username has already been used!</p>";
                 }
-                
+
                 if($signupCheck == "passwordsDontMatch") {
                     echo "<p style='text-align: center; color: red'>The passwords don't match!</p>";
                 }
@@ -172,7 +172,7 @@ session_start();
                     if (isset($_GET['first'])) {
                         $first = $_GET['first'];
                         echo '<input id="first-name" type="text" name="first" placeholder="First_name" value="'.$first.'">';
-                    
+
                     } else {
                         echo '<input id="first-name" type="text" name="first" placeholder="First_name">';
                     }
@@ -187,7 +187,7 @@ session_start();
                     if (isset($_GET['last'])) {
                         $last = $_GET['last'];
                         echo '<input id="last-name" type="text" name="last" placeholder="Last_name" value="'.$last.'">';
-                    
+
                     } else {
                         echo '<input id="last-name" type="text" name="last" placeholder="Last_name">';
                     }
@@ -202,7 +202,7 @@ session_start();
                     if (isset($_GET['uid'])) {
                         $uid = $_GET['uid'];
                         echo '<input id="username" type="text" name="uid" placeholder="Username" value="'.$uid.'">';
-                   
+
                     } else {
                         echo '<input id="username" type="text" name="uid" placeholder="Username">';
                     }
@@ -217,7 +217,7 @@ session_start();
                     if (isset($_GET['email'])) {
                         $email = $_GET['email'];
                         echo '<input id="email" type="text" name="email" placeholder="Email" value="'.$email.'">';
-                    
+
                     } else {
                         echo '<input id="email" type="text" name="email" placeholder="Email">';
                     }
@@ -250,7 +250,7 @@ session_start();
     <!-- //* ==================== The recover modal starts here ==================== -->
     <div id="recoverModal" class="modal">
         <div class="modal-content container modal_look">
-        
+
             <!-- //? Titlul din interiorul modalului -->
             <p class="modal_title">Recover</p>
             <p class="modal_subtitle">An email will be send to you with instructions on how reset your password.</p>
@@ -280,16 +280,16 @@ session_start();
                 <button type="submit" name="reset-request-submit" class="btn btn-outline-success">Send email</button>
             </form>
             <hr>
-                
+
             <button class="close modal_close_button">&times;</button>
         </div>
     </div>
     <!-- //* ==================== The recover modal ends here ==================== -->
-    
+
     <!-- //? ==================== The reset modal starts here ==================== -->
     <div id="resetModal" class="modal">
         <div class="modal-content container modal_look">
-            
+
             <?php
             //! parte de php in interiorul html
             //* verificam mesajul primit de la server
@@ -307,7 +307,7 @@ session_start();
                 }
             }
             ?>
-        
+
             <?php
                 //! parte de php in interiorul html
                 // $selector  = $_GET["selector"];
@@ -320,7 +320,7 @@ session_start();
             ?>
                             <!-- //? Titlul din interiorul modalului -->
                             <p class="modal_subtitle">Create new password.</p>
-                            
+
                             <hr>
                             <form class="d-block modal_form" action="../forms/reset-password.inc.php" method="post">
                                 <!-- // TODO: Razvane comenteaza tu aici ca nu inteleg exact -->
@@ -337,8 +337,8 @@ session_start();
                                 <button type="submit" name="reset-password-submit" class="btn btn-outline-success">Send email</button>
                             </form>
                             <hr>
-                                
-                            <button class="close modal_close_button">&times;</button> 
+
+                            <button class="close modal_close_button">&times;</button>
             <?php
                     }
                 }
@@ -579,7 +579,7 @@ session_start();
                     <main class="container">
                         <!-- //? Partea cu formularul de trimis email-uri -->
                         <p class="send_mail">Send email:</p>
-                        
+
                         <form action="../forms/contactform.php" method="post">
                             <ul class="errorMessages"></ul>
 
@@ -589,28 +589,28 @@ session_start();
                                 <br>
                                 <input id="nume" type="text" name="name" placeholder="full name" class="text_boxes" required>
                             </div>
-                            
+
                             <div class="padding_bottom_20">
                                 <i class="color_icon ri-mail-line"></i>
                                 <label class="send_mail" for="mail">E-mail:</label>
                                 <br>
                                 <input id="mail" type="text" name="email" placeholder="your email" class="text_boxes" required>
                             </div>
-                        
+
                             <div class="padding_bottom_20">
                                 <i class="ri-file-text-line color_icon"></i>
                                 <label class="send_mail" for="subiect">Subject:</label>
                                 <br>
                                 <input id="subiect" type="text" name="subject" placeholder="subject" class="text_boxes" required>
                             </div>
-                        
+
                             <div class="padding_bottom_20">
                                 <i class="ri-text color_icon"></i>
                                 <label class="send_mail" for="txt">Message:</label>
                                 <br>
                                 <textarea id="txt" name="message" placeholder="message" style="width: 100%" required></textarea>
                             </div>
-                        
+
                             <div class="buttons" style="text-align: center">
                                 <button class="send_mail send_mail_button" type="submit" name="submit">SEND MAIL</button>
                             </div>
@@ -766,18 +766,18 @@ session_start();
     ?>
 
     <!--Javascript from others-->
-    <script type="text/javascript" src="{!! asset('JS/http_code.jquery.com_jquery-3.5.1.js') !!}"></script> 
-    <script type="text/javascript" src="{!! asset('vendor/bootstrap/js/bootstrap.bundle.min.js') !!}"></script> 
-    <script type="text/javascript" src="{!! asset('vendor/bootstrap/js/bootstrap.esm.min.js') !!}"></script> 
-    <script type="text/javascript" src="{!! asset('vendor/bootstrap/js/bootstrap.min.js') !!}"></script> 
-    <script type="text/javascript" src="{!! asset('vendor/glightbox/js/glightbox.min.js') !!}"></script> 
-    <script type="text/javascript" src="{!! asset('vendor/isotope-layout/isotope.pkgd.min.js') !!}"></script> 
-    <script type="text/javascript" src="{!! asset('vendor/php-email-form/validate.js') !!}"></script> 
-    <script type="text/javascript" src="{!! asset('vendor/swiper/swiper-bundle.min.js') !!}"></script> 
+    <script type="text/javascript" src="{!! asset('JS/http_code.jquery.com_jquery-3.5.1.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('vendor/bootstrap/js/bootstrap.bundle.min.js') !!}"></script>
+{{--    <script type="text/javascript" src="{!! asset('vendor/bootstrap/js/bootstrap.esm.min.js') !!}"></script> --}}
+    <script type="text/javascript" src="{!! asset('vendor/bootstrap/js/bootstrap.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('vendor/glightbox/js/glightbox.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('vendor/isotope-layout/isotope.pkgd.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('vendor/php-email-form/validate.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('vendor/swiper/swiper-bundle.min.js') !!}"></script>
 
     <!-- home made javascript (mai putin main :D)-->
     <script type="text/javascript" src="{!! asset('JS/app.js') !!}"></script> <!-- //? asta schimba taburile de la about us intre ele -->
-    <script type="text/javascript" src="{!! asset('JS/modal.js') !!}"></scrip> <!-- //? asta jongleaza cu modalele -->
+    <script type="text/javascript" src="{!! asset('JS/modal.js') !!}"></script> <!-- //? asta jongleaza cu modalele -->
     <script type="text/javascript" src="{!! asset('JS/main.js') !!}"></script>
 
 </html>
