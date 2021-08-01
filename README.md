@@ -60,3 +60,64 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+# FinancialEducation
+
+- ### Va insatalati xampp de pe site-ul [acesta](https://www.apachefriends.org/index.html) fie pt ubuntu fie pt windows.
+
+- ###Dupa ce se intaleaza porniti serverele "Apache Web Server" si "MySQL Database". [Link](https://www.youtube.com/watch?v=mXdpCRgR-xE&list=PL0eyrZgxdwhwBToawjm9faF1ixePexft-&index=2&ab_channel=DaniKrossing) cu instalarea pe windows.
+
+- ### Acum puteti intra in browser si sa scrieti localhost/phpmyadmin.Acolo vom face baza de date.
+
+- ### Apoi intrati in folderul htdocs de la voi din calculator. In interiorul lui descarcati de pe github proiectul nostru. Trebuie sa ii dati drepturi, altfel nu il veti putea modifica. Pe ubuntu chmod -R 777 FinancialEducation/. Dupa asta puteti intra in browser si scrie localhost/FinancialEducation/ pentru a intra pe site.
+
+- ### In interiorul phpMyAdmin creati o baza de date noua numita loginsystem. In interiorul acesteia un tabel numit users, dand paste la codul:
+
+CREATE TABLE users (
+id int(11) not null PRIMARY KEY AUTO_INCREMENT,
+user_first varchar(128) not null,
+user_last varchar(128) not null,
+user_email varchar(128) not null,
+user_uid varchar(128) not null,
+user_pwd varchar(128) not null
+);
+
+###in sectiunea SQL
+- ### Apoi ar trebui sa aveti un tabel gol pe care sa il puteti completa si voi.
+
+- ### Ultimele parti nu sunt importante decat daca vreti sa testati si voi login system-ul.  In rest va trebuie doar xampp.
+
+- ### In interiorul acesteia un tabel numit pwdReset, dand paste la codul:
+
+CREATE TABLE pwdReset (
+pwdResetId int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+pwdResetEmail TEXT NOT NULL,
+pwdResetSelector TEXT NOT NULL,
+pwdResetToken TEXT NOT NULL,
+pwdResetExpires TEXT NOT NULL,
+);
+
+# Laravel Financial Education
+
+In resources views am pus toate fisierele html, care acum poarta denumirea de blade.php.
+
+Am incercat sa separ sectiunile din index, recommendation si forum, si a mers :D, va mai ramane voua de facut games.
+
+## Taskuri pentru forum :
+ - [ ] De facut login cu laravel;
+ - [ ] De facut register cu laravel;
+ - [ ] De facut recover cu laravel;
+ - [ ] De facut reset cu laravel;
+ - [ ] De facut un forum cu laravel;
+
+## Taskuri pentru responsivitate :
+- [ ] De centrat modalele pentru cont;
+- [ ] De blocat background-ul in timp ce modalele sunt deschise;
+- [ ] De facut butoanele din games responsive/ Poate daca are cineva timp si chef sa creeze niste cards ca la services cu fiecare joc;
+- [ ] De scos caruselul pt telefoane pt ca nu se vede bine, poate punem o lista cu toate cartile;
+- [ ] De modificat modalele de la recomandari a.i. sa se miceasca scrisul pe telefon;
+
+
+## Taskuri pentru jocuri :
+### Aici te ocupi Andrei :p
