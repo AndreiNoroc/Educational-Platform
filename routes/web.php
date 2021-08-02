@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomAuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,26 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('/Index.index');
-});
+Route::view('/', "/Index.index");
+Route::view('/games', "/Games.games");
+Route::view('/recommendations', "/Recommendations.recommendations");
+Route::view('/forum', "/Forum.forum");
+Route::view('/index', "/Index.index");
 
-Route::get('games', function()
-{
-    return view('/Games.games');
-});
-
-Route::get('recommendations', function()
-{
-    return view('/Recommendations.recommendations');
-});
-
-Route::get('forum', function()
-{
-    return view('/Forum.forum');
-});
-
-Route::get('index', function()
-{
-    return view('/Index.index');
-});
+Route::get('login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
+Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
+Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');

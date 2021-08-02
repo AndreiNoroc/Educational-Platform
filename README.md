@@ -106,6 +106,7 @@ Am incercat sa separ sectiunile din index, recommendation si forum, si a mers :D
 
 ## Taskuri pentru forum :
  - [ ] De facut login cu laravel;
+ - [ ] De facut logout cu laravel;
  - [ ] De facut register cu laravel;
  - [ ] De facut recover cu laravel;
  - [ ] De facut reset cu laravel;

@@ -16,7 +16,15 @@
                     <li><a class="nav-link scrollto" href="#services">Services</a></li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="nav-link scrollto" id="buttonLogin" style="cursor: pointer">Login</a></li>
+{{--                    @guest--}}
+                        <li class="nav-item">
+                            <a class="nav-link"id="buttonLogin" style="cursor: pointer">Login</a>
+                        </li>
+{{--                    @else--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="{{ route('signout') }}">Logout</a>--}}
+{{--                        </li>--}}
+{{--                    @endguest--}}
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav> <!-- //* navbar ends here -->
