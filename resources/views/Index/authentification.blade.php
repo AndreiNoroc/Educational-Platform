@@ -12,7 +12,7 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link" href="index">Home</a></li>
-                    
+
                     @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -36,6 +36,7 @@
     </section>
     <!-- //? ==================== Header(navbar) ends here ==================== -->
 
+    <!-- Pagina de login register logout recover si reset + profile -->
     <section class="mt-5" style="background: white;">
         @yield('content')
     </section>

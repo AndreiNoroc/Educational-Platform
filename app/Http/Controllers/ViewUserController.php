@@ -9,7 +9,7 @@ use App\Http\Requests;
 
 class ViewUserController extends Controller
 {
-    //
+    // functie care ia informatiile unui utilizator in functie de username
 	public function index(){
 		$em = session('username');
 
