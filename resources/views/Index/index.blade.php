@@ -16,15 +16,17 @@
                     <li><a class="nav-link scrollto" href="#services">Services</a></li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-{{--                    @guest--}}
-                        <li class="nav-item">
-                            <a class="nav-link"id="buttonLogin" style="cursor: pointer">Login</a>
-                        </li>
-{{--                    @else--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link" href="{{ route('signout') }}">Logout</a>--}}
-{{--                        </li>--}}
-{{--                    @endguest--}}
+                    <?php
+
+                        $data = $request->session()->all();
+
+                        if($data) {
+                            echo '<li><a class="nav-link scrollto" href="login">'.getSessionData($request).'</a></li>';
+                        } else {
+                            echo '<li><a class="nav-link scrollto" href="login">Authentification</a></li>';
+                        }
+
+                    ?>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav> <!-- //* navbar ends here -->
@@ -32,8 +34,6 @@
     </header>
     <!-- //? ==================== Header(navbar) ends here ==================== -->
 
-    @include("Index.login")
-    @include("Index.register")
     @include("Index.recover")
     @include("Index.reset")
 

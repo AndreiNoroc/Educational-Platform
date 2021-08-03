@@ -7,16 +7,16 @@ use Hash;
 use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\SessionController;
 
 class CustomAuthController extends Controller
 {
 
     public function index()
     {
-        //? se intra aici la un moment dat, nu mai stiu exact :p
-        return view('Index.index');
-    }
-
+        return view('Index.login');
+    }  
+      
 
     public function customLogin(Request $request)
     {
@@ -24,65 +24,65 @@ class CustomAuthController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-
+   
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            //? daca sunt corecte se intra pe ramura asta
-            return redirect()->intended('/login?login=1')
-                ->withSuccess('Signed in');
+
+        	storeSessionData($request, array_values($credentials)[0]);
+        	
+            return redirect()->intended('index')
+                        ->withSuccess('Signed in');
         }
-        //? daca email-ul sau parola sunt gresite se intra pe ramura asta
-        return redirect("login?login=2")->withSuccess('Login details are not valid');
+  
+        return redirect("login")->withSuccess('Login details are not valid');
     }
 
 
     public function registration()
     {
-        //? aici nu a intrat
-        return view('Index.index/registration?signup=1');
+        return view('Index.register');
     }
-
+      
 
     public function customRegistration(Request $request)
-    {
+    {  
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
+           
         $data = $request->all();
         $check = $this->create($data);
-
-        //? daca merge aici intra
-        return redirect("/registration?signup=1")->withSuccess('You have signed-in');
+         
+        return redirect("login")->withSuccess('You have signed-in');
     }
 
 
     public function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password'])
-        ]);
-    }
-
+      return User::create([
+        'name' => $data['name'],
+        'email' => $data['email'],
+        'password' => Hash::make($data['password'])
+      ]);
+    }    
+    
 
     public function dashboard()
     {
-        if (Auth::check()) {
-            return view('Index.index');
+        if(Auth::check()){
+            return view('Index.authentification');
         }
-
+  
         return redirect("login")->withSuccess('You are not allowed to access');
     }
+    
 
-
-    public function signOut()
-    {
+    public function signOut() {
         Session::flush();
         Auth::logout();
-
+  
         return Redirect('login');
     }
 }
