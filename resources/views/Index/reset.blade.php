@@ -20,10 +20,10 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <input type="password" placeholder="Repeat Password" id="password" class="form-control"
+                                    <input type="password" placeholder="Repeat Password" id="password-confirmation" class="form-control"
                                            name="password_confirmation" required>
-                                    @if ($errors->has('password'))
-                                        <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    @if ($errors->has('password_confirmation'))
+                                        <span class="text-danger">{{ $errors->first('password_confirmation') }}</span>
                                     @endif
                                 </div>
 

@@ -36,12 +36,12 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 Route::get('profile', [ViewUserController::class, 'index'])->name('profile');
 
-Route::get('recover', function () {
-    return view('/Index.recover');
+Route::get('/recover', function () {
+    return view('Index.recover');
 })->name('password.request');
 
 //aici intra daca dai submit la email
-Route::post('recover', function (Request $request) {
+Route::post('/recover', function (Request $request) {
     $request->validate(['email' => 'required|email']);
 
     $status = Password::sendResetLink(
@@ -53,12 +53,12 @@ Route::post('recover', function (Request $request) {
         : back()->withErrors(['email' => __($status)]);
 })->name('password.email');
 
-Route::get('reset/{token}', function ($token) {
+Route::get('/reset/{token}', function ($token) {
     return view('Index.reset', ['token' => $token]);
 })->name('password.reset');
 
 //aici se intra cand dau submit la noua parola
-Route::post('reset', function (Request $request) {
+Route::post('/reset', function (Request $request) {
     $request->validate([
         'token' => 'required',
         'email' => 'required|email',
@@ -80,6 +80,6 @@ Route::post('reset', function (Request $request) {
 
     return $status === Password::PASSWORD_RESET
         ? redirect()->route('login')->with('status', __($status))
-        : back()->withErrors(['reset?lol' => [__($status)]]);
+        : back()->withErrors(['email' => [__($status)]]);
 })->name('password.update');
 

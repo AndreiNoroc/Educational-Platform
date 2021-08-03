@@ -8,7 +8,7 @@
                     <div class="card"  style="background: #282727;">
                         <h3 class="card-header text-center">Recover Password</h3>
                         <div class="card-body">
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('password.email') }}">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <input type="text" placeholder="Email" id="email_address" class="form-control"
