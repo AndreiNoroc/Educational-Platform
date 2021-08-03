@@ -21,15 +21,15 @@ class CustomAuthController extends Controller
     public function customLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required',
+            'username' => 'required',
             'password' => 'required',
         ]);
    
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
         if (Auth::attempt($credentials)) {
 
         	$data = $request->input();
-			$request->session()->put('email', $data['email']);
+			$request->session()->put('username', $data['username']);
         	
             return redirect()->intended('index')
                         ->withSuccess('Signed in');
@@ -48,7 +48,9 @@ class CustomAuthController extends Controller
     public function customRegistration(Request $request)
     {  
         $request->validate([
-            'name' => 'required',
+            'firstname' => 'required|string',
+            'lastname' => 'required|string',
+            'username' => 'required|string|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
         ]);
@@ -63,7 +65,9 @@ class CustomAuthController extends Controller
     public function create(array $data)
     {
       return User::create([
-        'name' => $data['name'],
+        'firstname' => $data['firstname'],
+        'lastname' => $data['lastname'],
+        'username' => $data['username'],
         'email' => $data['email'],
         'password' => Hash::make($data['password'])
       ]);

@@ -22,6 +22,9 @@
                     </li>
                     @else
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('profile') }}">Profile</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('signout') }}">Logout</a>
                     </li>
                     @endguest
@@ -34,7 +37,7 @@
     <!-- //? ==================== Header(navbar) ends here ==================== -->
 
     <section class="mt-5" style="background: white;">
-    	@yield('content')
+        @yield('content')
     </section>
 
     <!-- //? ==================== Footer ==================== -->

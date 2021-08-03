@@ -17,14 +17,13 @@
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                     <?php
-                        $em = session('email');
+                        $em = session('username');
 
-                        if(session()->has('email')) {
-                            echo '<li><a class="nav-link scrollto" href="login">'.$em.'</a></li>';
+                        if(session()->has('username')) {
+                            echo '<li><a class="nav-link scrollto" href="profile">'.$em.'</a></li>';
                         } else {
                             echo '<li><a class="nav-link scrollto" href="login">Authentification</a></li>';
                         }
-
                     ?>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>

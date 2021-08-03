@@ -12,10 +12,26 @@
                         <form action="{{ route('register.custom') }}" method="POST">
                             @csrf
                             <div class="form-group mb-3">
-                                <input type="text" placeholder="Name" id="name" class="form-control" name="name"
+                                <input type="text" placeholder="Firstname" id="firstname" class="form-control" name="firstname"
                                     required autofocus>
-                                @if ($errors->has('name'))
-                                <span class="text-danger">{{ $errors->first('name') }}</span>
+                                @if ($errors->has('firstname'))
+                                <span class="text-danger">{{ $errors->first('firstname') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <input type="text" placeholder="Lastname" id="lastname" class="form-control" name="lastname"
+                                    required autofocus>
+                                @if ($errors->has('lastname'))
+                                <span class="text-danger">{{ $errors->first('lastname') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="form-group mb-3">
+                                <input type="text" placeholder="Username" id="username" class="form-control" name="username"
+                                    required autofocus>
+                                @if ($errors->has('username'))
+                                <span class="text-danger">{{ $errors->first('username') }}</span>
                                 @endif
                             </div>
 
@@ -37,7 +53,7 @@
 
                             <div class="form-group mb-3">
                                 <div class="checkbox">
-                                    <label><input type="checkbox" name="remember"> Remember Me</label>
+                                    <label><input type="checkbox" name="remember">Remember Me</label>
                                 </div>
                             </div>
 
