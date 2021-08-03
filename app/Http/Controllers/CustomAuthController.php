@@ -28,7 +28,8 @@ class CustomAuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
 
-        	storeSessionData($request, array_values($credentials)[0]);
+        	$data = $request->input();
+			$request->session()->put('email', $data['email']);
         	
             return redirect()->intended('index')
                         ->withSuccess('Signed in');

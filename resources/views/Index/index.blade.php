@@ -17,11 +17,10 @@
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                     <?php
+                        $em = session('email');
 
-                        $data = $request->session()->all();
-
-                        if($data) {
-                            echo '<li><a class="nav-link scrollto" href="login">'.getSessionData($request).'</a></li>';
+                        if(session()->has('email')) {
+                            echo '<li><a class="nav-link scrollto" href="login">'.$em.'</a></li>';
                         } else {
                             echo '<li><a class="nav-link scrollto" href="login">Authentification</a></li>';
                         }
