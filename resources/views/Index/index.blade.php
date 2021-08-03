@@ -32,9 +32,6 @@
     </header>
     <!-- //? ==================== Header(navbar) ends here ==================== -->
 
-    @include("Index.recover")
-    @include("Index.reset")
-
     <!-- //* ==================== Hero Section ==================== -->
     <section id="hero">
         <div class="hero-container">

@@ -8,7 +8,7 @@
                 <div class="card" style="background: #282727;">
                     <h3 class="card-header text-center">Login</h3>
                     <div class="card-body">
-                        
+
                         <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
                             <div class="form-group mb-3">
@@ -31,6 +31,12 @@
                                     <label>
                                         <input type="checkbox" name="remember"> Remember Me
                                     </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                   <a href="recover">Forgot password?</a>
                                 </div>
                             </div>
 
