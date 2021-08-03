@@ -72,15 +72,17 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 - ### Apoi intrati in folderul htdocs de la voi din calculator. In interiorul lui descarcati de pe github proiectul nostru. Trebuie sa ii dati drepturi, altfel nu il veti putea modifica. Pe ubuntu chmod -R 777 FinancialEducation/. Dupa asta puteti intra in browser si scrie localhost/FinancialEducation/ pentru a intra pe site.
 
-- ### In interiorul phpMyAdmin creati o baza de date noua numita loginsystem. In interiorul acesteia un tabel numit users, dand paste la codul:
+- ### In interiorul phpMyAdmin creati o baza de date noua numita FinancialEducation. In interiorul acesteia un tabel numit users, dand paste la codul:
 
 CREATE TABLE users (
-id int(11) not null PRIMARY KEY AUTO_INCREMENT,
-user_first varchar(128) not null,
-user_last varchar(128) not null,
-user_email varchar(128) not null,
-user_uid varchar(128) not null,
-user_pwd varchar(128) not null
+id int not null PRIMARY KEY AUTO_INCREMENT,
+first_name varchar(128) not null,
+last_name varchar(128) not null,
+username varchar(128) not null,
+email varchar(128) not null,
+pass varchar(128) not null,
+updated_at timestamp not null,
+created_at timespamp not null
 );
 
 ###in sectiunea SQL
@@ -88,26 +90,19 @@ user_pwd varchar(128) not null
 
 - ### Ultimele parti nu sunt importante decat daca vreti sa testati si voi login system-ul.  In rest va trebuie doar xampp.
 
-- ### In interiorul acesteia un tabel numit pwdReset, dand paste la codul:
-
-CREATE TABLE pwdReset (
-pwdResetId int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-pwdResetEmail TEXT NOT NULL,
-pwdResetSelector TEXT NOT NULL,
-pwdResetToken TEXT NOT NULL,
-pwdResetExpires TEXT NOT NULL,
-);
-
 # Laravel Financial Education
 
 In resources views am pus toate fisierele html, care acum poarta denumirea de blade.php.
 
-Am incercat sa separ sectiunile din index, recommendation si forum, si a mers :D, va mai ramane voua de facut games.
+Am separat sectiunile din index, recommendation si forum, si a mers :D, va mai ramane voua de facut games.
+
+Stergeti vechiul tabel si creativa cel nou, apoi dati: php artisan migrate.
+Daca va apare ca nu e nimic de migrat folositi comanda: php artisan migrate:refresh.
 
 ## Taskuri pentru forum :
- - [ ] De facut login cu laravel;
- - [ ] De facut logout cu laravel;
- - [ ] De facut register cu laravel;
+ - [x] De facut login cu laravel;
+ - [x] De facut logout cu laravel;
+ - [x] De facut register cu laravel;
  - [ ] De facut recover cu laravel;
  - [ ] De facut reset cu laravel;
  - [ ] De facut un forum cu laravel;
