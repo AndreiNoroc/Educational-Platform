@@ -9,7 +9,7 @@
                         <h3 class="card-header text-center">Reset password</h3>
                         <div class="card-body">
 
-                            <form method="POST" action="">
+                            <form method="POST" action="{{ route('password.update') }}">
                                 @csrf
                                 <div class="form-group mb-3">
                                     <input type="password" placeholder="Password" id="password" class="form-control"
@@ -21,7 +21,7 @@
 
                                 <div class="form-group mb-3">
                                     <input type="password" placeholder="Repeat Password" id="password" class="form-control"
-                                           name="password" required>
+                                           name="password_confirmation" required>
                                     @if ($errors->has('password'))
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
