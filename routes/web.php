@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\CustomAuthController;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewUserController;
 use Illuminate\Http\Request;
@@ -59,10 +62,11 @@ Route::get('/reset/{token}', function ($token) {
 
 //aici se intra cand dau submit la noua parola
 Route::post('/reset', function (Request $request) {
+
     $request->validate([
         'token' => 'required',
-        'email' => 'required|email',
         'password' => 'required|min:8|confirmed',
+        'password_confirmation' => 'required'
     ]);
 
     $status = Password::reset(
@@ -81,5 +85,6 @@ Route::post('/reset', function (Request $request) {
     return $status === Password::PASSWORD_RESET
         ? redirect()->route('login')->with('status', __($status))
         : back()->withErrors(['email' => [__($status)]]);
+
 })->name('password.update');
 
