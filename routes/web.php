@@ -65,7 +65,7 @@ Route::post('/reset', function (Request $request) {
 
     $request->validate([
         'token' => 'required',
-        'password' => 'required|min:8|confirmed',
+        'password' => 'required|min:6|confirmed',
         'password_confirmation' => 'required'
     ]);
 

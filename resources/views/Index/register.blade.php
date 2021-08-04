@@ -1,11 +1,10 @@
 @extends('Index.authentification')
 
 @section('content')
-<main class="signup-form">
     <div class="cotainer">
         <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="card"  style="background: #282727;">
+            <div class="col-md-3">
+                <div class="flex-md-wrap">
                     <h3 class="card-header text-center">Register User</h3>
                     <div class="card-body">
 
@@ -15,7 +14,7 @@
                                 <input type="text" placeholder="Firstname" id="firstname" class="form-control" name="firstname"
                                     required autofocus>
                                 @if ($errors->has('firstname'))
-                                <span class="text-danger">{{ $errors->first('firstname') }}</span>
+                                    <span class="text-danger">{{ $errors->first('firstname') }}</span>
                                 @endif
                             </div>
 
@@ -23,7 +22,7 @@
                                 <input type="text" placeholder="Lastname" id="lastname" class="form-control" name="lastname"
                                     required autofocus>
                                 @if ($errors->has('lastname'))
-                                <span class="text-danger">{{ $errors->first('lastname') }}</span>
+                                    <span class="text-danger">{{ $errors->first('lastname') }}</span>
                                 @endif
                             </div>
 
@@ -31,7 +30,7 @@
                                 <input type="text" placeholder="Username" id="username" class="form-control" name="username"
                                     required autofocus>
                                 @if ($errors->has('username'))
-                                <span class="text-danger">{{ $errors->first('username') }}</span>
+                                    <span class="text-danger">{{ $errors->first('username') }}</span>
                                 @endif
                             </div>
 
@@ -39,7 +38,7 @@
                                 <input type="text" placeholder="Email" id="email_address" class="form-control"
                                     name="email" required autofocus>
                                 @if ($errors->has('email'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
                                 @endif
                             </div>
 
@@ -47,7 +46,7 @@
                                 <input type="password" placeholder="Password" id="password" class="form-control"
                                     name="password" required>
                                 @if ($errors->has('password'))
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                    <span class="text-danger">{{ $errors->first('password') }}</span>
                                 @endif
                             </div>
 
@@ -67,5 +66,4 @@
             </div>
         </div>
     </div>
-</main>
 @endsection

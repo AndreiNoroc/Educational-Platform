@@ -1,4 +1,4 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+                                                                                                                                                                                   <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -82,7 +82,7 @@ username varchar(128) not null,
 email varchar(128) not null,
 pass varchar(128) not null,
 updated_at timestamp not null,
-created_at timespamp not null
+created_at timestamp not null
 );
 
 ###in sectiunea SQL
@@ -103,8 +103,8 @@ Daca va apare ca nu e nimic de migrat folositi comanda: php artisan migrate:refr
  - [x] De facut login cu laravel;
  - [x] De facut logout cu laravel;
  - [x] De facut register cu laravel;
- - [ ] De facut recover cu laravel;
- - [ ] De facut reset cu laravel;
+ - [x] De facut recover cu laravel;
+ - [x] De facut reset cu laravel;
  - [ ] De facut un forum cu laravel;
 
 ## Taskuri pentru responsivitate :

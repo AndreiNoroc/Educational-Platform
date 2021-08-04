@@ -582,8 +582,8 @@ pt partea de contact-us
 }
 
 .iframe{
-    border:0; 
-    width: 100%; 
+    border:0;
+    width: 100%;
     height: 270px;
 }
 
@@ -591,11 +591,11 @@ pt partea de contact-us
 clasa pentru modale
 --------------------------------------------------------------*/
 .modal_look{
-    color: black; 
+    color: black;
     max-width: 700px;
-    background: #282727; 
+    background: #282727;
     border-color: #1D6C0C;
-    border-radius: 20px; 
+    border-radius: 20px;
     border-width: 5px;
 }
 
@@ -614,7 +614,7 @@ clasa pentru modale
 }
 
 .modal_form{
-    text-align: center; 
+    text-align: center;
     color: #FFFFFF;
 }
 
@@ -625,7 +625,7 @@ clasa pentru modale
 }
 
 .modal_close_button{
-    position: absolute; 
+    position: absolute;
     right: 0;max-width: 100px;
     color:#ffffff;
     background-color: Transparent;
@@ -677,14 +677,13 @@ body
 ----------------------------------*/
 
 .marquee{
-    background: #1d6c0c; 
-    font-family: 'Open Sans', sans-serif; 
+    background: #1d6c0c;
+    font-family: 'Open Sans', sans-serif;
     font-size: 25px;
 }
 
 .button_carousel{
-    background: #1d6c0c; 
+    background: #1d6c0c;
     color: white;
 }
-
 

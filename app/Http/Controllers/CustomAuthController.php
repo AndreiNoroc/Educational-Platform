@@ -24,7 +24,7 @@ class CustomAuthController extends Controller
         //se verifica daca username-ul si parola nu sunt goale
         $request->validate([
             'username' => 'required',
-            'password' => 'required',
+            'password' => 'required|min:6',
         ]);
 
         //??
@@ -42,7 +42,8 @@ class CustomAuthController extends Controller
         }
 
         //daca este eroare ramanem pe partea de login
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("login?login=false")->withSuccess('Login details are not valid');
+//        return response()->json(['message' => 'Username or Password does not match'], 401);
     }
 
 
