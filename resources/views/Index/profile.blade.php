@@ -1,24 +1,31 @@
 @extends('Index.authentification')
 
 @section('content')
-<div class="container" style="background: #282727;">
-	<table border = "1">
-		<tr>
-		<td>Id</td>
-		<td>First Name</td>
-		<td>Last Name</td>
-		<td>City Name</td>
-		<td>Email</td>
-		</tr>
-		@foreach ($users as $user)
-		<tr>
-		<td>{{ $user->id }}</td>
-		<td>{{ $user->firstname }}</td>
-		<td>{{ $user->lastname }}</td>
-		<td>{{ $user->username }}</td>
-		<td>{{ $user->email }}</td>
-		</tr>
-		@endforeach
-	</table>
+
+@foreach ($users as $user)
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <div class="flex-md-wrap" >
+                <h3 class="card-header text-center">{{ $user->username }}'s profile</h3>
+                <div class="card-body">
+               		<div class="row-sm-6">
+                        <p class="m-b-10 f-w-600">Firstname</p>
+                        <h6 class="text-success f-w-400">{{ $user->firstname }}</h6>
+                    </div>
+                    <div class="row-sm-6">
+                        <p class="m-b-10 f-w-600">Lastname</p>
+                        <h6 class="text-success f-w-400">{{ $user->lastname }}</h6>
+                    </div>
+                    <div class="row-sm-6">
+                        <p class="m-b-10 f-w-600">Email</p>
+                        <h6 class="text-success f-w-400">{{ $user->email }}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+@endforeach
+
 @endsection

@@ -33,8 +33,8 @@
 </section>
 <!-- //? ==================== Header(navbar) ends here ==================== -->
 
-<section id="hero" style="margin-bottom:  auto;">
-    <div class="hero-container" style="display: inline; margin-top: 12rem; padding-top: 1rem;">
+<section id="hero" style="margin-bottom: auto;">
+    <div class="hero-container" style="display: inline; margin-top: 5rem; padding-top: 1rem;">
         @yield('content')
     </div>
 </section>

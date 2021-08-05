@@ -39,7 +39,6 @@ Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name(
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [CustomAuthController::class, 'customRegistration'])->name('register.custom');
 
-
 //rutele pentru profile
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 Route::get('profile', [ViewUserController::class, 'index'])->name('profile');
@@ -61,7 +60,7 @@ Route::post('/recover', function (Request $request) {
 
     //daca s-a trimis email-ul te duce undeva
     return $status === Password::RESET_LINK_SENT
-        ? back()->with(['status' => __($status)])
+        ? view("Index.emailconfirm")
         : back()->withErrors(['email' => __($status)]);
 })->name('password.email');
 
