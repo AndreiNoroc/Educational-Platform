@@ -70,7 +70,7 @@ MAIL_FROM_NAME="FinancilaEducation"
 
 ### - pentru responsivitate :
 - [x] De infrumusetat partea de authentification
-- [ ] De facut butoanele din games responsive/ Poate daca are cineva timp si chef sa creeze niste cards ca la services cu fiecare joc;
+- [x] De facut butoanele din games responsive/ Poate daca are cineva timp si chef sa creeze niste cards ca la services cu fiecare joc;
 - [ ] De scos caruselul pt telefoane pt ca nu se vede bine, poate punem o lista cu toate cartile;
 - [ ] De modificat modalele de la recomandari a.i. sa se miceasca scrisul pe telefon;
 

@@ -5,45 +5,49 @@
 
 <body>
 
-<!-- //? ==================== Header(navbar) starts here ==================== -->
-<section id="header" class="fixed-top position-fixed bg-dark">
-    <div class="container d-flex align-items-center justify-content-between">
-        <h1 class="logo"><a href="/">EducationFirst</a></h1>
-        <nav id="navbar" class="navbar">
-            <ul>
-                <li><a class="nav-link" href="index">Home</a></li>
-
+<section id="hero">
+    <div class="hero-container mt-5" style="display: inline; padding-top: 1rem;">
+        <div class="row d-flex align-items-center">
+            <div class="row d-flex justify-content-center" style="width: 40%;">
+                <div class="w-75">
+                    @yield('content')
+                </div>
+            </div>
+            <div class="h-75 row d-flex justify-content-center" style="width: 60%;">
+                <div class="w-75 row d-flex justify-content-center mt-3">
+                    <a href="index" class="btn-get-started scrollto">Home</a>
+                </div>
                 @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register-user') }}">Register</a>
-                    </li>
+                    <div class="w-75 row d-flex justify-content-center mt-4">
+                        <hr style="border-top: 3px solid rgba(0, 0, 0, 0.1); ">
+                        <h2>Let's find some info</h2>
+                        <a href="{{ route('login') }}" class="btn-get-started scrollto">Login</a>
+                    </div>
+                    <div class="w-75 row d-flex justify-content-center mt-4">
+                        <hr style="border-top: 3px solid rgba(0, 0, 0, 0.1); ">
+                        <h2>Does not have any account? Make one</h2>
+                        <a href="{{ route('register-user') }}" class="btn-get-started scrollto">Register</a>
+                    </div>
                 @else
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('signout') }}">Logout</a>
-                    </li>
+                    <div class="w-75 row d-flex justify-content-center mt-4">
+                        <a href="{{ route('signout') }}" class="btn-get-started scrollto">Logout</a>
+                    </div>
                 @endguest
-
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav> <!-- //* navbar ends here -->
+            </div>            
+        </div>
     </div>
 </section>
-<!-- //? ==================== Header(navbar) ends here ==================== -->
 
-<section id="hero" style="margin-bottom: auto;">
-    <div class="hero-container" style="display: inline; margin-top: 5rem; padding-top: 1rem;">
-        @yield('content')
-    </div>
+
+<!--
+<section class="my-5 h-100" style="background: white;">
+    @yield('content')
 </section>
-{{--    <section class="mt-5" style="background: white;">--}}
-{{--    	@yield('content')--}}
-{{--    </section>--}}
+-->
 
 <!-- //? ==================== Footer ==================== -->
-<footer id="footer" class="fixed-bottom">
+<!--
+<footer id="footer" style = "background:#282727">
     <div class="container d-md-flex py-4">
         <div class="me-md-auto text-center text-md-start">
             <div class="copyright">
@@ -55,6 +59,7 @@
         </div>
     </div>
 </footer>
+-->
 <!-- //? ==================== End Footer ==================== -->
 
 </body>
