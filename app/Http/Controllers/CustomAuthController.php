@@ -42,8 +42,7 @@ class CustomAuthController extends Controller
         }
 
         //daca este eroare ramanem pe partea de login
-        return redirect("login?login=false")->withSuccess('Login details are not valid');
-//        return response()->json(['message' => 'Username or Password does not match'], 401);
+        return redirect("login")->with('login', 'Wrong username or password')->withSuccess('Login details are not valid');
     }
 
 

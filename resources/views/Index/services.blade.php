@@ -15,7 +15,7 @@
                     <div  class="icon-box">
                         <div class="icon"><i class="bx bx-game"></i></div>
                         <h4 class="title">Games</h4>
-                        <p class="description">In this section you can try several games that give others perspectives to your financial issues</p>
+                        <p class="description">In this section you can try several games that give others perspectives to your financial issues.</p>
                     </div>
                 </a>
             </div>
@@ -35,7 +35,7 @@
                     <div class="icon-box">
                         <div class="icon"><i class="bi bi-clipboard-data"></i></div>
                         <h4 class="title">Recommendations</h4>
-                        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                        <p class="description">A section full of interesting stories and recommendations from actual entrepreneurs and businessmen.</p>
                     </div>
                 </a>
             </div>

@@ -35,7 +35,7 @@
    <!-- Start Header -->
    <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><a href="index">CumSaFaciBani</a></h1>
+      <h1 class="logo"><a href="index">EducationFirst</a></h1>
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="index">Back to main page</a></li>
@@ -45,14 +45,15 @@
     </div>
   </header><!-- End Header -->
 
-  <!-- Start Header -->
-  <section id="hero">
-    <div class="hero-container">
-      <h3>Bine ati venit pe <strong>CumSaFaciBani</strong></h3>
-      <h1>Consideri ca ai nevoie de o educatie financiara mai buna?</h1>
-      <h2>Ai gasit locul unde poti sa inveti ideei despre cum sa iti investesti banii cu folos la fiecare pas din viata ta.</h2>
-    </div>
-  </section><!-- End Header -->
+   <!-- //* ==================== Hero Section ==================== -->
+   <section id="hero">
+       <div class="hero-container">
+           <h3>Welcome to <strong>EducationFirst</strong></h3>
+           <h1>Have you ever asked yourself how entrepreneurs or businessmen work with money?</h1>
+           <h2>Well they certainly don't play games :)) , but we still encourage you to try all our services</h2>
+       </div>
+   </section>
+   <!-- //* ==================== End Hero ==================== -->
 
    <!-- Start Game Menu -->
   <section style="background: white">
@@ -175,6 +176,33 @@
 
     </div>
   </section>
+
+   <section class="container">
+       <div class="row">
+           <div class="card col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+               <img class="card-img-top" src="/img/games_pictures/Choices.jpg" alt="Card image cap">
+               <div class="card-body" style="text-align: center">
+                   <a href="#firstgame">
+                        <button id="startfgame" type="button" class="btn btn-dark btn-lg" onclick="choosefirstgame()">Start playing Choices</button>
+                   </a>
+               </div>
+           </div>
+           <div class="card col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+               <img class="card-img-top" style="max-height: 419px" src="/img/games_pictures/puzzle.jpg" alt="Card image cap">
+               <div class="card-body" style="text-align: center">
+                   <a href="#chosengame">
+                       <button id="startsgame" type="button" class="btn btn-dark btn-lg" onclick="choosesecondgame()">Start playing Match</button>
+                   </a>
+               </div>
+           </div>
+           <div class="card col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+               <img class="card-img-top" style="max-height: 419px" src="/img/games_pictures/coming_soon.jpg" alt="Card image cap">
+               <div class="card-body" style="text-align: center">
+                   <button type="button" class="btn btn-dark btn-lg" onclick="">Coming Soon</button>
+               </div>
+           </div>
+       </div>
+   </section>
 
 <!--d-flex align-items-center-->
 

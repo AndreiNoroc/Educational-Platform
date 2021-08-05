@@ -7,14 +7,11 @@
                 <div class="flex-md-wrap" >
                     <h3 class="card-header text-center">Login</h3>
                     <div class="card-body">
-                        <?php
-                            if(isset($_GET['login'])) {
-                                $signupCheck = $_GET['login'];
-                                if(!empty($signupCheck)) {
-                                    echo '<p class="text-danger">Credentials are not good..</p>';
-                                }
-                            }
-                        ?>
+                        @if (session('login'))
+                            <p class="text-danger">
+                                {{ session('login') }}
+                            </p>
+                        @endif
                         <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
                             <div class="form-group mb-3">
