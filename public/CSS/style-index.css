@@ -687,3 +687,18 @@ body
     color: white;
 }
 
+/* Authentification */
+#app {
+    min-height: 100vh!important;
+    height: 100% !important;
+}
+
+#auth-left-design {
+   background: rgba(48, 58, 53, 0.6);
+}
+
+#auth-right-design {
+    background-image: linear-gradient(rgba(192,192,192,0.5), rgba(192,192,192,0.5)), url("../img/hero.jpg") ;
+    /*background: url("../img/hero.jpg") top center;*/
+    background-size: cover;
+}

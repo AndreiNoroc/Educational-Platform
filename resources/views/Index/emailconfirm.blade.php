@@ -1,8 +1,15 @@
 @extends('Index.authentification')
 
 @section('content')
-<h3 class="card-header text-center">Confirm message</h3>
-<div class="card-body">
-	<h2 class="text-center">A message was sent to your email address. Access it and change your passworld.</h2>
-</div>
+    <div class="container-fluid">
+
+        <div class="row justify-content-center">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <h2 class="text-center">A message was sent to your email address.
+                        Access it and change your password.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
