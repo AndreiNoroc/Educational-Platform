@@ -16,6 +16,6 @@ class ViewUserController extends Controller
 		$users = DB::table('users')
                 ->where('username', '=', $em)
                 ->get();
-		return view('Index.profile', ['users'=>$users]);
+		return view('Auth.profile', ['users'=>$users]);
 	}
 }

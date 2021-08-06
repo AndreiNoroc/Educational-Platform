@@ -66,6 +66,7 @@ MAIL_FROM_NAME="FinancilaEducation"
  - [x] De facut register cu laravel;
  - [x] De facut recover cu laravel;
  - [x] De facut reset cu laravel;
+ - [ ] De modificat mesajul primit pe email;
  - [ ] De facut un forum cu laravel;
 
 ### - pentru responsivitate :

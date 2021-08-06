@@ -13,7 +13,7 @@
             <div class="col-md-4 d-flex align-items-stretch">
                 <div class="member">
                     <div class="member-img">
-                        <img src={{asset('img/undraw_Personal_settings_re_i6w4.png')}} class="img-fluid" alt="">
+                        <img src={{asset('img/team/team-1.jpg')}} class="img-fluid" alt="">
                     </div>
                     <div class="member-info">
                         <h4>Basaraba Razvan</h4>

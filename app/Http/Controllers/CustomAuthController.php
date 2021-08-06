@@ -15,7 +15,7 @@ class CustomAuthController extends Controller
     //ceea ce se vede prima oara cand se intra pe authorization
     public function index()
     {
-        return view('Index.login');
+        return view('Auth.login');
     }
 
     //functia ce se apeleaza cand se da submit la login
@@ -49,7 +49,7 @@ class CustomAuthController extends Controller
     //la ruta asta se gaseste registerul
     public function registration()
     {
-        return view('Index.register');
+        return view('Auth.register');
     }
 
 
@@ -89,7 +89,7 @@ class CustomAuthController extends Controller
     public function dashboard()
     {
         if(Auth::check()){
-            return view('Index.authentification');
+            return view('Auth.authentification');
         }
 
         return redirect("login")->withSuccess('You are not allowed to access');

@@ -65,8 +65,6 @@
 
 </body>
 
-    @include('Index.blurr_modals')
-
     <!--Javascript from others-->
     <script type="text/javascript" src="JS/http_code.jquery.com_jquery-3.5.1.js"></script>
     <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

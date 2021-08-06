@@ -1,4 +1,4 @@
-@extends('Index.authentification')
+@extends('Auth.authentification')
 
 @section('content')
     <div class="container-fluid">
