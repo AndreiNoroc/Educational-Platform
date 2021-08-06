@@ -66,6 +66,13 @@
                    </a>
                </div>
            </div>
+           @guest
+           <div class="card col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+               <div class="card-body" style="text-align: center">
+                   <h1 class="text-dark">If you want to play more games you need to login!</h1>
+               </div>
+           </div>
+           @else
            <div class="card col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
                <img class="card-img-top" style="max-height: 419px" src="/img/games_pictures/puzzle.jpg" alt="Card image cap">
                <div class="card-body" style="text-align: center">
@@ -80,6 +87,7 @@
                    <button type="button" class="btn btn-dark btn-lg" onclick="">Coming Soon</button>
                </div>
            </div>
+           @endguest
        </div>
    </section>
 
@@ -168,23 +176,6 @@
           </div>
         </div>
 
-        <!--
-        <div class="d-flex justify-content-around d-inline-block w-100 h-10 mt-3" style="position: relative;">
-
-          <button id="initbutt" type="button" class="btn btn-success btn-md mx-2" onclick="startgame()" style="display: none;">Start</button>
-
-          <button id="gp1" type="button" class="btn btn-dark btn-md" onclick="exposeElements(this.id)" style="display: none;">SA INCEPEM!</button>
-
-          <button id="gp2" type="button" class="btn btn-dark btn-md" onclick="exposeElements(this.id)" style="display: none;">SA PETRECEM BAG PULA!</button>
-
-          <button id="gp3" type="button" class="btn btn-dark btn-sm" onclick="exposeElements(this.id)" style="display: none;">MERGEM LA MUNCA ECONOMISIM!</button>
-
-          <a href="#buttons">
-            <button id="exitbutt" type="button" class="btn btn-success btn-lg" onclick="exitfirstgame()" style="display: none;">Exit</button>
-          </a>
-        </div>
-        -->
-
         <div class="btn-toolbar d-flex justify-content-around" role="toolbar" aria-label="Toolbar with button groups">
           <div id="initbutt" class="btn-group" style="display: none;">
             <button type="button" class="btn btn-success btn-md" onclick="startgame()">Start</button>
@@ -265,7 +256,7 @@
               <div id="tablepuzzlepieces1" class="d-flex justify-content-center w-100 h-100" ondrop="drop(event)" ondragover="allowDrop(event)">
                 <div id="dragschool" class="rounded mx-1" draggable="true" ondragstart="drag(event)"></div>
                 <div id="draghospital" class="rounded mx-1" draggable="true" ondragstart="drag(event)"></div>
-                <div id="drag3" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="dragmarket" class="rounded mx-1" draggable="true" ondragstart="drag(event)"></div>
                 <div id="drag4" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
                 <div id="drag5" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
                 <div id="drag6" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>

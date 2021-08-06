@@ -6,15 +6,15 @@
 <body>
 
 <section id="hero">
-    <div class="hero-container mt-5" style="display: inline; padding-top: 1rem;">
-        <div class="row d-flex align-items-center">
+    <div class="hero-container mt-3 d-flex align-items-center" style="display: inline; padding-top: 1rem;">
+        <div class="row d-flex align-items-center w-100 h-100">
             <div class="row d-flex justify-content-center" style="width: 40%;">
                 <div class="w-75">
                     @yield('content')
                 </div>
             </div>
-            <div class="h-75 row d-flex justify-content-center" style="width: 60%;">
-                <div class="w-75 row d-flex justify-content-center mt-3">
+            <div class="h-75 row d-flex justify-content-center align-items-center" style="width: 60%;">
+                <div class="w-75 row d-flex justify-content-center mt-3" style="height: 30px;">
                     <a href="index" class="btn-get-started scrollto">Home</a>
                 </div>
                 @guest
@@ -29,7 +29,7 @@
                         <a href="{{ route('register-user') }}" class="btn-get-started scrollto">Register</a>
                     </div>
                 @else
-                    <div class="w-75 row d-flex justify-content-center mt-4">
+                    <div class="w-75 row d-flex justify-content-center mt-4" style="height: 30px;">
                         <a href="{{ route('signout') }}" class="btn-get-started scrollto">Logout</a>
                     </div>
                 @endguest

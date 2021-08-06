@@ -61,8 +61,38 @@
 
     <!-- //* ==================== Start Forum ==================== -->
     <section>
-        <div class="container">
+        <h5>AICI SE VAD MESAJELE INDIFERENT</h5>
+
+        <div class="row d-flex justify-content-center">
+        <hr style="border-top: 3px solid rgba(0, 0, 0, 0.1); ">
+        <div class="media w-75">
+            <img class="align-self-start mr-3" src="" alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 class="mt-0">NUME</h5>
+                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
         </div>
+        <hr style="border-top: 3px solid rgba(0, 0, 0, 0.1); ">
+        </div>
+
+        @guest
+            <div class="d-flex justify-content-center">
+                <h3>You have to login for posting a message!</h3>
+            </div>
+        @else
+            <div class="container">
+                <form>
+                    <div class="form-group">
+                        <label for="msgpost">Write a message</label>
+                        <textarea class="form-control" id="msgpost" rows="3"></textarea>
+                    </div>
+                </form>
+                <div class="d-grid mx-auto mt-3 w-25">
+                    <button type="submit" class="btn btn-success btn-block">Post</button>
+                </div>
+            </div>
+        @endguest
     </section>
     <!-- //* ==================== End forum ==================== -->
 
