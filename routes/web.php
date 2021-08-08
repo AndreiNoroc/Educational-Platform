@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\TopicsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewUserController;
 
@@ -20,7 +21,6 @@ use App\Http\Controllers\ViewUserController;
 Route::view('/', "/Index.index");
 Route::view('/games', "/Games.games");
 Route::view('/recommendations', "/Recommendations.recommendations");
-Route::view('/forum', "/Forum.forum");
 Route::view('/index', "/Index.index");
 Route::view('/auth', "/Index.authentification");
 
@@ -38,3 +38,11 @@ Route::get('profile', [ViewUserController::class, 'index'])->name('profile');
 //rutele pentru reset password
 require 'reset_password.php';
 
+//rutele pentru forum
+Route::get('/forum', [TopicsController::class, 'index']);
+Route::get('/forum/{topic}', [TopicsController::class, 'show']);
+Route::get('/new-topics', [TopicsController::class, 'create']);
+Route::post('store-topics',[TopicsController::class, 'store'] );
+Route::get('/forum/{topic}/edit', [TopicsController::class, 'edit']);
+Route::post('/forum/{topic}/update-topics', [TopicsController::class, 'update']);
+Route::get('forum/{topic}/delete', [TopicsController::class, 'destroy']);

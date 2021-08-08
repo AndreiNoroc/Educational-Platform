@@ -32,6 +32,15 @@
             <h1 class="logo"><a href="../index">EducationFirst</a></h1>
             <nav id="navbar" class="navbar">
                 <ul>
+                    <?php
+                    $em = session('username');
+
+                    if(session()->has('username')) {
+                        echo '<li><a class="nav-link scrollto active" href="profile">'.$em.'</a></li>';
+                    } else {
+                        echo '<li><a class="nav-link scrollto active" href="login">Authentification</a></li>';
+                    }
+                    ?>
                     <li><a class="nav-link scrollto active" href="index">Back to main page</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -50,49 +59,52 @@
     </section>
     <!-- //* ==================== End Hero ==================== -->
 
-    <!-- //? ==================== Start Title ==================== -->
-    <section>
-        <div class="section-title" style="padding-top:3rem">
-            <h2>Forum</h2>
-            <h3>If <span>you</span> have any questions, write us below...</h3>
+    @if(session()->has('success'))
+        <div class="alert alert-success text-center">
+            {{session()->get('success')}}
         </div>
-    </section>
-    <!-- //? ==================== End Title ==================== -->
+    @endif
 
     <!-- //* ==================== Start Forum ==================== -->
     <section>
-        <h5>AICI SE VAD MESAJELE INDIFERENT</h5>
-
-        <div class="row d-flex justify-content-center">
-        <hr style="border-top: 3px solid rgba(0, 0, 0, 0.1); ">
-        <div class="media w-75">
-            <img class="align-self-start mr-3" src="" alt="Generic placeholder image">
-            <div class="media-body">
-                <h5 class="mt-0">NUME</h5>
-                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            </div>
+        <div class="section-title" style="padding:3rem">
+            <h2>Forum</h2>
+            <h3>If <span>you</span> have any questions, write us below...</h3>
         </div>
-        <hr style="border-top: 3px solid rgba(0, 0, 0, 0.1); ">
-        </div>
-
-        @guest
-            <div class="d-flex justify-content-center">
-                <h3>You have to login for posting a message!</h3>
-            </div>
-        @else
-            <div class="container">
-                <form>
-                    <div class="form-group">
-                        <label for="msgpost">Write a message</label>
-                        <textarea class="form-control" id="msgpost" rows="3"></textarea>
+            <div class="container" style="color: black">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card card-default">
+                            <div class="card-header">
+                                Topics
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    @foreach($topics as $topic)
+                                        <li class="list-group-item">
+                                            {{$topic->username}}:{{$topic->title}}
+                                            <a href="/forum/ {{ $topic->id }}" class="btn btn-primary btn-sm float-end m-1">View more</a>
+                                            @if($em == $topic->username)
+                                                <a href="/forum/{{$topic->id}}/edit" class="btn btn-info btn-sm float-end m-1">Edit</a>
+                                                <a href="/forum/{{$topic->id}}/delete" class="btn btn-danger btn-sm float-end m-1">Delete</a>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                </ul>
+                                @guest
+                                    <div style="text-align: center; padding: 20px">
+                                        <p>Log in if you want to add a new topic.</p>
+                                    </div>
+                                @else
+                                    <div style="text-align: center; padding: 20px">
+                                        <a  href="/new-topics" class="btn btn-primary">Add a new topic</a>
+                                    </div>
+                                @endguest
+                            </div>
+                        </div>
                     </div>
-                </form>
-                <div class="d-grid mx-auto mt-3 w-25">
-                    <button type="submit" class="btn btn-success btn-block">Post</button>
                 </div>
             </div>
-        @endguest
     </section>
     <!-- //* ==================== End forum ==================== -->
 
