@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\RepliesController;
 use App\Http\Controllers\TopicsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewUserController;
@@ -46,3 +47,8 @@ Route::post('store-topics',[TopicsController::class, 'store'] );
 Route::get('/forum/{topic}/edit', [TopicsController::class, 'edit']);
 Route::post('/forum/{topic}/update-topics', [TopicsController::class, 'update']);
 Route::get('forum/{topic}/delete', [TopicsController::class, 'destroy']);
+Route::get('/new-reply/{topic}', [RepliesController::class, 'create']);
+Route::post('store-replies/{topic}',[RepliesController::class, 'store'] );
+Route::get('/forum/{reply}/edit-reply', [RepliesController::class, 'edit']);
+Route::post('/forum/{reply}/update-replies', [RepliesController::class, 'update']);
+Route::get('/forum/{reply}/delete-reply', [RepliesController::class, 'destroy']);

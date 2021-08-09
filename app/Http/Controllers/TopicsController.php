@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Replies;
 use App\Models\Topics;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class TopicsController extends Controller
 
     public function show(Topics $topic)
     {
-        return view('Forum.show')->with('topics', $topic);
+        return view('Forum.show')->with(['topics' => $topic, 'replies' => Replies::all()]);
     }
 
     public function create() {
@@ -74,6 +75,15 @@ class TopicsController extends Controller
 
     public function destroy(Topics $topic)
     {
+
+        $replies = Replies::all();
+
+        foreach($replies as $reply) {
+            if($topic->id == $reply->parent_id) {
+                $reply->delete();
+            }
+        }
+
         $topic->delete();
 
         session()->flash('success', 'Topic deleted!');

@@ -26,15 +26,42 @@
 
 <body>
 
+    <?php
+        $em = session('username');
+    ?>
+
     <h2 style="text-align: center; padding:2rem">{{$topics -> title}}</h2>
     <div class="container" style="color:black;">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card card-default">
-                    <a href="/forum" class="btn">Back to topics list</a>
-                    <div class="card-body">
+                    <div class="card-header">
                         {{$topics->username}}:{{$topics->text}}
+                        @guest
+                            <div style="text-align: center; padding: 20px">
+                                <p>Log in if you want to reply.</p>
+                            </div>
+                        @else
+                            <div style="text-align: center; padding: 20px">
+                                <a  href="/new-reply/{{$topics->id}}" class="btn btn-primary">Reply</a>
+                            </div>
+                        @endguest
                     </div>
+                    <div class="card-body">
+                        @foreach($replies as $reply)
+                            @if($topics->id == $reply->parent_id)
+                            <li class="list-group-item">
+                                {{$reply->username}}:{{$reply->text}}
+                                @if($em == $reply->username)
+                                    <a href="/forum/{{$reply->id}}/edit-reply" class="btn btn-info btn-sm float-end m-1">Edit</a>
+                                    <a href="/forum/{{$reply->id}}/delete-reply" class="btn btn-danger btn-sm float-end m-1">Delete</a>
+                                @endif
+                            </li>
+                            @endif
+                        @endforeach
+                    </div>
+                    <hr>
+                    <a href="/forum" class="btn btn-primary">Back to topics list</a>
                 </div>
             </div>
         </div>
