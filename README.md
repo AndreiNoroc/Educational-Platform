@@ -68,6 +68,10 @@ MAIL_FROM_NAME="FinancilaEducation"
  - [x] De facut reset cu laravel;
  - [ ] De modificat mesajul primit pe email;
  - [ ] De facut un forum cu laravel;
+ - [ ] De facut search
+ - [ ] Alert delete mesaje
+ - [ ] Like / Dislike
+ - [ ] Conturi modulatori
 
 ### - pentru responsivitate :
 - [x] De infrumusetat partea de authentification

@@ -640,43 +640,58 @@ clasa pentru modale
 /*----------------------------------
 # Carousel
 ----------------------------------*/
-body
-{
-  margin: 0;
-  padding: 0;
-  background: #282727;
+body {
+    margin: 0;
+    padding: 0;
+    background: #282727;
 }
-.carousel
-{
-  height: 700px;
-  perspective: 600px;
+.carousel {
+    height: 700px;
+    perspective: 600px;
 }
-.carousel .carousel-item
-{
-  width: 500px;
+.carousel .carousel-item {
+    width: 500px;
 }
-.carousel .carousel-item img
-{
-  width: 100%;
+.carousel .carousel-item img {
+    width: 100%;
 }
-.carousel .carousel-item h3
-{
-  margin: 0;
-  padding: 0;
-  background: #fff;
-  color: #000;
-  box-sizing: border-box;
-  padding: 10px 5px;
-  font-weight: bold;
-  font-size: 2em;
-  text-align: center;
+.carousel .carousel-item h3 {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    color: #000;
+    box-sizing: border-box;
+    padding: 10px 5px;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
 }
+
+/*@media (max-width:550px) {*/
+/*    #carouselContainer {*/
+/*        display: none !important;*/
+/*    }*/
+
+/*    #carousel-mobile-view {*/
+/*        display: block !important;*/
+/*    }*/
+/*}*/
+
+/*@media (min-width:550px) {*/
+/*    #carouselContainer {*/
+/*        display: block !important;*/
+/*    }*/
+
+/*    #carousel-mobile-view {*/
+/*        display: none !important;*/
+/*    }*/
+/*}*/
 
 /*----------------------------------
 # Marquee
 ----------------------------------*/
 
-.marquee{
+.marquee {
     background: #1d6c0c;
     font-family: 'Open Sans', sans-serif;
     font-size: 25px;

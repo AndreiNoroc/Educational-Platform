@@ -71,40 +71,66 @@
             <h2>Forum</h2>
             <h3>If <span>you</span> have any questions, write us below...</h3>
         </div>
-            <div class="container" style="color: black">
-                <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="card card-default">
-                            <div class="card-header">
-                                Topics
-                            </div>
-                            <div class="card-body">
-                                <ul class="list-group">
-                                    @foreach($topics as $topic)
-                                        <li class="list-group-item">
-                                            {{$topic->username}}:{{$topic->title}}
-                                            <a href="/forum/ {{ $topic->id }}" class="btn btn-primary btn-sm float-end m-1">View more</a>
-                                            @if($em == $topic->username)
-                                                <a href="/forum/{{$topic->id}}/edit" class="btn btn-info btn-sm float-end m-1">Edit</a>
-                                                <a href="/forum/{{$topic->id}}/delete" class="btn btn-danger btn-sm float-end m-1">Delete</a>
-                                            @endif
-                                        </li>
-                                    @endforeach
-                                </ul>
-                                @guest
-                                    <div style="text-align: center; padding: 20px">
-                                        <p>Log in if you want to add a new topic.</p>
-                                    </div>
-                                @else
-                                    <div style="text-align: center; padding: 20px">
-                                        <a  href="/new-topics" class="btn btn-primary">Add a new topic</a>
-                                    </div>
-                                @endguest
-                            </div>
+
+        @guest
+            <div style="text-align: center; padding: 20px">
+                <p class="btn btn-light btn-lg">Log in if you want to add a new topic.</p>
+            </div>
+        @else
+            <div class="container" style="color: black;">
+                <div class="row justify-content-center" style="color: black;">
+                    <p class="text-center" style="font-size: 2rem; color: white">Create a new topic..</p>
+                    <form action="/store-topics" method="POST">
+                        @csrf
+                        <div class="form-group" style="border: 1px solid black;">
+                            <input type="text" class="form-control" style="font-size: 2rem;" name="title" placeholder="title">
+                            @if ($errors->has('title'))
+                                <span class="text-danger" style="font-size: 1.5rem">{{ $errors->first('title') }}</span>
+                            @endif
                         </div>
-                    </div>
+                        <div class="form-group" style="border: 1px solid black;">
+                            <textarea name="text" placeholder="text" style="font-size: 1.5rem;" cols="5" rows="5" class="form-control"></textarea>
+                            @if ($errors->has('text'))
+                                <span class="text-danger" style="font-size: 1.5rem">{{ $errors->first('text') }}</span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-lg float-end" style="margin-bottom: 3rem;">Create topic</button>
+                        </div>
+                    </form>
                 </div>
             </div>
+        @endguest
+
+        <div class="container" style="color: black ">
+            <div class="row justify-content-center">
+                <ul class="list-group">
+                    @foreach($topics as $topic)
+                        <li class="list-group-item" style="font-size: 2rem; border: 1px solid black">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
+                                </div>
+                                <div class="col-md-11">
+                                    {{$topic->username}}
+                                    <p style="word-wrap: break-word;">{{$topic->title}}</p>
+
+                                    @if($em == $topic->username)
+                                        <a href="/forum/{{$topic->id}}/edit" class="btn btn-info btn-lg m-1">Edit</a>
+                                        <a href="/forum/{{$topic->id}}/delete" class="btn btn-danger btn-lg m-1">
+                                            <i class="bi bi-trash"></i></a>
+                                    @endif
+                                    <a href="/forum/ {{ $topic->id }}" class="btn btn-primary btn-lg m-1">
+                                        <i class="bi bi-reply"></i></a>
+
+                                    <p class="float-end" style="font-size: 1.5rem;"><i>{{date('H:i, d-m-Y', strtotime($topic->created_at))}}</i></p>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
     </section>
     <!-- //* ==================== End forum ==================== -->
 

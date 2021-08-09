@@ -27,7 +27,6 @@ class TopicsController extends Controller
         $em = session('username');
 
         \request() -> validate([
-            'username' => 'required|in:'.$em,
             'title' => 'required|min:6|max:30|',
             'text' => 'required|min:12|max:300'
         ]);
@@ -35,7 +34,7 @@ class TopicsController extends Controller
         $data = request()->all();
 
         $topic = new Topics();
-        $topic->username = $data['username'];
+        $topic->username = $em;
         $topic->title = $data['title'];
         $topic->text = $data['text'];
 
@@ -56,14 +55,13 @@ class TopicsController extends Controller
         $em = session('username');
 
         \request() -> validate([
-            'username' => 'required|in:'.$em,
-            'title' => 'required|min:6|max:30|',
+            'title' => 'required|min:6|max:30',
             'text' => 'required|min:12|max:300'
         ]);
 
         $data = \request()->all();
 
-        $topic->username = $data['username'];
+        $topic->username = $em;
         $topic->title = $data['title'];
         $topic->text = $data['text'];
         $topic->save();
