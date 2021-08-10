@@ -44,11 +44,9 @@ require 'reset_password.php';
 Route::get('/forum', [TopicsController::class, 'index']);
 Route::get('/forum/{topic}', [TopicsController::class, 'show']);
 Route::post('store-topics',[TopicsController::class, 'store'] );
-Route::get('/forum/{topic}/edit', [TopicsController::class, 'edit']);
 Route::post('/forum/{topic}/update-topics', [TopicsController::class, 'update']);
 Route::get('forum/{topic}/delete', [TopicsController::class, 'destroy']);
 
 Route::post('store-replies/{topic}',[RepliesController::class, 'store']);
-Route::get('/forum/{reply}/edit-reply', [RepliesController::class, 'edit']);
 Route::post('/forum/{reply}/update-replies', [RepliesController::class, 'update']);
 Route::get('/forum/{reply}/delete-reply', [RepliesController::class, 'destroy']);

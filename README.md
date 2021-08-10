@@ -67,7 +67,7 @@ MAIL_FROM_NAME="FinancilaEducation"
  - [x] De facut recover cu laravel;
  - [x] De facut reset cu laravel;
  - [ ] De modificat mesajul primit pe email;
- - [ ] De facut un forum cu laravel;
+ - [x] De facut un forum cu laravel;
  - [ ] De facut search
  - [ ] Alert delete mesaje
  - [ ] Like / Dislike

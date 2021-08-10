@@ -59,12 +59,6 @@
     </section>
     <!-- //* ==================== End Hero ==================== -->
 
-    @if(session()->has('success'))
-        <div class="alert alert-success text-center">
-            {{session()->get('success')}}
-        </div>
-    @endif
-
     <!-- //* ==================== Start Forum ==================== -->
     <section>
         <div class="section-title" style="padding:3rem">
@@ -102,25 +96,35 @@
             </div>
         @endguest
 
+        @if(session()->has('success'))
+            <div class="container alert alert-success text-center">
+                {{session()->get('success')}}
+            </div>
+        @endif
+
         <div class="container" style="color: black ">
             <div class="row justify-content-center">
                 <ul class="list-group">
+                    <?php
+                    $var = 0;
+                    ?>
                     @foreach($topics->reverse() as $topic)
+                        <?php
+                            $var++;
+                        ?>
                         <li class="list-group-item" style="font-size: 2rem; border: 1px solid black">
                             <div class="row">
                                 <div class="col-md-1">
                                     <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
                                 </div>
-                                <?php
-                                    $var = false;
-                                ?>
-                                @if($var == false)
-                                <div class="col-md-11">
+
+                                <div class="col-md-11" id="first<?php echo $var; ?>">
+
                                     {{$topic->username}}
                                     <p style="word-wrap: break-word;">{{$topic->title}}</p>
 
                                     @if($em == $topic->username)
-                                        <button class="btn btn-info btn-lg m-1" @click="">Edit</button>
+                                        <button class="btn btn-info btn-lg m-1" onclick="hidefirst('<?php echo $var; ?>')">Edit</button>
                                         <a href="/forum/{{$topic->id}}/delete" class="btn btn-danger btn-lg m-1">
                                             <i class="bi bi-trash"></i></a>
                                     @endif
@@ -129,25 +133,34 @@
 
                                     <p class="float-end" style="font-size: 1.5rem;"><i>{{date('H:i, d-m-Y', strtotime($topic->created_at))}}</i></p>
                                 </div>
-                                @else
+
+                                <div class="col-md-11 d-none" id="second<?php echo $var; ?>">
+                                    {{$topic->username}}
                                     <div class="container" style="color: black;">
                                         <div class="row justify-content-center" style="color: black;">
                                             <p class="text-center" style="font-size: 2rem; color: white">Create a new reply</p>
-                                            <form action="" method="POST">
+                                            <form action="/forum/{{$topic->id}}/update-topics" method="POST">
                                                 @csrf
                                                 <div class="form-group" style="border: 1px solid black;">
-                                                    <textarea name="text" placeholder="text" style="font-size: 1.5rem;" cols="5" rows="5" class="form-control"></textarea>
+                                                    <input type="text" class="form-control" style="font-size: 2rem;" name="title" placeholder="title" value="{{$topic->title}}">
+                                                    @if ($errors->has('title'))
+                                                        <span class="text-danger" style="font-size: 1.5rem">{{ $errors->first('title') }}</span>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group" style="border: 1px solid black;">
+                                                    <input type="text" class="form-control" style="font-size: 2rem;" name="text" row="2" placeholder="text" value="{{$topic->text}}">
                                                     @if ($errors->has('text'))
                                                         <span class="text-danger" style="font-size: 1.5rem">{{ $errors->first('text') }}</span>
                                                     @endif
                                                 </div>
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-success btn-lg float-end" style="margin-bottom: 3rem;">Reply</button>
+                                                    <button type="submit" class="btn btn-success btn-lg float-end" style="margin-bottom: 3rem;">Save</button>
+                                                    <button type="button" class="btn btn-danger btn-lg float-end" style="margin-bottom: 3rem;" onclick="hidesecond('<?php echo $var; ?>')">Cancel</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
-                                @endif
+                                </div>
                             </div>
                         </li>
                     @endforeach
@@ -186,5 +199,19 @@
 
     <script src="/JS/contact-errors.js"></script>
     <script src="/JS/fourm.js"></script>
+
+    <script>
+        function hidefirst(v) {
+            document.getElementById("first" + v).classList.add('d-none');
+            document.getElementById("second" + v).classList.remove('d-none');
+        }
+    </script>
+
+    <script>
+        function hidesecond(v) {
+            document.getElementById("second" + v).classList.add('d-none');
+            document.getElementById("first" + v).classList.remove('d-none');
+}
+</script>
 
 </html>

@@ -24,12 +24,9 @@ class RepliesController extends Controller
 
         $reply->save();
 
-        return back()->with('topics', $topic);
-    }
+        session()->flash('success_reply', 'Reply created!');
 
-    public function edit(Replies $reply)
-    {
-        return view("Forum.edit-reply")->with('reply', $reply);
+        return back()->with('topics', $topic);
     }
 
     public function update(Replies $reply)
@@ -48,7 +45,9 @@ class RepliesController extends Controller
 
         $topic = Topics::find($reply->parent_id);
 
-        return view('Forum.show')->with(['topics' => $topic, 'replies' => Replies::all()]);
+        session()->flash('success_reply', 'Reply updated!');
+
+        return back()->with(['topics' => $topic, 'replies' => Replies::all()]);
     }
 
     public function destroy(Replies $reply)
@@ -56,6 +55,8 @@ class RepliesController extends Controller
         $topic = Topics::find($reply->parent_id);
 
         $reply->delete();
+
+        session()->flash('success_reply', 'Reply deleted!');
 
         return back()->with(['topics' => $topic, 'replies' => Replies::all()]);
     }

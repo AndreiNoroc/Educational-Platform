@@ -41,11 +41,6 @@ class TopicsController extends Controller
         return redirect('/forum');
     }
 
-    public function edit(Topics $topic)
-    {
-        return view("Forum.edit")->with('topic', $topic);
-    }
-
     public function update(Topics $topic)
     {
         $em = session('username');
