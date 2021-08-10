@@ -15,11 +15,7 @@ class TopicsController extends Controller
 
     public function show(Topics $topic)
     {
-        return view('Forum.show')->with(['topics' => $topic, 'replies' => Replies::all()]);
-    }
-
-    public function create() {
-        return view('Forum.create');
+        return view('Forum.show')->with('topics', $topic);
     }
 
     public function store()

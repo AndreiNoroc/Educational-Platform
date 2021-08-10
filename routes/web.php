@@ -21,6 +21,7 @@ use App\Http\Controllers\ViewUserController;
 //rutele pentru servicii
 Route::view('/', "/Index.index");
 Route::view('/games', "/Games.games");
+Route::view("/forumul/{topic}", "/Forum.forum");
 Route::view('/recommendations', "/Recommendations.recommendations");
 Route::view('/index', "/Index.index");
 Route::view('/auth', "/Index.authentification");
@@ -42,13 +43,12 @@ require 'reset_password.php';
 //rutele pentru forum
 Route::get('/forum', [TopicsController::class, 'index']);
 Route::get('/forum/{topic}', [TopicsController::class, 'show']);
-Route::get('/new-topics', [TopicsController::class, 'create']);
 Route::post('store-topics',[TopicsController::class, 'store'] );
 Route::get('/forum/{topic}/edit', [TopicsController::class, 'edit']);
 Route::post('/forum/{topic}/update-topics', [TopicsController::class, 'update']);
 Route::get('forum/{topic}/delete', [TopicsController::class, 'destroy']);
-Route::get('/new-reply/{topic}', [RepliesController::class, 'create']);
-Route::post('store-replies/{topic}',[RepliesController::class, 'store'] );
+
+Route::post('store-replies/{topic}',[RepliesController::class, 'store']);
 Route::get('/forum/{reply}/edit-reply', [RepliesController::class, 'edit']);
 Route::post('/forum/{reply}/update-replies', [RepliesController::class, 'update']);
 Route::get('/forum/{reply}/delete-reply', [RepliesController::class, 'destroy']);

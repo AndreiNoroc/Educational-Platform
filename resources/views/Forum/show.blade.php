@@ -26,46 +26,105 @@
 
 <body>
 
+    <!-- //? ==================== Start Header ==================== -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="logo"><a href="../index">EducationFirst</a></h1>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <?php
+                    $em = session('username');
+
+                    if(session()->has('username')) {
+                        echo '<li><a class="nav-link scrollto active" href="profile">'.$em.'</a></li>';
+                    } else {
+                        echo '<li><a class="nav-link scrollto active" href="/forum">Aentification</a></li>';
+                    }
+                    ?>
+                    <li><a class="nav-link scrollto active" href="/forum">Back to topics list</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- //* .navbar -->
+        </div>
+    </header>
+    <!-- //? ==================== End Header ==================== -->
+
+
     <?php
         $em = session('username');
+        $replies = \App\Models\Replies::all();
     ?>
 
-    <h2 style="text-align: center; padding:2rem">{{$topics -> title}}</h2>
-    <div class="container" style="color:black;">
+    <div class="pt-5">
+        <h2 style="text-align: center; padding:2rem">{{$topics->username}}:{{$topics -> title}}</h2>
+        <h3 style="text-align: center; padding:2rem">{{$topics->text}}</h3>
+    </div>
+
+    @guest
+        <div style="text-align: center; padding: 20px">
+            <p class="btn btn-light btn-lg">Log in if you want to add a new reply.</p>
+        </div>
+    @else
+        <div class="container" style="color: black;">
+            <div class="row justify-content-center" style="color: black;">
+                <p class="text-center" style="font-size: 2rem; color: white">Create a new reply</p>
+                <form action="/store-replies/{{$topics->id}}" method="POST">
+                    @csrf
+                    <div class="form-group" style="border: 1px solid black;">
+                        <textarea name="text" placeholder="text" style="font-size: 1.5rem;" cols="5" rows="5" class="form-control"></textarea>
+                        @if ($errors->has('text'))
+                            <span class="text-danger" style="font-size: 1.5rem">{{ $errors->first('text') }}</span>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg float-end" style="margin-bottom: 3rem;">Reply</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    @endguest
+
+    <div class="container" style="color: black ">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card card-default">
-                    <div class="card-header">
-                        {{$topics->username}}:{{$topics->text}}
-                        @guest
-                            <div style="text-align: center; padding: 20px">
-                                <p>Log in if you want to reply.</p>
+            <ul class="list-group">
+                @foreach($replies->reverse() as $reply)
+                    @if($topics->id == $reply->parent_id)
+                        <li class="list-group-item" style="font-size: 2rem; border: 1px solid black">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
+                                </div>
+                                <div class="col-md-11">
+                                    {{$reply->username}}
+                                    <p style="word-wrap: break-word;">{{$reply->text}}</p>
+                                    @if($em == $reply->username)
+                                        <a href="/forum/{{$reply->id}}/edit-reply" class="btn btn-info btn-sm m-1">Edit</a>
+                                        <a href="/forum/{{$reply->id}}/delete-reply" class="btn btn-danger btn-sm m-1"><i class="bi bi-trash"></i></a>
+                                    @endif
+                                    <p class="float-end" style="font-size: 1.5rem;"><i>{{date('H:i, d-m-Y', strtotime($reply->created_at))}}</i></p>
+                                </div>
                             </div>
-                        @else
-                            <div style="text-align: center; padding: 20px">
-                                <a  href="/new-reply/{{$topics->id}}" class="btn btn-primary">Reply</a>
-                            </div>
-                        @endguest
-                    </div>
-                    <div class="card-body">
-                        @foreach($replies as $reply)
-                            @if($topics->id == $reply->parent_id)
-                            <li class="list-group-item">
-                                {{$reply->username}}:{{$reply->text}}
-                                @if($em == $reply->username)
-                                    <a href="/forum/{{$reply->id}}/edit-reply" class="btn btn-info btn-sm float-end m-1">Edit</a>
-                                    <a href="/forum/{{$reply->id}}/delete-reply" class="btn btn-danger btn-sm float-end m-1">Delete</a>
-                                @endif
-                            </li>
-                            @endif
-                        @endforeach
-                    </div>
-                    <hr>
-                    <a href="/forum" class="btn btn-primary">Back to topics list</a>
+                        </li>
+                    @endif
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
+    <!-- //? ==================== Footer ==================== -->
+    <footer id="footer">
+        <div class="container d-md-flex py-4">
+            <div class="me-md-auto text-center text-md-start">
+                <div class="copyright">
+                    &copy; Copyright <strong><span>LuckyBee</span></strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                    Designed by <a href="https://www.lascapsuni.ro/" target="_blank">LuckyBee</a>
                 </div>
             </div>
         </div>
-    </div>
+    </footer>
+    <!-- //? ==================== End Footer ==================== -->
 
 </body>
 

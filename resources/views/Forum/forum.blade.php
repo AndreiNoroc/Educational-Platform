@@ -105,18 +105,22 @@
         <div class="container" style="color: black ">
             <div class="row justify-content-center">
                 <ul class="list-group">
-                    @foreach($topics as $topic)
+                    @foreach($topics->reverse() as $topic)
                         <li class="list-group-item" style="font-size: 2rem; border: 1px solid black">
                             <div class="row">
                                 <div class="col-md-1">
                                     <i class="bi bi-person-circle" style="font-size: 4rem;"></i>
                                 </div>
+                                <?php
+                                    $var = false;
+                                ?>
+                                @if($var == false)
                                 <div class="col-md-11">
                                     {{$topic->username}}
                                     <p style="word-wrap: break-word;">{{$topic->title}}</p>
 
                                     @if($em == $topic->username)
-                                        <a href="/forum/{{$topic->id}}/edit" class="btn btn-info btn-lg m-1">Edit</a>
+                                        <button class="btn btn-info btn-lg m-1" @click="">Edit</button>
                                         <a href="/forum/{{$topic->id}}/delete" class="btn btn-danger btn-lg m-1">
                                             <i class="bi bi-trash"></i></a>
                                     @endif
@@ -125,6 +129,25 @@
 
                                     <p class="float-end" style="font-size: 1.5rem;"><i>{{date('H:i, d-m-Y', strtotime($topic->created_at))}}</i></p>
                                 </div>
+                                @else
+                                    <div class="container" style="color: black;">
+                                        <div class="row justify-content-center" style="color: black;">
+                                            <p class="text-center" style="font-size: 2rem; color: white">Create a new reply</p>
+                                            <form action="" method="POST">
+                                                @csrf
+                                                <div class="form-group" style="border: 1px solid black;">
+                                                    <textarea name="text" placeholder="text" style="font-size: 1.5rem;" cols="5" rows="5" class="form-control"></textarea>
+                                                    @if ($errors->has('text'))
+                                                        <span class="text-danger" style="font-size: 1.5rem">{{ $errors->first('text') }}</span>
+                                                    @endif
+                                                </div>
+                                                <div class="form-group">
+                                                    <button type="submit" class="btn btn-success btn-lg float-end" style="margin-bottom: 3rem;">Reply</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                         </li>
                     @endforeach
