@@ -14,22 +14,26 @@
         <div class="row justify-content-center">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    @if (session('login'))
-                        <p class="text-danger">
-                            {{ session('login') }}
-                        </p>
-                    @endif
 
                     <form class="mt-3" method="POST" action="{{ route('login.custom') }}">
                         @csrf
                         <div class="row justify-content-center">
                             <div class="col-md-8 text-center">
                                 <div class="form-group mb-3 position-relativer overflow-hidden">
-                                        <input type="text" placeholder="Username" id="username" class="form-control" name="username" required
-                                               autofocus>
-                                        @if ($errors->has('username'))
-                                            <span class="text-danger">{{ $errors->first('username') }}</span>
+                                    <label>
+                                        @if (session('login'))
+                                            <p class="text-danger">
+                                                {{ session('login') }}
+                                            </p>
                                         @endif
+                                    </label>
+
+                                    <input type="text" placeholder="Username" id="username" class="form-control" name="username" required
+                                           autofocus>
+
+                                    @if ($errors->has('username'))
+                                        <span class="text-danger">{{ $errors->first('username') }}</span>
+                                    @endif
                                 </div>
 
                                 <div class="form-group mb-3 position-relative overflow-hidden">

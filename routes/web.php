@@ -5,6 +5,8 @@ use App\Http\Controllers\RepliesController;
 use App\Http\Controllers\TopicsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewUserController;
+use Illuminate\Support\Facades\Input;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,8 @@ Route::post('custom-registration', [CustomAuthController::class, 'customRegistra
 //rutele pentru profile
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 Route::get('profile', [ViewUserController::class, 'index'])->name('profile');
+Route::post('profile', [ViewUserController::class, 'upload']);
+
 
 //rutele pentru reset password
 require 'reset_password.php';
