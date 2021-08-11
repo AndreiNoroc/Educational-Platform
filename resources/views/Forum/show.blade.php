@@ -36,7 +36,7 @@
                     $em = session('username');
 
                     if(session()->has('username')) {
-                        echo '<li><a class="nav-link scrollto active" href="profile">'.$em.'</a></li>';
+                        echo '<li><a class="nav-link scrollto active" href="/profile">'.$em.'</a></li>';
                     } else {
                         echo '<li><a class="nav-link scrollto active" href="/forum">Aentification</a></li>';
                     }

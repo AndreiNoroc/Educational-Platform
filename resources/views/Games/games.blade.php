@@ -257,7 +257,7 @@
                 <div id="dragschool" class="rounded mx-1" draggable="true" ondragstart="drag(event)"></div>
                 <div id="draghospital" class="rounded mx-1" draggable="true" ondragstart="drag(event)"></div>
                 <div id="dragmarket" class="rounded mx-1" draggable="true" ondragstart="drag(event)"></div>
-                <div id="drag4" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
+                <div id="dragbank" class="rounded mx-1" draggable="true" ondragstart="drag(event)"></div>
                 <div id="drag5" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
                 <div id="drag6" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
                 <div id="drag7" class="bg-success mx-1" style="width: 55px; height: 55px;" draggable="true" ondragstart="drag(event)"></div>
