@@ -542,6 +542,36 @@ hr.new5 {
     background-image: url('../img/citypuzzle/bank_explain.jpg');
 }
 
+#dragstadium {
+    width: 55px;
+    height: 55px;
+    background: url('../img/citypuzzle/stadium.jpg');
+}
+
+#dragstadium:hover {
+    background-image: url('../img/citypuzzle/stadium_explain.jpg');
+}
+
+#dragtownhall {
+    width: 55px;
+    height: 55px;
+    background: url('../img/citypuzzle/townhall.jpg');
+}
+
+#dragtownhall:hover {
+    background-image: url('../img/citypuzzle/townhall_explain.jpg');
+}
+
+#dragaeroport {
+    width: 55px;
+    height: 55px;
+    background: url('../img/citypuzzle/aeroport.jpg');
+}
+
+#dragaeroport:hover {
+    background-image: url('../img/citypuzzle/aeroport_explain.jpg');
+}
+
 /*Forum*/
 .comments-details button.btn.dropdown-toggle,
 .comments-details .total-comments {
