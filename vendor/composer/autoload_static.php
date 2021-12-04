@@ -21,8 +21,8 @@ class ComposerStaticInitf6831cc4815c31a2433bee0307f5a229
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
@@ -84,6 +84,7 @@ class ComposerStaticInitf6831cc4815c31a2433bee0307f5a229
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Scheb\\YahooFinanceApi\\' => 22,
         ),
         'R' => 
         array (
@@ -307,6 +308,10 @@ class ComposerStaticInitf6831cc4815c31a2433bee0307f5a229
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'Scheb\\YahooFinanceApi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -514,6 +519,8 @@ class ComposerStaticInitf6831cc4815c31a2433bee0307f5a229
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CustomAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomAuthController.php',
+        'App\\Http\\Controllers\\RepliesController' => __DIR__ . '/../..' . '/app/Http/Controllers/RepliesController.php',
+        'App\\Http\\Controllers\\StocksDisplay' => __DIR__ . '/../..' . '/app/Http/Controllers/StocksDisplay.php',
         'App\\Http\\Controllers\\TopicsController' => __DIR__ . '/../..' . '/app/Http/Controllers/TopicsController.php',
         'App\\Http\\Controllers\\ViewUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/ViewUserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -525,7 +532,7 @@ class ComposerStaticInitf6831cc4815c31a2433bee0307f5a229
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Models\\Reply' => __DIR__ . '/../..' . '/app/Models/Reply.php',
+        'App\\Models\\Replies' => __DIR__ . '/../..' . '/app/Models/Replies.php',
         'App\\Models\\Topics' => __DIR__ . '/../..' . '/app/Models/Topics.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -4310,6 +4317,18 @@ class ComposerStaticInitf6831cc4815c31a2433bee0307f5a229
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
+        'Scheb\\YahooFinanceApi\\ApiClient' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/ApiClient.php',
+        'Scheb\\YahooFinanceApi\\ApiClientFactory' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/ApiClientFactory.php',
+        'Scheb\\YahooFinanceApi\\Exception\\ApiException' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/Exception/ApiException.php',
+        'Scheb\\YahooFinanceApi\\Exception\\InvalidValueException' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/Exception/InvalidValueException.php',
+        'Scheb\\YahooFinanceApi\\ResultDecoder' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/ResultDecoder.php',
+        'Scheb\\YahooFinanceApi\\Results\\DividendData' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/Results/DividendData.php',
+        'Scheb\\YahooFinanceApi\\Results\\HistoricalData' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/Results/HistoricalData.php',
+        'Scheb\\YahooFinanceApi\\Results\\Quote' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/Results/Quote.php',
+        'Scheb\\YahooFinanceApi\\Results\\SearchResult' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/Results/SearchResult.php',
+        'Scheb\\YahooFinanceApi\\Results\\SplitData' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/Results/SplitData.php',
+        'Scheb\\YahooFinanceApi\\ValueMapper' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/ValueMapper.php',
+        'Scheb\\YahooFinanceApi\\ValueMapperInterface' => __DIR__ . '/..' . '/scheb/yahoo-finance-api/src/ValueMapperInterface.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',
         'SebastianBergmann\\CliParser\\OptionDoesNotAllowArgumentException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/OptionDoesNotAllowArgumentException.php',

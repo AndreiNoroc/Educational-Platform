@@ -5,8 +5,6 @@ use App\Http\Controllers\RepliesController;
 use App\Http\Controllers\TopicsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewUserController;
-use Illuminate\Support\Facades\Input;
-use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +22,8 @@ use App\User;
 Route::view('/', "/Index.index");
 Route::view('/games', "/Games.games");
 Route::view('/stocks', "/Stocks.stocks");
+//Route::get('/stocks', [\App\Http\Controllers\StocksDisplay::class, 'DisplayVar']);
+
 Route::view("/forumul/{topic}", "/Forum.forum");
 Route::view('/recommendations', "/Recommendations.recommendations");
 Route::view('/index', "/Index.index");
