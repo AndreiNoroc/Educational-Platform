@@ -23,6 +23,7 @@ Route::view('/', "/Index.index");
 Route::view('/games', "/Games.games");
 Route::view('/stocks', "/Stocks.stocks");
 Route::get('/stocks', [\App\Http\Controllers\StocksDisplay::class, 'DisplayVar']);
+Route::post('/stocksearch', [\App\Http\Controllers\StocksDisplay::class, 'SearchStock']);
 
 Route::view("/forumul/{topic}", "/Forum.forum");
 Route::view('/recommendations', "/Recommendations.recommendations");

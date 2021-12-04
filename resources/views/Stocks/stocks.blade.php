@@ -56,7 +56,7 @@
    <!-- //* ==================== End Hero ==================== -->
 
     <div style="color: #0a58ca">
-        @foreach ($Data as $data)
+        @foreach ($DataExchange as $data)
             @foreach ($data as $d)
                 <li>{{ $d }}</li>
             @endforeach
@@ -67,67 +67,104 @@
    <!-- Start Stocks Menu -->
     <section class="container">
         <div class="row justify-content-md-center">
-            <div class="col-lg">
-                <form class="form-inline" action="/stocksearch" method="POST">
-                    <label class="sr-only text-dark mb-3">Search about a stock</label>
-                    <input type="text" name="text" class="form-control mb-3" id="stocksymb" placeholder="Type symbol...">
-                </form>
-                <button type="submit" onclick="showinfo()" class="btn btn-success mb-2">Show more</button>
+            <div class="col-md">
+                <div class="row justify-content-md-center mb-4">
+                    <form class="form-inline" action="/stocksearch" method="POST">
+                            @csrf
+                            <label class="sr-only text-dark mb-3">Search about a stock</label>
+                            <input type="text" name="text" class="form-control mb-3" id="stocksymb" placeholder="Type symbol...">
+                            <button type="submit" class="btn btn-success mb-2">Show more</button>
+                    </form>
+                </div>
+
+                <div class="row justify-content-md-center">
+                    <?php
+                        $info = session('searchResult');
+                    ?>
+                    @if($info != null)
+                        <div id="infoCard" class="row justify-content-md-center">
+                            <div class="card text-white bg-success mb-3 w-80">
+                                <div class="card-header"></div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Statistics about</h5>
+                                    <p class="card-text">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <td><?php echo $info[1];?></td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>Symbol</td>
+                                                <td><?php echo $info[0];?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Market</td>
+                                                <td><?php echo $info[2];?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Open</td>
+                                                <td><?php echo $info[3];?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Close</td>
+                                                <td><?php echo $info[4];?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>High</td>
+                                                <td><?php echo $info[5];?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Low</td>
+                                                <td><?php echo $info[6];?></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Volume</td>
+                                                <td><?php echo $info[7];?></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                </div>
             </div>
 
             <div class="col-md-5">
-                <div class="card shadow-sm p-3 mb-5 bg-white rounded w-100">
-                    <div class="card-body">
-                        <h5 class="card-title text-dark">Hot Stocks</h5>
+                    <div class="card shadow-sm p-3 mb-5 bg-white rounded w-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-dark">Hot Stocks</h5>
 
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <td scope="col">Symbol</td>
-                                    <td scope="col">Last</td>
-                                    <td scope="col">Change</td>
-                                    <td scope="col">Share Volume</td>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td scope="col">JAGX</td>
-                                    <td>234.23</td>
-                                    <td>20%</td>
-                                    <td>324234234</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">JAGX</td>
-                                    <td>234.23</td>
-                                    <td>20%</td>
-                                    <td>324234234</td>
-                                </tr>
-                                <tr>
-                                    <td scope="col">JAGX</td>
-                                    <td>234.23</td>
-                                    <td>20%</td>
-                                    <td>324234234</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <td scope="col">Symbol</td>
+                                        <td scope="col">Low</td>
+                                        <td scope="col">High</td>
+                                        <td scope="col">Share Volume</td>
+                                        <td scope="col">Change</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($DataTopStock as $data)
+                                            <tr>
+                                            @foreach ($data as $d)
+                                                    <td>{{$d}}</td>
+                                            @endforeach
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-
                     </div>
                 </div>
-
-            </div>
-        </div>
-
-
-        <div id="infoCard" class="row justify-content-md-center" style="display: none;">
-            <div class="card text-white bg-success mb-3 w-80">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Success card title</h5>
-                    <p class="card-text"></p>
-                </div>
-            </div>
         </div>
     </section>
 
