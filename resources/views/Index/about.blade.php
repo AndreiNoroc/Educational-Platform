@@ -38,10 +38,9 @@
                 <div class="row">
                     <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
                         <h3 class="d-lg-none d-xl-none padding_10"> Who we are? </h3>
-                        <h3 class="padding_10"> A group of aliens.</h3>
-                        <p class="font-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
+                        <h3 class="padding_10" style="font-size: 30px"> A group of aliens.</h3>
+                        <p class="font-italic" style="font-size: 25px">
+                            We are a group of three students with the idea that everyone deserves a real education about economy and financial matters.
                         </p>
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
@@ -53,15 +52,13 @@
                 <div class="row">
                     <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
                         <h3 class="d-lg-none d-xl-none padding_10"> What are we trying to do? </h3>
-                        <h3 class="padding_10">Neque exercitationem debitis soluta quos debitis quo mollitia officia est</h3>
-                        <p>
-                            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                            culpa qui officia deserunt mollit anim id est laborum
+                        <h3 class="padding_10" style="font-size: 30px">To make others rich :p</h3>
+                        <p class="font-italic" style="font-size: 25px">
+                            This is not exactly our target as we are not rich ourselves.
                         </p>
-                        <p class="font-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
+                        <p class="font-italic" style="font-size: 25px">
+                            We are trying to make people understand that it is not hard to become financially stable as there are many modern ways to make money and that
+                            they can get free from the thought that money is the hardest and most important thing in the world.
                         </p>
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2 text-center">
@@ -73,12 +70,11 @@
                 <div class="row">
                     <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
                         <h3 class="d-lg-none d-xl-none padding_10"> What we offer? </h3>
-                        <h3 class="padding_10">Voluptatibus commodi ut accusamus ea repudiandae ut autem dolor ut assumenda</h3>
-                        <ul>
-                            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                            <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                            <li><i class="ri-check-double-line"></i> Provident mollitia neque rerum asperiores dolores quos qui a.
-                                Ipsum neque dolor voluptate nisi sed.</li>
+                        <h3 class="padding_10" style="font-size: 30px">Not free money thats for sure!</h3>
+                        <ul style="font-size: 25px">
+                            <li><i class="ri-check-double-line"></i> We offer a fast and correct appreciation of stocks and what it will be of them.</li>
+                            <li><i class="ri-check-double-line"></i> We offer a forum filled with discussions of people that want to learn as much as you do.</li>
+                            <li><i class="ri-check-double-line"></i> We offer a community which evolves and keeps up with today's technologies and new ways of becoming financial independent</li>
                         </ul>
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2 text-center">
