@@ -2,28 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-
-use Scheb\YahooFinanceApi\ApiClient;
+use Illuminate\Support\Facades\View;
 use Scheb\YahooFinanceApi\ApiClientFactory;
-use GuzzleHttp\Client;
 
 class StocksDisplay extends Controller
 {
-    public function DisplayVar(Request $req) {
+    public function DisplayVar() {
 
         // Create a new client from the factory
         $client = ApiClientFactory::createApiClient();
 
-        $client->getHistoricalDividendData();
+        $exchangeVec = array(["USD", "RON"], ["RON", "USD"], ["USD", "EUR"], ["EUR", "USD"]);
+        $Data = array();
 
-        // Returns an array of Scheb\YahooFinanceApi\Results\Quote
-        $exchangeRates = $client->getExchangeRates([
-            ["USD", "EUR"],
-            ["EUR", "USD"],
-        ]);
+        for($i = 0; $i < count($exchangeVec); $i++) {
+            $exchangeRates = $client->getExchangeRates([
+                $exchangeVec[$i]
+            ]);
+            $data = array();
+            array_push($data, $exchangeRates[0]->getAsk(), $exchangeRates[0]->getFiftyDayAverage(),
+            $exchangeRates[0]->getFiftyDayAverageChange(), $exchangeRates[0]->getFiftyDayAverageChangePercent());
+            array_push($Data, $data);
+        }
 
-        return $exchangeRates;
+        return View::first(['Stocks.stocks', '/stocks'], compact('Data'));
     }
 }

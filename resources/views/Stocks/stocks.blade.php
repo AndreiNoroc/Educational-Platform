@@ -30,7 +30,7 @@
 </head>
 
 
-<body style="background: white">
+<p style="background: white">
 
    <!-- Start Header -->
    <header id="header" class="fixed-top">
@@ -55,91 +55,81 @@
    </section>
    <!-- //* ==================== End Hero ==================== -->
 
+    <div style="color: #0a58ca">
+        @foreach ($Data as $data)
+            @foreach ($data as $d)
+                <li>{{ $d }}</li>
+            @endforeach
+        @endforeach
+    </div>
+
+
    <!-- Start Stocks Menu -->
-   <section class="container ">
-      <div class="row justify-content-md-center mb-4">
-        <div class="card shadow-sm p-3 mb-5 bg-white rounded" style="width: 50%">
-          <div class="card-body">
-            <h5 class="card-title text-dark">Hot Stocks</h5>
-
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <td scope="col">Symbol</td>
-                    <td scope="col">Last</td>
-                    <td scope="col">Change</td>
-                    <td scope="col">Share Volume</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td scope="col">JAGX</td>
-                    <td>234.23</td>
-                    <td>20%</td>
-                    <td>324234234</td>
-                  </tr>
-                  <tr>
-                    <td scope="col">JAGX</td>
-                    <td>234.23</td>
-                    <td>20%</td>
-                    <td>324234234</td>
-                  </tr>
-                  <tr>
-                    <td scope="col">JAGX</td>
-                    <td>234.23</td>
-                    <td>20%</td>
-                    <td>324234234</td>
-                  </tr>
-                </tbody>
-              </table>
+    <section class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-lg">
+                <form class="form-inline" action="/stocksearch" method="POST">
+                    <label class="sr-only text-dark mb-3">Search about a stock</label>
+                    <input type="text" name="text" class="form-control mb-3" id="stocksymb" placeholder="Type symbol...">
+                </form>
+                <button type="submit" onclick="showinfo()" class="btn btn-success mb-2">Show more</button>
             </div>
-            
-          </div>
-        </div>
-      </div>
 
-      <div class="row justify-content-md-center mb-4">
-        <div class="card shadow-sm p-3 mb-5 bg-white rounded w-50">
-          <div class="card-body">
-            <h5 class="card-title text-dark">Hot Stocks</h5>
+            <div class="col-md-5">
+                <div class="card shadow-sm p-3 mb-5 bg-white rounded w-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Hot Stocks</h5>
 
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <td scope="col">Symbol</td>
-                    <td scope="col">Last</td>
-                    <td scope="col">Change</td>
-                    <td scope="col">Share Volume</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td scope="col">JAGX</td>
-                    <td>234.23</td>
-                    <td>20%</td>
-                    <td>324234234</td>
-                  </tr>
-                  <tr>
-                    <td scope="col">JAGX</td>
-                    <td>234.23</td>
-                    <td>20%</td>
-                    <td>324234234</td>
-                  </tr>
-                  <tr>
-                    <td scope="col">JAGX</td>
-                    <td>234.23</td>
-                    <td>20%</td>
-                    <td>324234234</td>
-                  </tr>
-                </tbody>
-              </table>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <td scope="col">Symbol</td>
+                                    <td scope="col">Last</td>
+                                    <td scope="col">Change</td>
+                                    <td scope="col">Share Volume</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td scope="col">JAGX</td>
+                                    <td>234.23</td>
+                                    <td>20%</td>
+                                    <td>324234234</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">JAGX</td>
+                                    <td>234.23</td>
+                                    <td>20%</td>
+                                    <td>324234234</td>
+                                </tr>
+                                <tr>
+                                    <td scope="col">JAGX</td>
+                                    <td>234.23</td>
+                                    <td>20%</td>
+                                    <td>324234234</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
-          </div>
         </div>
-      </div>      
-   </section>
+
+
+        <div id="infoCard" class="row justify-content-md-center" style="display: none;">
+            <div class="card text-white bg-success mb-3 w-80">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h5 class="card-title">Success card title</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+    </section>
 
    <!-- ======= Footer ======= -->
    <footer id="footer" style = "background:#282727">
@@ -159,7 +149,7 @@
    </footer><!-- End Footer -->
 
 
-  <script src="/JS/firstdemogame.js"></script>
+  <script src="/JS/stockinfo.js"></script>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

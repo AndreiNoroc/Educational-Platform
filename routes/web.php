@@ -22,7 +22,7 @@ use App\Http\Controllers\ViewUserController;
 Route::view('/', "/Index.index");
 Route::view('/games', "/Games.games");
 Route::view('/stocks', "/Stocks.stocks");
-//Route::get('/stocks', [\App\Http\Controllers\StocksDisplay::class, 'DisplayVar']);
+Route::get('/stocks', [\App\Http\Controllers\StocksDisplay::class, 'DisplayVar']);
 
 Route::view("/forumul/{topic}", "/Forum.forum");
 Route::view('/recommendations', "/Recommendations.recommendations");
