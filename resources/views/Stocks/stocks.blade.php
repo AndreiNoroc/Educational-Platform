@@ -55,15 +55,6 @@
    </section>
    <!-- //* ==================== End Hero ==================== -->
 
-    <div style="color: #0a58ca">
-        @foreach ($DataExchange as $data)
-            @foreach ($data as $d)
-                <li>{{ $d }}</li>
-            @endforeach
-        @endforeach
-    </div>
-
-
    <!-- Start Stocks Menu -->
     <section class="container">
         <div class="row justify-content-md-center">
@@ -134,39 +125,73 @@
                         @endif
                 </div>
             </div>
-
-            <div class="col-md-5">
-                    <div class="card shadow-sm p-3 mb-5 bg-white rounded w-100">
-                        <div class="card-body">
-                            <h5 class="card-title text-dark">Hot Stocks</h5>
-
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <td scope="col">Symbol</td>
-                                        <td scope="col">Low</td>
-                                        <td scope="col">High</td>
-                                        <td scope="col">Share Volume</td>
-                                        <td scope="col">Change</td>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($DataTopStock as $data)
-                                            <tr>
-                                            @foreach ($data as $d)
-                                                    <td>{{$d}}</td>
-                                            @endforeach
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
         </div>
     </section>
+
+<section class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md">
+            <div class="card shadow-sm p-3 mb-5 bg-white rounded w-100">
+                <div class="card-body">
+                    <h5 class="card-title text-dark">Exchange Rates</h5>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <td scope="col">Currencies</td>
+                                <td scope="col">Ask</td>
+                                <td scope="col">Average 50d</td>
+                                <td scope="col">Change 50d</td>
+                                <td scope="col">Change %50d</td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($DataExchange as $data)
+                                    <tr>
+                                    @foreach ($data as $d)
+                                            <td>{{$d}}</td>
+                                    @endforeach
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card shadow-sm p-3 mb-5 bg-white rounded w-100">
+            <div class="card-body">
+                <h5 class="card-title text-dark">Hot Stocks</h5>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <td scope="col">Symbol</td>
+                            <td scope="col">Low</td>
+                            <td scope="col">High</td>
+                            <td scope="col">Share Volume</td>
+                            <td scope="col">Change</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach ($DataTopStock as $data)
+                            <tr>
+                                @foreach ($data as $d)
+                                    <td>{{$d}}</td>
+                                @endforeach
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
    <!-- ======= Footer ======= -->
    <footer id="footer" style = "background:#282727">

@@ -23,7 +23,8 @@ class StocksDisplay extends Controller
                 $exchangeVec[$i]
             ]);
             $data = array();
-            array_push($data, $exchangeVec[$i][0], $exchangeVec[$i][1], $exchangeRates[0]->getAsk(), $exchangeRates[0]->getFiftyDayAverage(),
+            $concat = $exchangeVec[$i][0] . "/" . $exchangeVec[$i][1];
+            array_push($data, $concat, $exchangeRates[0]->getAsk(), $exchangeRates[0]->getFiftyDayAverage(),
             $exchangeRates[0]->getFiftyDayAverageChange(), $exchangeRates[0]->getFiftyDayAverageChangePercent());
             array_push($DataExchange, $data);
         }
