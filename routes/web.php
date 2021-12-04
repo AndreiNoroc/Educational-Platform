@@ -23,6 +23,7 @@ use App\User;
 //rutele pentru servicii
 Route::view('/', "/Index.index");
 Route::view('/games', "/Games.games");
+Route::view('/stocks', "/Stocks.stocks");
 Route::view("/forumul/{topic}", "/Forum.forum");
 Route::view('/recommendations', "/Recommendations.recommendations");
 Route::view('/index', "/Index.index");

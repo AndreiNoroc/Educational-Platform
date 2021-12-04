@@ -186,7 +186,7 @@
           </div>
 
           <div id="gp2" class="btn-group" style="display: none;">
-            <button id="gp2" type="button" class="btn btn-dark btn-md" onclick="exposeElements(this.id)">SA PETRECEM BAG PULA!</button>
+            <button id="gp2" type="button" class="btn btn-dark btn-md" onclick="exposeElements(this.id)">SA PETRECEM!</button>
           </div>
 
           <div id="gp3" class="btn-group" style="display: none;">

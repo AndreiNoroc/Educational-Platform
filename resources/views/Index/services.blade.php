@@ -21,11 +21,11 @@
             </div>
 
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-                <a href="#">
+                <a href="stocks">
                     <div class="icon-box">
                         <div class="icon"><i class="bx bx-glasses"></i></div>
-                        <h4 class="title">Initiatives</h4>
-                        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                        <h4 class="title">Stocks</h4>
+                        <p class="description">Prediction for several stocks.</p>
                     </div>
                 </a>
             </div>
