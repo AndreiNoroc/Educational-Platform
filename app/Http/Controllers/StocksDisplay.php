@@ -14,7 +14,7 @@ class StocksDisplay extends Controller
         // Create a new client from the factory
         $client = ApiClientFactory::createApiClient();
 
-        $exchangeVec = array(["USD", "RON"], ["RON", "USD"], ["USD", "EUR"], ["EUR", "USD"]);
+        $exchangeVec = array(["USD", "RON"], ["RON", "USD"], ["USD", "EUR"], ["EUR", "USD"], ["EUR", "RON"], ["RON", "EUR"]);
         $topStocks = array("AMZN", "AAPL", "GOOG", "FB", "TSLA", "NFLX");
 
         $DataExchange = array();
