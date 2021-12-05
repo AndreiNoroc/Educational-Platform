@@ -703,3 +703,27 @@ hr.new5 {
   margin-left: 0px;
 }
 }
+
+#oneweek {
+  color: white;
+}
+
+#oneweek:hover {
+  color: #87CEFA;
+}
+
+#onemonth {
+  color: white;
+}
+
+#onemonth:hover {
+  color: #87CEFA;
+}
+
+#threemonths {
+  color: white;
+}
+
+#threemonths:hover {
+  color: #87CEFA;
+}

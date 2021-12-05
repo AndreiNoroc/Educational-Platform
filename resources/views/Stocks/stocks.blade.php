@@ -73,12 +73,14 @@
                         $info = session('searchResult');
                     ?>
                     @if($info != null)
-                        <div id="infoCard" class="row justify-content-md-center">
-                            <div class="card text-white bg-success mb-3 w-80">
-                                <div class="card-header"></div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Statistics about</h5>
-                                    <p class="card-text">
+                    <div id="infoCard" class="row justify-content-md-center">
+                        <div class="card text-white bg-success mb-3 w-80">
+                            <div class="card-header"></div>
+                            <div class="card-body">
+                                <h5 class="card-title">Statistics about</h5>
+                                <p class="card-text">
+                                <div class="row justify-content-md-center">
+                                  <div class="col-md">
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead>
@@ -118,80 +120,106 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    </p>
+                                  </div>
+
+                                  <div class="col-md">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="row justify-content-sm-start">
+                                              <div class="col">
+                                                <button id="btndt1" class="btn btn-dark text-white" onclick="chooseData(this.id)">1W</button>
+                                              </div>
+                                              <div class="col">
+                                                <button id="btndt2" class="btn btn-dark text-white" onclick="">1M</button>
+                                              </div>
+                                              <div class="col">
+                                                <button id="btndt3" class="btn btn-dark text-white" onclick="">3M</button>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="oneweek" style="display: inline;"><div id="chart1"></div></div>
+                                            <div id="onemonth" style="display: none"><div id="chart2"></div></div>
+                                            <div id="threemonths" style="display: none;"><div id="chart4"></div></div>
+                                        </div>
+                                    </div>
+                                  </div>
                                 </div>
+                                </p>
                             </div>
                         </div>
-                        @endif
-                </div>
+                    </div>
+                    @endif
+
+              </div>
             </div>
         </div>
     </section>
 
-<section class="container">
-    <div class="row justify-content-md-center">
-        <div class="col-md-5">
-            <div class="card shadow-sm p-3 mb-5 bg-white rounded w-100">
-                <div class="card-body">
-                    <h5 class="card-title text-dark">Exchange Rates</h5>
+    <section class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md">
+                <div class="card shadow-sm p-3 mb-5 bg-white rounded w-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Exchange Rates</h5>
 
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <td scope="col">Currencies</td>
-                                <td scope="col">Ask</td>
-                                <td scope="col">Average 50d</td>
-                                <td scope="col">Change 50d</td>
-                                <td scope="col">Change %50d</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($DataExchange as $data)
-                                    <tr>
-                                    @foreach ($data as $d)
-                                            <td>{{$d}}</td>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <td scope="col">Currencies</td>
+                                    <td scope="col">Ask</td>
+                                    <td scope="col">Average 50d</td>
+                                    <td scope="col">Change 50d</td>
+                                    <td scope="col">Change %50d</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($DataExchange as $data)
+                                        <tr>
+                                        @foreach ($data as $d)
+                                                <td>{{$d}}</td>
+                                        @endforeach
+                                        </tr>
                                     @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="card shadow-sm p-3 mb-5 bg-white rounded w-100">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Hot Stocks</h5>
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <td scope="col">Symbol</td>
+                                    <td scope="col">Low</td>
+                                    <td scope="col">High</td>
+                                    <td scope="col">Share Volume</td>
+                                    <td scope="col">Change</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($DataTopStock as $data)
+                                    <tr>
+                                        @foreach ($data as $d)
+                                            <td>{{$d}}</td>
+                                        @endforeach
                                     </tr>
                                 @endforeach
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
-            <div class="card shadow-sm p-3 mb-5 bg-white rounded w-100">
-                <div class="card-body">
-                    <h5 class="card-title text-dark">Hot Stocks</h5>
-
-                    <div class="table-responsive">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <td scope="col">Symbol</td>
-                                <td scope="col">Low</td>
-                                <td scope="col">High</td>
-                                <td scope="col">Share Volume</td>
-                                <td scope="col">Change</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach ($DataTopStock as $data)
-                                <tr>
-                                    @foreach ($data as $d)
-                                        <td>{{$d}}</td>
-                                    @endforeach
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
 
    <!-- ======= Footer ======= -->
    <footer id="footer" style = "background:#282727">
@@ -211,7 +239,10 @@
    </footer><!-- End Footer -->
 
 
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
   <script src="/JS/stockinfo.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+  <script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
