@@ -40,13 +40,13 @@ MAIL_HOST=smtp.gmail.com
 
 MAIL_PORT=465
 
-MAIL_USERNAME=tibicool16@gmail.com
+MAIL_USERNAME=
 
-MAIL_PASSWORD=bakugan3
+MAIL_PASSWORD=
 
 MAIL_ENCRYPTION=ssl
 
-MAIL_FROM_ADDRESS=tibicool16@gmail.com
+MAIL_FROM_ADDRESS=
 
 MAIL_FROM_NAME="FinancilaEducation"
 
